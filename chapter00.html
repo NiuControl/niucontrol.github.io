@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<meta name="author" content="Steve S. Niu">
+<meta name="author" content="卧牛听琴">
 <link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
 <link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
 <link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
@@ -14,14 +14,16 @@
     onload="renderMathInElement(document.body);"></script></head>
 <body id="top">
 <div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
-<section></section>
+<section><p class="subtitle" style="font-size: 2.5rem; font-style: normal; margin-top: 0.5rem;">In Control and Under Control</p>
+<p class="subtitle" style="font-size: 1.5rem; font-style: normal; margin-top: 2.0rem; margin-bottom: 5.0rem; color: #555;">作者：卧牛听琴</p>
+</section>
 
-<div id="outline-container-orgcec6c60" class="outline-2">
-<h2 id="orgcec6c60"><a href="index.html">写在前面的话</a></h2>
+<div id="outline-container-org8c32672" class="outline-2">
+<h2 id="org8c32672"><a href="index.html">写在前面的话</a> (<a href="index.html">目录</a>）</h2>
 </div>
 
-<div id="outline-container-orgd6bd6b7" class="outline-2">
-<h2 id="orgd6bd6b7"><a href="chapter00.html">引言</a></h2>
+<div id="outline-container-org2209912" class="outline-2">
+<h2 id="org2209912"><a href="chapter00.html">引言</a></h2>
 <section><p>
 本以为自动化是一门很实用的工程技术，学起来用起来应该兴趣盎然，乐在其中。但读书时，学到的是晦涩高冷的理论，如云山雾罩；做科研时，整日搜肠刮肚，“为赋新词强说愁”；进入工业界，发现空有一脑子的公式，找不到用武之地。
 </p>
@@ -57,7 +59,7 @@
 </p>
 
 <p>
-于是我开始反复思考三个问题：“我想做什么，我能做什么，我该做什么？”<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">其实，每个人在每个重大决策时，都应该想明白这三个问题再做决定。</span>
+于是我开始反复思考三个问题：“我想做什么，我能做什么，我该做什么？”<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">其实，每个人在每个重大决策时，都应该想明白这三个问题：是不是符合我的兴趣？我有没有这个能力去做？做了对我有什么好处？</span>
 </p>
 
 <p>
@@ -93,7 +95,7 @@
 </p>
 
 <p>
-我正好处在中间状态。在学术界待过，对前沿理论略窥一二；后来在工业界摸爬滚打，积累了一些实战心得。难得的是，我对控制这门技术的热爱不减当年，利用退休后的闲暇时光，与学术大咖合作，加上众多工业界同事同行的支持，将过往心得和经验整理总结，出版了两本过程控制的专著<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">S. Niu, D. Xiao, Process Control - Engineering Analyses and Best Practices, Springer, 2022.</span>(Niu and Xiao 2022)<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">S. Niu, Process Control for Pumps and Compressors, Springer,2024.</span>(Niu 2024)。不讲高深理论，不堆数学推导，只是把实际工作中觉得管用和好用的知识和解决问题的思路梳理整合，希望对初入行的同行有所助益。
+我正好处在中间状态。在学术界待过，对前沿理论略窥一二；后来在工业界摸爬滚打，积累了一些实战心得。难得的是，我对控制这门技术的热爱不减当年，利用退休后的闲暇时光，与学术大咖合作，加上众多工业界同事同行的支持，将过往心得和经验整理总结，出版了两本过程控制的专著<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">S. Niu, D. Xiao, Process Control - Engineering Analyses and Best Practices, Springer, 2022.</span>, <label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">S. Niu, Process Control for Pumps and Compressors, Springer,2024.</span>。不讲高深理论，不堆数学推导，只是把实际工作中觉得管用和好用的知识和解决问题的思路梳理整合，希望对初入行的同行有所助益。
 </p>
 
 <p>
@@ -110,63 +112,63 @@
 </section>
 </div>
 
-<div id="outline-container-orga832170" class="outline-2">
-<h2 id="orga832170"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+<div id="outline-container-orga31b31d" class="outline-2">
+<h2 id="orga31b31d"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
 </div>
 
-<div id="outline-container-orgaf435ca" class="outline-2">
-<h2 id="orgaf435ca"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+<div id="outline-container-org8317690" class="outline-2">
+<h2 id="org8317690"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
 </div>
 
-<div id="outline-container-org77b0e49" class="outline-2">
-<h2 id="org77b0e49"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+<div id="outline-container-org48272e5" class="outline-2">
+<h2 id="org48272e5"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
 </div>
 
-<div id="outline-container-orgda2eed5" class="outline-2">
-<h2 id="orgda2eed5"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+<div id="outline-container-org479dbb4" class="outline-2">
+<h2 id="org479dbb4"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
 </div>
 
-<div id="outline-container-org0868ca9" class="outline-2">
-<h2 id="org0868ca9"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+<div id="outline-container-orgd49874d" class="outline-2">
+<h2 id="orgd49874d"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
 </div>
 
-<div id="outline-container-org30ca6b5" class="outline-2">
-<h2 id="org30ca6b5"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+<div id="outline-container-org044d272" class="outline-2">
+<h2 id="org044d272"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
 </div>
 
-<div id="outline-container-org176a90f" class="outline-2">
-<h2 id="org176a90f"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+<div id="outline-container-org58a2887" class="outline-2">
+<h2 id="org58a2887"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
 </div>
 
-<div id="outline-container-org2affba3" class="outline-2">
-<h2 id="org2affba3"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+<div id="outline-container-org951ee45" class="outline-2">
+<h2 id="org951ee45"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
 </div>
 
-<div id="outline-container-orgc028a5a" class="outline-2">
-<h2 id="orgc028a5a"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+<div id="outline-container-org6425e80" class="outline-2">
+<h2 id="org6425e80"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
 </div>
 
-<div id="outline-container-org51c0623" class="outline-2">
-<h2 id="org51c0623"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+<div id="outline-container-org301e235" class="outline-2">
+<h2 id="org301e235"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
 </div>
 
-<div id="outline-container-org7bbd640" class="outline-2">
-<h2 id="org7bbd640"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+<div id="outline-container-org932c7be" class="outline-2">
+<h2 id="org932c7be"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
 </div>
 
-<div id="outline-container-org12d891c" class="outline-2">
-<h2 id="org12d891c"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+<div id="outline-container-org21bd1cf" class="outline-2">
+<h2 id="org21bd1cf"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
 </div>
 
-<div id="outline-container-org625a465" class="outline-2">
-<h2 id="org625a465">参考文献</h2>
+<div id="outline-container-orga6f81c3" class="outline-2">
+<h2 id="orga6f81c3">参考文献</h2>
 </div>
 <!-- Footnotes --><!-- 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“四个现代化” 简称“四化”，是中国在20世纪中叶提出的国家建设战略目标，指农业现代化、工业现代化、国防现代化和科学技术现代化。</p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">电影《未来世界》（Future World）是中国改革开放后引进的第一部美国科幻片。片中有机器人生产工厂批量生产“人类”、企图以此控制世界的情节。</p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">其实，每个人在每个重大决策时，都应该想明白这三个问题再做决定。</p></div></div>
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">其实，每个人在每个重大决策时，都应该想明白这三个问题：是不是符合我的兴趣？我有没有这个能力去做？做了对我有什么好处？</p></div></div>
 
 <div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">记得是霍尼韦尔（Honeywell）的TDC2000系统。该系统是全球第一个商品化的集散控制系统（DCS），在自动化领域具有划时代的意义。</p></div></div>
 
