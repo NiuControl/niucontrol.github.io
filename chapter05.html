@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-orgbca65d1" class="outline-2">
+<h2 id="orgbca65d1">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org293b718" class="outline-2">
+<h2 id="org293b718"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-org13596f7" class="outline-2">
+<h2 id="org13596f7"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-orgdf4a63c" class="outline-2">
+<h2 id="orgdf4a63c"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-org383ce34" class="outline-2">
+<h2 id="org383ce34"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-org9032e4a" class="outline-2">
+<h2 id="org9032e4a"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-orgb9b63f1" class="outline-2">
+<h2 id="orgb9b63f1"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+<section><p>
+人类与自然的关系中，最根本的还是落实到切身相关的四个字：“衣食住行”。这些不仅是人类最基本的生活需求，也是人类与自然互动最直接、最持续的四个领域。
+</p>
+
+<p>
+从最早的生存本能到现代的舒适享受，每一个方面都蕴藏着人类对自然界的认知、适应、改造和控制的不断进步。更重要的是，这些进步不是孤立发生的，而是在持续反馈中迭代演化：每一次需求的提升，都促使我们开发出更高效的控制手段；而每一次技术的进步，又反过来扩展了我们的生活方式和想象空间
+</p>
+
+<p>
+本章我们将用前几章学到的控制视角，闭环、反馈、五大要素和木桶原理，重新审视这些熟悉的日常领域，看看控制智慧如何藏在生活的烟火气里。
+</p>
+</section>
+
+<div id="outline-container-orgb955816" class="outline-3">
+<h3 id="orgb955816"><span class="section-number-3">5.1.</span> 食：火候的闭环——从经验直觉到精准温控</h3>
+<section><p>
+“民以食为天”<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">习惯上都是说衣食住行，但顺序上更应该是食衣住行。</span>。人类最基本的需求是温饱，不懈追求的是美味。中华民族对温饱和美食的追求更是孜孜不倦。为温饱，“天上飞的，地上跑的，水中游的”无不入口；为了美味，“食不厌精，脍不厌细”<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">出自《论语·乡党》：粮食舂得越精白越好，鱼肉切得越细腻越好。</span>，乐此不疲，永无止境。
+</p>
+
+<p>
+人类的烹饪<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">烹饪是食品加工制作技术的统称。《易经・鼎》中记载，”以木巽火，烹饪也“，烹为煮，饪指食物的生熟程度，又是食物的统称。&#x2014; 陈光新，《烹饪概论》第二版，高等教育出版社，2004</span>(陈光新 2004)史，实质上是一部对热源、时间、介质与食材性状的理解和掌控史。它展现了人类如何通过实践不断深化对自然的认知，逐步发展出一整套精细的热处理技艺。
+</p>
+
+<p>
+最初，人类与其他动物无异，依靠石器或木棍狩猎野兽，采集植物块根与籽实，以生食为主，生吞活剥，茹毛饮血，主要目标是果腹。这一阶段可以视为饮食史上的“生食”阶段，人类对食材与热量几乎没有控制，完全依赖捕获与采集的本能和大自然的赏赐。
+</p>
+
+<p>
+约五十万年前，火的掌握成为第一次质的飞跃。火不仅能化冰取水、驱兽保暖，还可用于烹饪。火的使用，标志着人类具有了主动处理食材的能力。人类也正式进入了以熟食为主的阶段，食物更安全、易消化，能量利用效率显著提高。
+</p>
+
+<p>
+最早的烹调方式是火烤。以空气作为介质，明火直接作用于食物，改变其结构与风味。在游牧民族的生活方式中，柴薪易得、牛羊成群，因此烧烤尤为普及。时至今日，烧烤仍是世界各地饮食文化的重要组成部分<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">意大利披萨、美式汉堡等，也不过是对这一技术的延伸，只是温度控制更精准。</span>。
+</p>
+
+<p>
+烧烤的主要挑战在于火候，也就是温度和时间。从控制视角看，烧烤是一个人工闭环：眼睛看颜色、鼻子闻气味（感知），大脑判断生熟（决策），手翻动或调整火堆（执行）。但由于感知手段只有模糊的经验，经常“翻车”，烤焦或夹生<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">烧烤看似简单，实则是一门手艺，对火候的掌控要求极高，至今在烧烤聚会时能露一手依然是可以自豪的事情。</span>。这里的短板是感知。
+</p>
+
+<p>
+陶器的发明带来了新的控制手段——用水作为介质加热。水煮温度稳定（100℃沸点），可控性高，还提升了食物口感与营养保持能力。温度不再是变数，唯一需要掌握的是时间。这使得烹调的门槛大大降低，你只需要设定时间，到时起锅即可，不再需要实时感知和调整。这实际上变成了开环控制，不再依赖烹调过程中的反馈。这种烹饪方式与定居农业文明相辅相成，成为主流烹饪技术。
+</p>
+
+<p>
+然而，水煮有一个100℃的沸点上限，限制了食物的变化与风味。为突破这一限制，人类发明了蒸。蒸汽在封闭容器中温度提高、传热均匀，使食材口感更佳，营养保存更好。随着陶制蒸器和青铜器的普及，蒸制成为稳定可靠的烹饪手段，催生了馒头、包子、蒸肉、蒸鱼等丰富多样的美食。
+</p>
+
+<p>
+铁器时代出现了炒法。金属锅具导热迅速、耐高温，使得以油为介质加热成为可能。爆炒要求在极短时间内精准控制温度与调味，充分激发食材风味，是烹饪技术的系统化飞跃，也是中国烹饪独步全球的重要原因<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">中餐炒菜玩的是融合，用复杂的复合味道来创造全新的味觉体验。对习惯了一是一、二是二的欧美味蕾来说，这种复杂的味道很容易被当成是调料味太重，感觉把食材本身的味道给盖住了。相比之下，油炸是水煮的升级，而不是爆炒式的技术突破。</span>。炒菜中的“掂锅”“勾火”，本质上是高频的反馈调节：厨师以每秒数次的频率感知锅气、调整火力、翻动食材，形成一个极高增益的闭环。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 1: </span>中餐的西红柿炒鸡蛋和英餐的烤西红柿鸡蛋</span><img src="assets/food-egg-tomato.png" alt="food-egg-tomato.png">
+
+</figure>
+<p>
+纵观整个烹饪发展史，这是一个经历了数百万年的演化迭代过程。导热介质从空气到水、蒸汽，再到油，人类对温度的控制手段也不断提升。每一种新手段的出现，推动了人们对食物品质的更高追求，也反过来促使烹饪方式不断改良<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">《吕氏春秋·本味》篇中，讲述伊尹（商汤的贤臣）为汤王阐释烹饪调味之道：“鼎中之变，精妙微纤，口弗能言，志不能喻。若射御之微，阴阳之化，四时之数。”</span>。当然，这种进化也受生活方式、地理环境和历史文化的影响。西方人至今，烹饪方式仍以烤、煎、炖、煮、炸为主，几乎没有炒的菜肴。而崇尚“食色，性也”的中国人，则慢慢演化出了烤、灸、炮、煨、熏，煮、炖、焖、涮、烩，蒸、炝、扒、汆、焗，炸、爆、熘、煎、炒等眼花缭乱的技法。这些技法正是在深入理解食材特性、持续改进烹饪手段的反复实践中不断演化而来，每一步都依赖更先进的观测、更明确的目标和更精细的控制手段。
+</p>
+
+<p>
+然而，烹饪的发展一直面临“感知”方面的挑战。人类感知食物的品质，主要还是依赖色、香、味、形、触等主观标准，“百人百味”，难以量化，口感满意度缺乏统一标尺。感知手段主要是“眼观、鼻闻、手感、舌尝”。由于缺乏精确感知，翻车（烧焦或未熟）在所难免，这取决于受控对象（食材）的个体差异。同一块肉，厚薄不同，火候就不同。所谓的“火候”，本质上是厨师脑中的模糊控制算法。这也正是控制的感知难题。所以烹调一直是一种艺术、一种手艺。
+</p>
+
+<p>
+现代科技正在努力解决这一难题。智能厨房设备，如自动电饭煲、空气炸锅、智能咖啡机，通过传感器和算法，将烹饪经验程序化，使“火候”这一模糊概念具象为可调参数。
+</p>
+
+<p>
+从柴火灶到变频电磁炉，控制精度发生了质变。现代工业化烹饪利用热传感器实时监测食品的中心温度，通过适当的算法调节功率。控制开始从经验走向精确，从感性走向量化。这实际上是传统烹饪反馈机制的延伸，通过自动化手段实现稳定输出。短板从感知转移到了成本（高精度传感器贵）和适应性（一种算法不能适应所有食材）。
+</p>
+<table style="&quot;width:100%&quot;">
+<caption class="t-above"><span class="table-number">Table 1:</span> 烹饪的的控制要素</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">烹饪方式</th>
+<th scope="col" class="org-left">受控对象</th>
+<th scope="col" class="org-left">控制目标</th>
+<th scope="col" class="org-left">感知手段</th>
+<th scope="col" class="org-left">决策算法</th>
+<th scope="col" class="org-left">调节机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">烧烤</td>
+<td class="org-left">食材</td>
+<td class="org-left">熟度</td>
+<td class="org-left">五官</td>
+<td class="org-left">厨师经验</td>
+<td class="org-left">火力</td>
+</tr>
+
+<tr>
+<td class="org-left">水煮</td>
+<td class="org-left">食材</td>
+<td class="org-left">熟度/质地</td>
+<td class="org-left">五官</td>
+<td class="org-left">预设时间</td>
+<td class="org-left">时间</td>
+</tr>
+
+<tr>
+<td class="org-left">蒸</td>
+<td class="org-left">食材</td>
+<td class="org-left">色香味</td>
+<td class="org-left">五官+触感</td>
+<td class="org-left">经验+反馈</td>
+<td class="org-left">火力+时间</td>
+</tr>
+
+<tr>
+<td class="org-left">炒</td>
+<td class="org-left">多种食材</td>
+<td class="org-left">色香味</td>
+<td class="org-left">五官+触感</td>
+<td class="org-left">经验+反馈</td>
+<td class="org-left">火力+掂锅</td>
+</tr>
+
+<tr>
+<td class="org-left">智能烹饪</td>
+<td class="org-left">食物</td>
+<td class="org-left">色香味</td>
+<td class="org-left">传感器</td>
+<td class="org-left">控制算法</td>
+<td class="org-left">变频加热</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+从最初的生吞活剥，到烤、煮、蒸、炒，再到智能厨房，烹饪史是一部对热源、时间、介质与食材特性理解与掌控史。每一次工艺的提升，既体现了对自然规律的洞察，也推动了控制技术的升级。烹饪从艺术走向科学，在于实现了热动力学的闭环。当感知的敏锐度超过了舌头的极限，食物的品质便具备了跨越时空的稳定性与可复制性。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org0801dbe" class="outline-3">
+<h3 id="org0801dbe"><span class="section-number-3">5.2.</span> 衣：微气候的掌控——从兽皮到智能温控</h3>
+<section><p>
+“衣”的首要功能是保暖，在寒冷时留住体温，在炎热时帮助散热。
+</p>
+
+<p>
+人体自身有体温调节中枢（下丘脑），通过出汗、战栗等方式维持37℃左右的核心温度。但光靠身体还不够，尤其在极端气候下。衣服，就是人类为自己打造的外部可调节微环境。
+</p>
+
+<p>
+从控制的角度看，穿衣是一个典型的负反馈系统：目标是舒适温度，身体感知到冷热，大脑做出决定，冷了就穿，热了就脱，具体该穿多少或该脱多少，每人有每人的经验模型和行为逻辑。这个调整最早全靠人工闭环，现代则开始出现了自动闭环的智能服装。
+</p>
+
+<p>
+在进化早期，“衣”是人类失去体毛后的补偿。最原始的衣服是树皮、草叶和兽皮。它们的作用很简单，就是隔热，减少身体热量散失。古人后来也用麻、葛、丝绸等植物纤维编织衣物，增加了透气性，适合炎热气候。但无论哪种材料，每一件的保暖功能都是基本固定的。古人也不会有太多的``衣服''可以换来换去，所以体温控制方式也基本就是一件衣服“热了脱、冷了穿”这个开关式的行为来调节，相当于一个手动开关控制。
+</p>
+
+<p>
+随着纺织技术发展，人类开始主动选择材料与工艺，因地制宜地制造衣物，控制使用。人类开始通过棉、麻、丝、毛各种材料的选择来微调体表感受，可以通过天气预报或季节常识来增减衣物，或更换成不同材质的衣物<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">而染色、图案与结构设计，则体现了文化与社会规范的反馈机制。</span>。这时的保温的调节变得细腻，调节周期可以天甚至小时为单位。
+</p>
+
+<p>
+后来学会了制造多层衣物、羽绒服、抓绒衣。这些设计可以在一定程度上调节隔热性能。通过打开或封闭领口、袖口、下摆，让热空气流通或滞留。高寒地区的民族发明了可调节的皮帽、耳套，甚至利用动物毛发方向来引导气流。这本质上是在不改变衣物结构的前提下，通过改变热交换路径来实现有限的闭环调节。感知手段仍然靠主观感受，而调节也依赖人工操作。
+</p>
+
+<p>
+进入工业社会后，机械纺织与流水线服装制造极大提高了产能，标准化尺寸与款式的推广，体现了对人体尺寸数据和衣物功能之间关系的系统理解。衣物不再只是遮体御寒，而是开始承载美学、功能、身份的多重意义。防风、防水、透气、抗菌等“功能性衣物”成为材料科学与控制工艺结合的成果。
+</p>
+
+<p>
+二十世纪末，相变材料（PCM）被引入服装领域。这类材料在特定温度（如28-32℃）会发生固-液相变，吸收或释放大量潜热。将其植入纤维或微胶囊中，衣服可以在人出汗时吸热降温，感到冷时放热保暖。这是一种开环但自适应的被动控制——它不需要传感器和电子，完全依靠物理特性自动平滑温度波动。短板是相变温度固定，适用范围窄（比如适合春秋，冬夏不够用）。
+</p>
+
+<p>
+近年来，智能加热服装开始普及。内置柔性加热片（碳纤维或金属纤维）、温度传感器、小型电池和蓝牙/按键控制器。现代智能穿戴将“衣”变成了人体的第二层皮肤。柔性传感器实时感知心率、体温与排汗量。高性能排汗面料利用毛细效应实现物理层面的被动反馈，而加热滑雪服则通过温控芯片实现主动闭环。用户设定目标温度后，传感器实时监测衣物内温度，控制器通过控制算法或简单的开关控制调节加热功率，形成一个自动闭环负反馈。这完全体现了五大要素：受控对象（人体/衣内微气候），控制目标（设定温度），感知手段（热敏电阻），决策算法（PID或开关控制），调节机制（加热片的通断/功率调节）。
+</p>
+
+<p>
+这类服装在户外运动、骑行、理疗、军工领域越来越常见。目前的短板是续航（电池容量有限）和舒适性（电子元件可能会影响穿着感），但这正是木桶原理中“执行”两块短板的体现。
+</p>
+
+<p>
+下一步可能是多传感器融合，把环境温度、湿度、人体心率、运动状态和机器学习预测，实现个性化预测控制。在感觉冷之前就提前升温，或者在运动出汗前就增加通风。届时，衣物将不再是一块布，而是一个穿戴式的智能热管理系统，完全闭环、自适应、自学习。智能穿戴，如运动手环衣、可测心率的内衣、会调温的加热服，则可以将“控制”提升到了智能控制高度。衣物可实时感知身体状态与外界环境，并进行自动响应。从生理监测到姿势纠正，衣物不再是被动披挂在身，而成为与身体互动的智能系统。
+</p>
+
+<p>
+这一切的背后，正是感知-判断-调整的控制机制在衣物中的再现。
+</p>
+<table>
+<caption class="t-above"><span class="table-number">Table 2:</span> 着衣的控制要素</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">阶段</th>
+<th scope="col" class="org-left">受控对象</th>
+<th scope="col" class="org-left">控制目标</th>
+<th scope="col" class="org-left">感知手段</th>
+<th scope="col" class="org-left">决策算法</th>
+<th scope="col" class="org-left">调节机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">兽皮/麻衣</td>
+<td class="org-left">人体</td>
+<td class="org-left">不冻死</td>
+<td class="org-left">体感</td>
+<td class="org-left">人工判断</td>
+<td class="org-left">增减衣物</td>
+</tr>
+
+<tr>
+<td class="org-left">多层衣物</td>
+<td class="org-left">人体</td>
+<td class="org-left">冷暖</td>
+<td class="org-left">体感</td>
+<td class="org-left">人工判断</td>
+<td class="org-left">开关领/袖</td>
+</tr>
+
+<tr>
+<td class="org-left">相变材料</td>
+<td class="org-left">人体微环境</td>
+<td class="org-left">温湿度</td>
+<td class="org-left">材料物理</td>
+<td class="org-left">无（材料特性</td>
+<td class="org-left">吸热/放热</td>
+</tr>
+
+<tr>
+<td class="org-left">电加热服装</td>
+<td class="org-left">衣物内温度</td>
+<td class="org-left">温度</td>
+<td class="org-left">热敏电阻</td>
+<td class="org-left">开关或PID</td>
+<td class="org-left">加热片</td>
+</tr>
+
+<tr>
+<td class="org-left">智能热管理</td>
+<td class="org-left">人体+环境</td>
+<td class="org-left">舒适</td>
+<td class="org-left">多传感器</td>
+<td class="org-left">预测控制</td>
+<td class="org-left">加热/制冷/通风</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+人类的着“衣”史，是从自然到技术、从生存到文化的逐步跃迁。从最初依靠兽皮树叶遮体御寒，到纺织、染整、剪裁，再到智能衣物的出现，这条进化链同样展现了“控制”的深化过程。从完全依赖人脑的开关式调节，到材料本身的自适应被动调节，再到电子的自动闭环，控制的主体逐渐从人转向机器，控制的精度和能效不断提升。衣服不再是死板的织物，而是一个环境稳态调节器。无论外界如何波动，始终维持人体表面微环境的恒定。而每一块短板的补齐，都让人类离“环境无关的舒适”更近一步。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org201a717" class="outline-3">
+<h3 id="org201a717"><span class="section-number-3">5.3.</span> 住：微环境的稳态——从洞穴恒温到智能家居</h3>
+<section><p>
+“住”代表了人类对物理空间的终极主权。人类的居“住”史，是对自然环境适应、改造和控制能力的集中体现。从穴居到营造宫殿高楼，从草棚木屋到智能楼宇，居住环境不断优化的过程，也是控制手段不断增强的缩影。
+</p>
+
+<p>
+“住”的核心是创造一个稳定、舒适、安全的微环境，免受外界风雨、严寒、酷暑和野兽的侵扰。这本质上是一个环境控制问题：目标是把室内温度、湿度、空气质量、光照等维持在人感到舒适的区间。而维持稳定，正是负反馈的看家本领。
+</p>
+
+<p>
+最早的“住”是利用自然洞穴。洞穴有一个优点：冬暖夏凉——地层的热容很大，温度波动比外界小得多。这是被动控制，不依赖任何外部能量或主动调节，纯粹利用物理规律。类似的，北方厚厚的土墙、南方的吊脚楼，都是利用材料和结构来缓冲环境变化。从控制视角看，这属于“无控制”但高度巧妙的“自稳定”。不过这种控制的效果是有限的，“聊胜于无”。
+</p>
+
+<p>
+进入农耕社会后，建筑逐步具备结构性，房梁、地基、墙体等组合构建可控的内部空间，实现了对温度、湿度、光照等局部环境的初步调节。
+</p>
+
+<p>
+人类学会用火后，开始主动加热住所。火炉、壁炉、火炕、地暖，都是将热源引入室内。早期的火炉是开环控制——加柴、点火，烧多久、多热，全靠经验和感觉。后来出现了简单的机械反馈：水暖系统中的膨胀水箱、蒸汽压力调节阀，利用物理原理自动稳定压力。北方农村的炕，利用烟气在炕道内流动散热，热了掀开席子，冷了加把柴，本质上是一个人工闭环（人感知温度→添柴/捅火），但精度很低。
+</p>
+
+<p>
+随着砖石、水泥、钢铁和混凝土的发明，人类的建筑开始向垂直空间发展。从防火到防震，从通风采光到保温隔音，建筑设计日益复杂，以工程手段掌控自然力影响成为建筑科学的重要命题。城市的出现，则进一步体现出系统性的空间控制：暖通空调系统（HVAC），道路、管网、照明、供暖、排污……城市本身就是一个庞大的“控制系统”。HVAC（供暖、通风与空调）系统构建了复杂的多变量控制回路。传感器监测二氧化碳浓度、湿度与照度，建筑自动化系统（BAS）指挥着风阀与冷机。
+</p>
+
+<p>
+1883年，美国发明家沃伦·约翰逊发明了第一个房间电恒温器。他将双金属片（两种金属热膨胀系数不同，遇热弯曲）做成开关，当室温低于设定值时，触点闭合，加热设备启动；高于设定值时，触点断开，加热停止。这是一个纯机械的自动闭环负反馈：感知（双金属片弯曲程度）、决策（触点是否接通）、执行（加热设备开关）全部自动完成，不需要人参与。今天，我们家里用的空调、暖气恒温器，原理与此相同，只是传感器换成了热敏电阻或热电偶，决策换成了电子逻辑或PID算法。
+</p>
+
+<p>
+21世纪，“智慧建筑”与“智能城市”崛起，标志着人类开始尝试在信息层面对环境进行调控。感应灯、自动门、智能恒温、空气质量监控、安防系统与能源管理系统协同工作，实现居住环境的动态感知与自动优化。
+</p>
+
+<p>
+现代智能家居把控制从单一温度扩展到了多变量：温度、湿度、空气质量、光照、安防、能耗。传感器网络（温湿度、CO₂、PM2.5、红外、门窗磁）提供全方位的感知；智能网关（边缘计算或云端）运行优化算法；执行器（空调、加湿器、新风、电动窗帘、灯光）协同工作。控制目标也不再是单纯的“舒适”，而是“舒适+节能+健康”的多目标优化。例如，通过预测室外天气和电价，提前预冷或预热；根据室内是否有人，自动切换节能模式。这已经进入了多变量优化控制的范畴，与前几章提到的MPC（模型预测控制）思想相通。
+</p>
+
+<p>
+“住”的演进方向是绝对稳态。无论窗外是极寒还是酷暑，室内始终保持在24.5°C与50%湿度的黄金点。反馈机制将充满扰动的外界，隔绝在了文明的屏障之外。当然，智能家居目前最大的短板是交互换性和可靠性：不同品牌的设备协议不统一，网络故障时可能全部瘫痪。这是木桶原理中“执行”这块短板的体现。
+</p>
+<table>
+<caption class="t-above"><span class="table-number">Table 3:</span> 住控制要素拆解表</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">阶段</th>
+<th scope="col" class="org-left">受控对象</th>
+<th scope="col" class="org-left">控制目标</th>
+<th scope="col" class="org-left">感知手段</th>
+<th scope="col" class="org-left">决策算法</th>
+<th scope="col" class="org-left">调节机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">洞穴</td>
+<td class="org-left">室内微环境</td>
+<td class="org-left">生存</td>
+<td class="org-left">体感</td>
+<td class="org-left">被动</td>
+<td class="org-left">自然</td>
+</tr>
+
+<tr>
+<td class="org-left">火炕/壁炉</td>
+<td class="org-left">室内温度</td>
+<td class="org-left">舒适</td>
+<td class="org-left">体感</td>
+<td class="org-left">人工经验</td>
+<td class="org-left">添柴/捅火</td>
+</tr>
+
+<tr>
+<td class="org-left">机械恒温</td>
+<td class="org-left">室温</td>
+<td class="org-left">固定温度</td>
+<td class="org-left">双金属片</td>
+<td class="org-left">开关</td>
+<td class="org-left">加热开关</td>
+</tr>
+
+<tr>
+<td class="org-left">PID恒温器</td>
+<td class="org-left">室温</td>
+<td class="org-left">精确恒温</td>
+<td class="org-left">热敏电阻</td>
+<td class="org-left">PID算法</td>
+<td class="org-left">连续调节</td>
+</tr>
+
+<tr>
+<td class="org-left">智能家居</td>
+<td class="org-left">温/湿/气/光</td>
+<td class="org-left">舒适+节能</td>
+<td class="org-left">多传感器</td>
+<td class="org-left">AI优化</td>
+<td class="org-left">多执行器协同</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<div id="outline-container-orgc32dfd9" class="outline-3">
+<h3 id="orgc32dfd9"><span class="section-number-3">5.4.</span> 行：时空的跨越——从徒步迁徙到毫秒级校准</h3>
+<section><p>
+人类的出行史，同样是一部控制能力的演进史。它体现了我们如何在对身体、工具、环境的理解不断深化的过程中，逐步扩展了自己的移动半径、速度上限与控制手段。从两条腿走天下，到驾驭千里马，再到高铁飞驰、飞机翱翔，其背后隐藏的是控制系统日趋复杂、认知手段逐步精细的历史进程。
+</p>
+
+<p>
+“行”是人类突破生物地理限制的野心的体现。位移的本质，就是不断修正路径偏差的过程——这正是一个经典的闭环控制问题：目标（目的地），感知（当前位置+方向），决策（规划路线），执行（移动）。偏差越大，修正越频繁。
+</p>
+
+<p>
+人类最初的出行方式是最直接的步行。这是一种纯粹由自身完成的闭环控制系统。反馈回路完全闭合在生物体内：眼睛感知路况，大脑规划路径，四肢执行动作，前庭系统感知平衡。在茫茫草原与密林中，人类凭借双脚、直觉与经验行走，路径不确定，节奏不可控，目标达成往往靠毅力与运气。这个阶段的反馈频率大约是10Hz（每秒调整步态数次）。
+</p>
+
+<p>
+动物驯化，是人类对控制能力的一次巨大跃升。马、驴、骆驼等牲畜的使用，大幅提升了人类的出行速度和负重能力，也让人从执行者变为指令发出者。骑士不再亲自走路，而是通过缰绳、马鞭、膝部动作等“人马接口”间接控制坐骑的方向与节奏。这是一个人-动物协同的闭环系统：骑手发出指令，马匹执行并反馈速度、方向变化，骑手根据反馈再调整指令。但由于马的“决策”有自己的意志，协作程度依赖经验与默契，对操控者提出了极高的技巧要求<label for="9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="9" class="margin-toggle"/><span class="sidenote">马匹控制的难度，也促使了骑士文化、马术竞技等与控制技巧高度相关的文化传统的出现。</span>。控制权仍然在人，但执行器从人的肌肉换成了马的肌肉。
+</p>
+
+<p>
+进入大航海与大铁路时代，导航成了关键反馈。六分仪与罗盘将反馈周期缩短到分钟，人类才能做到削除导航上的偏差，才敢在无垠的洋面上远航，才有了郑和下西洋、哥伦布发现新大陆。
+</p>
+
+<p>
+车轮的发明极大降低了移动的能耗。19世纪，自行车的诞生标志着人类开始广泛使用人力驱动的机械系统。自行车作为一种纯人力驱动的工具，实现了效率与控制的奇妙平衡。踩动踏板即可推进，握住把手即可转向。“人马接口”变成了“人车接口”。这是一个经典的人-机闭环控制系统：人提供动力并负责感知与决策，机械系统提高效率与稳定性。骑行者通过视觉感知路况、身体倾斜调整重心，车架提供稳定性。控制权仍牢牢掌握在人手中，但工具的加入极大拓展了能力边界。
+</p>
+
+<p>
+进入工业革命，蒸汽与内燃机的发明使得动力系统发生质变。火车和汽车让人类首次脱离对“肌肉”的依赖，真正实现了外部动力驱动的出行方式。控制的任务发生了根本转变。
+</p>
+
+<p>
+在汽车中，驾驶者通过方向盘、油门、刹车等“人机接口”对系统进行操作，控制行为被进一步抽象化，只需“指令”而无需“力气”。方向盘、油门、刹车成为执行器的指令输入装置。随着自动挡、动力转向、巡航控制等技术的加入，汽车控制越来越向“轻操作、高自动化”发展。人仍在环中，但主动控制的强度显著下降。
+</p>
+
+<p>
+在火车中，乘客不再参与控制，控制由司机与铁路系统共同承担。换言之，“个体控制”让位于“系统控制”。火车进一步将“方向”这一变量从控制者手中完全剥离，仅需调节速度、制动、时序等变量。控制系统也由“实时闭环”变为“预规划开环+时间触发”——轨道、信号灯、调度系统构成了大型开放系统的控制网。
+</p>
+
+<p>
+飞机的发明将人类带入“空间控制”的新纪元。飞行器不仅速度极高（喷气式民航可达900公里/小时），更涉及对高度、姿态、气流等变量的动态调节。飞行控制系统的复杂性远超陆地交通，需要大量仪表读数、辅助系统与协同机制。
+</p>
+
+<p>
+此时的控制逻辑不仅包括操作者与工具之间的交互，更引入了复杂的传感、算法、自动纠偏等元素。背后是一整套自动化飞行系统的支撑，包括自动驾驶仪、飞行管理计算机等。现代飞机（如F-22）为了极致的机动性，气动外形被设计成静态不稳定——如果没有毫秒级的自动反馈，飞机在起飞瞬间就会失控。飞行员已无法手动驾驭，必须依靠计算机每秒成千上万次的微调来维持姿态。反馈频率被推到了兆赫兹级（MHz）。控制系统分为多个层次：内环（姿态稳定）由计算机毫秒级调节，外环（航线、高度）由飞行员或自动驾驶仪决策。这就是典型的多层反馈控制。
+</p>
+
+<p>
+人类控制能力的一部分被系统分担甚至取代，但控制目标的复杂性却不断上升。
+</p>
+
+<p>
+进入21世纪，控制手段开始脱离人类感知的直接参与。自动驾驶系统用激光雷达、摄像头、GPS、地图等多重传感器构建“数字眼睛”；用AI算法与规则系统构建“虚拟大脑”；再由电控系统执行导航、转向、制动等动作。这是一种真正意义上的全闭环自动控制——它不仅自动执行操作，还能感知环境、评估风险、做出决策。感知（激光雷达、摄像头）、决策（AI算法）、执行（电控转向/刹车）全部由机器完成，人的角色从操作者变成目标设定者与系统维护者。
+</p>
+
+<p>
+智能交通调度系统则从单一工具控制上升为多主体系统协调。从无人机编队，到高铁的列控系统，再到城市级的智能红绿灯调度网络，控制的维度从“工具”扩展为“生态”。控制的目标也升级了：不再只是“让车辆动起来”，而是“安全、高效、舒适、节能、合规”。
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">方式</th>
+<th scope="col" class="org-left">感知</th>
+<th scope="col" class="org-left">决策</th>
+<th scope="col" class="org-left">执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">步行</td>
+<td class="org-left">视觉+前庭</td>
+<td class="org-left">大脑</td>
+<td class="org-left">人体肌肉</td>
+</tr>
+
+<tr>
+<td class="org-left">骑马</td>
+<td class="org-left">视觉+马感</td>
+<td class="org-left">人脑+马脑</td>
+<td class="org-left">马肌肉</td>
+</tr>
+
+<tr>
+<td class="org-left">自行车</td>
+<td class="org-left">视觉+平衡</td>
+<td class="org-left">人脑</td>
+<td class="org-left">腿力+车架</td>
+</tr>
+
+<tr>
+<td class="org-left">汽车</td>
+<td class="org-left">视觉+仪表</td>
+<td class="org-left">人脑</td>
+<td class="org-left">发动机+转向</td>
+</tr>
+
+<tr>
+<td class="org-left">飞机</td>
+<td class="org-left">仪表+雷达</td>
+<td class="org-left">人+飞控</td>
+<td class="org-left">舵面+推力</td>
+</tr>
+
+<tr>
+<td class="org-left">自动驾驶</td>
+<td class="org-left">激光雷达+GPS</td>
+<td class="org-left">AI+规则</td>
+<td class="org-left">电控执行</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+从依靠双腿步行，到驯养马匹代步，进而发明车轮、火车、汽车，直至超音速飞机的出现，每一次质的飞跃都是底层动力系统的更替。马拉松选手每小时可跑约20公里<label for="10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="10" class="margin-toggle"/><span class="sidenote">水浒传中的“神行太保”戴宗，号称“日行八百、夜走七百”，虽然极度夸张，不过也相当于30公里每小时。孙悟空一个筋斗云十万八千里（五万四千公里），可以和航天飞机的速度相比。当然，那只是神话。</span>；而一匹普通的劣马即可轻松达到40公里每小时。汽车的发明让短途出行变得高效，但无论工艺如何改进，其速度极限依旧受限于机械系统本身，上路的时速很难超过200公里/小时。但借助喷气推进系统，飞机可以轻松突破千公里时速的门槛。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 2: </span>人类交通工具的进化，依赖的是革命性的创新。跳出现有技术的框架，换道超车。</span><img src="assets/evolution-travel.jpg" alt="evolution-travel.jpg">
+
+</figure>
+<p>
+移动能力的上限，不再取决于人的体力或马力的大小，而取决于反馈系统的响应速度。从依靠双腿的“跌跌撞撞”，到自动驾驶的“丝滑平顺”，进化的本质是控制权从生物肌肉向电子算法的移交。
+</p>
+
+<p>
+从两条腿到无人车，出行工具的每一次飞跃都不是单纯速度的提升，而是控制手段、执行机制、感知系统与认知目标之间的深度协同。我们从“用脚走”到“用脑开”，再到“用数据思考”，控制正在从物理层转向信息层、决策层。这不仅是技术演进的轨迹，更是人类文明对世界控制力不断深化的体现。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-org2deaf06" class="outline-2">
+<h2 id="org2deaf06"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-orgabf2738" class="outline-2">
+<h2 id="orgabf2738"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-org11ade1a" class="outline-2">
+<h2 id="org11ade1a"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-orgc03f33b" class="outline-2">
+<h2 id="orgc03f33b"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-orgeeca2d9" class="outline-2">
+<h2 id="orgeeca2d9"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-orgfb8ba25" class="outline-2">
+<h2 id="orgfb8ba25"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-orgf9aba86" class="outline-2">
+<h2 id="orgf9aba86"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org860736f" class="outline-2">
+<h2 id="org860736f">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">习惯上都是说衣食住行，但顺序上更应该是食衣住行。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自《论语·乡党》：粮食舂得越精白越好，鱼肉切得越细腻越好。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">烹饪是食品加工制作技术的统称。《易经・鼎》中记载，”以木巽火，烹饪也“，烹为煮，饪指食物的生熟程度，又是食物的统称。&#x2014; 陈光新，《烹饪概论》第二版，高等教育出版社，2004</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">意大利披萨、美式汉堡等，也不过是对这一技术的延伸，只是温度控制更精准。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">烧烤看似简单，实则是一门手艺，对火候的掌控要求极高，至今在烧烤聚会时能露一手依然是可以自豪的事情。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">中餐炒菜玩的是融合，用复杂的复合味道来创造全新的味觉体验。对习惯了一是一、二是二的欧美味蕾来说，这种复杂的味道很容易被当成是调料味太重，感觉把食材本身的味道给盖住了。相比之下，油炸是水煮的升级，而不是爆炒式的技术突破。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">《吕氏春秋·本味》篇中，讲述伊尹（商汤的贤臣）为汤王阐释烹饪调味之道：“鼎中之变，精妙微纤，口弗能言，志不能喻。若射御之微，阴阳之化，四时之数。”</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">而染色、图案与结构设计，则体现了文化与社会规范的反馈机制。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">马匹控制的难度，也促使了骑士文化、马术竞技等与控制技巧高度相关的文化传统的出现。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">水浒传中的“神行太保”戴宗，号称“日行八百、夜走七百”，虽然极度夸张，不过也相当于30公里每小时。孙悟空一个筋斗云十万八千里（五万四千公里），可以和航天飞机的速度相比。当然，那只是神话。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

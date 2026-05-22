@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-org0308aa3" class="outline-2">
+<h2 id="org0308aa3">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org26f366e" class="outline-2">
+<h2 id="org26f366e"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-orgb70c55f" class="outline-2">
+<h2 id="orgb70c55f"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-org9f390e4" class="outline-2">
+<h2 id="org9f390e4"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-org47a2118" class="outline-2">
+<h2 id="org47a2118"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-org34b652a" class="outline-2">
+<h2 id="org34b652a"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+<section><p>
+美国管理学家彼得·德鲁克在上世纪六十年代提出了“木桶原理”<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">木桶原理，又称“短板效应“，是美国管理学家劳伦斯.彼得（Laurence J. Peter）在研究组织效率时提出的概念，引发了后来著名的“木桶原理”讨论，后来被广泛演化并应用到管理学、经济学及个人发展等各个领域。</span>：一只木桶能装多少水，并不取决于桶壁上最长的那块木板，而是取决于最短的那块。
+</p>
+
+<p>
+如果把反馈控制系统看作一个木桶，那这个控制木桶由五块木板围成：受控对象、控制目标、感知手段、决策算法、调节机制。这五块木板的大小、材质、强度必须完美匹配，才能成为一个不漏水的木桶。事实上，我们习惯上把这个自动控制系统成为控制回路，回路上有五个节点。
+</p>
+<p width="100%">
+#<img src="assets/control-loop-closed.png" alt="control-loop-closed.png" width="100%">
+</p>
+
+<p>
+我们面对的大多数控制问题，都可以从这五块木板入手分析。
+</p>
+</section>
+
+<div id="outline-container-org1ec0e53" class="outline-3">
+<h3 id="org1ec0e53"><span class="section-number-3">4.1.</span> 受控对象：认识你要控制的系统</h3>
+<section><p>
+控制的起点，是识别并理解“受控对象”，也就是我们试图影响其状态的事或物。它可以是物理的，如加热炉、反应器、无人机、汽车；也可以是抽象的，如经济系统、股市、人际关系；甚至可以是宏大的（气候、生态），或微观的（细胞、微生物）。
+</p>
+
+<p>
+理解受控对象，核心是掌握它的行为特性：有那些特性是我们关注的（目标），我们有哪些手段可以影响这些特性？这种影响是即时的还是滞后的？是线性的还是非线性的？是稳定的还是发散的？
+</p>
+
+<p>
+日常生活中，我们无时无刻不在做这种判断：对牛弹琴之前，你要搞清面前的牛听不听得懂音乐，免得徒劳。开车时，踩油门车会加速，踩刹车会减速，这是因果确定性。洗澡时，开大热水阀，出水温度不会立刻变化，而是会需要一点时间慢慢升高，这就是滞后。经济调控中，提高利率不会立刻抑制通胀，而是需要数月甚至更长时间才能见效，这是时间延迟。在决策时必须了解这些特性。
+</p>
+
+<p>
+在太极拳里，发力过程包括蹬腿、扭腰、转肩、拉臂、送肘、甩腕，一气呵成<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">太极拳武禹襄宗师在《十三势行功解略》中解释太极拳的发力：“其根在脚，发于腿，主宰于腰，形于手指。“</span>。这是对人体力学的深刻了解。事实上，大部分需要瞬间发力的运动，包括网球、高尔夫球，甚至乒乓球，都是遵循这一物理机理。
+</p>
+
+<p>
+在人际交往中，要和人打交道，了解脾性是必须的。已故评书家单田芳常说：“人数过百，形形色色。”<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">口语中“色”常读作 shǎi，重叠后为xíng xíng shǎi shai</span>有的淳朴简单，一眼看透；有的城府深邃，喜怒不形于色；有的像关羽，言行如一；有的如吕布，朝秦暮楚。有的人甚至以多种面孔出现，像川剧变脸，从不以真面目示人。了解对方的脾气性格，方可和谐相处，减少意外。这也是在辨识“受控对象”的特性。
+</p>
+
+<p>
+所有的父母都望子成龙，甚至恨铁不成钢。但父母都应该认真地反思一下自己，对自己的孩子是否真的了解，还是当局者迷：孩子有什么样天分、智商、体质、兴趣、性格和资源？这是教育孩子的基础。
+</p>
+
+<p>
+受控对象的特性，决定了控制方式的边界。一个惯性很大的系统（如大型油轮），无法像小型快艇那样灵活转向；一个存在大滞后的系统（如化工反应器），不能采用过于激进的调节策略。一个“知人知面不知心”的人，只好敬而远之，或保持“防人之心”。
+</p>
+
+<p>
+另一方面，各类系统在基本原理上具有共通性。正如习惯了五菱的司机很快也能驾驭法拉利。驾驶的本质逻辑相通，无需深究发动机与传动的具体技术细节。对受控对象的理解既无必要也不可能穷尽一切细节。控制工程师一生会面对无数系统与工艺，他没有时间、也没有必要成为全才。其根本目标在于“控制”，而核心分析手段是抽象与归纳，把纷繁复杂的现实凝练为输入与输出之间的因果链条。这条链条的表述，便是模型。我们借助模型来代表需要控制的物理对象，并据此做出决策，因为相比物理对象，模型更易于理解和推演。
+</p>
+
+<p>
+生活中的其它决策也是如此，只有看清了“因”如何导致“果”，才可以闭环，才可以控制。
+</p>
+
+<p>
+认知受控对象的深度，决定了控制能力的上限。如果这块木板短了，即便你有再高明的算法，也只是“盲人骑瞎马”，系统越努力，危险就越大。控制工程师常说：“你无法控制一个你无法测量的。”其实同样重要的是：你也难以控制一个你尚未理解的系统。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgca7a513" class="outline-3">
+<h3 id="orgca7a513"><span class="section-number-3">4.2.</span> 控制目标：方向比努力更重要</h3>
+<section><p>
+所有控制，都需要一个目标——我们想要达到的状态。在工程中，它叫设定值；在生活中，它叫期望；在管理中，它叫愿景。对想吃天鹅肉的癞蛤蟆来说，那是奢望。
+</p>
+
+<p>
+合理的目标设定，是反馈系统有效运作的前提。无人机和自动驾驶需要实时更新的路线规划；国家发展需要承前启后的五年计划；我们每个人都需要长期和短期的人生规划。
+</p>
+
+<p>
+目标必须具有可衡量性，必须能够被感知和量化<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">这就是控制理论中的“可观性”（Observability）。</span>。温度控制在25度，车速定在120公里/小时，这都是可测量可量化的目标。如果无法判断当前状态与目标之间的差距，反馈就无从谈起。一道菜是否好吃，可能各执一词，``好吃’‘虽然可以成为口碑，但不能成为一个可量化的指标。同样，生活中“幸福指数”虽然通俗易懂，但难以精确测量，所以很难直接作为反馈控制的目标。
+</p>
+
+<p>
+制定的目标应当可达成<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">这就是控制理论中的“可控性”（Controllability）。</span>，要和系统的能力相匹配。目标设得太高，系统会饱和、疲劳甚至崩溃。“好高骛远”“志大才疏”，说的都是目标与能力不匹配。愚公移山、人定胜天，只是神话或励志口号，不是可达成的工程目标。“可怜天下父母心”。父母都盼望孩子成才，但孩子的成才计划需要符合孩子的现实条件的限制，不可好高骛远。有的孩子天生是怪才，偏爱独木桥，强迫他走大路反而是埋没人才；有的孩子体质不佳，为高考拼命加码，有可能身体崩溃，事与愿违。
+</p>
+
+<p>
+当然，目标设得太低，也会无谓地失去机会。“躺平”“摆烂”“当一天和尚撞一天钟”，结果必然一事无成。
+</p>
+
+<p>
+在工业中，控制目标往往不是单一的。一个反应器既要保持温度稳定（主目标），又要控制压力不超限（安全约束），还要尽可能降低能耗（经济目标）。多目标之间常常冲突。提高产量可能增加能耗，加快反应可能危及安全。这就需要权衡取舍，甚至有意识地在不同目标之间“妥协”。这正是“优化控制”要解决的问题，我们将在后面讨论。
+</p>
+
+<p>
+目标决定手段。同样一个系统，目标不同，控制策略也截然不同。让房间“冷热合适”只需简单的开关控制（bang-bang），而要让房间恒温在25℃，则需要精密的连续调节。
+</p>
+
+<p>
+设定合理的目标，本身就是一门学问，需要对系统内的能力和制约因素有深入的了解，对系统之间的相互影响有宏观的掌握。
+</p>
+
+<p>
+目标定好了，但你怎么知道系统现在离目标有多远？这就需要感知手段。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgfb1f654" class="outline-3">
+<h3 id="orgfb1f654"><span class="section-number-3">4.3.</span> 感知手段：观测不到就无法控制</h3>
+<section><p>
+感知，是反馈控制的前提。我们无法控制我们无法感知的东西。没有感知，就没有偏差的判断，也就没有决策的依据。“瞎猫撞上死耗子”纯属小概率事件；“盲人骑瞎马，夜半临深池”，大概率是人马俱亡；不了解下情就指手画脚，必然是瞎指挥。
+</p>
+
+<p>
+人类拥有“眼耳鼻舌身意”构成的天然感知网络，可以“察言观色”和“望闻问切”。工业系统则依赖传感器来测量温度、压力、流量、电压、成分。
+</p>
+
+<p>
+从原始的感官，到现代的高精度传感器、数据采集系统，感知技术的进步扩展了人类控制的能力。传统烧烤靠眼睛判断肉的颜色，感知模糊，容易翻车；智能烤箱用热电偶实时测温，感知精确，就能烤出稳定的成品。
+</p>
+
+<p>
+但感知不等于掌控。感知到信息需要被解读、被评估，才能形成有效的控制依据。感知的精度、速度、可靠性，决定了控制的上限。如果眼睛看花了，手脚再快也是在犯错。如果传感器失灵，再聪明的算法也是“盲人摸象”。医生用体温计测出发烧，但病因是什么？还需进一步检查。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org4cb0546" class="outline-3">
+<h3 id="org4cb0546"><span class="section-number-3">4.4.</span> 决策算法：从开关逻辑到智能算法</h3>
+<section><p>
+有了感知和目标，便可以计算出当前状态与期望状态之间的偏差。反馈控制的本质，就是通过某种“算法”，将这个偏差逐步缩小（负反馈）或放大（正反馈）。
+</p>
+
+<p>
+决策机构，是控制系统的“大脑”。
+</p>
+
+<p>
+我们日常行为，有很多攻略、成功秘诀和成功偶像可以借鉴；也有马谡和赵括这样的反面教材可以设法避免。有些人永远老神在在、举重若轻；有些人总是殚精竭虑、顾此失彼。这是决策能力上的差距。成功人士往往受益于关键节点的正确决策；而大多数失败都毁于决策上的重大失误<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">关键时刻犹豫不决也是一种决策错误，“当断不断，反受其乱”。不做决策本身其实也是一种决策，只是这个决策通常都不是好的决策。</span>。“一将无能，累死全军”。诸葛亮可以“运筹帷幄之中，决胜千里之外”，也有过“失街亭”而不得不“挥泪斩马谡”的教训。
+</p>
+
+<p>
+决策算法从简单到复杂有很多种。最简单的是开关控制<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">开关控制 On/Off Control</span>。控制器的输出只有两个状态：全开或全关<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">因为这个原因，开关控制也被成为Bang-Bang控制。挺形象的名词！</span>。系统根据被控变量与设定值的差异（误差）决定开或关。
+</p>
+
+<p>
+家里的空调就是典型例子：设定25℃，温度超过25℃时启动制冷，温度低于25℃时停止。室内温度在25℃左右<label for="9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="9" class="margin-toggle"/><span class="sidenote">但注意“左右”这个描述。如果温度一超过25度就启动，一低于25度就关机，空调机就会频繁地启动和关闭，对机器寿命会大大影响。常用的措施是设一个“死区”：虽然设定目标值是25度，但温度高过26是再启动空调，而温度落到24度以下后再关机。这样可以有效降低空调机的启停频率，不过，室温可能就在24至26度间晃荡了。这也是贪图简单可靠必须付出的代价吧。</span>。生活中，有些人言行无定，容易在两个极端间摇摆，这实际上也是一种开关控制。
+</p>
+
+<p>
+开关控制虽简单粗暴，但在系统稳定度高、成本要求严格、精度要求低的场景下非常实用，因此被广泛应用于工业、家用设备、过程控制系统中。尤其比如在温控、液位控制等稳定性要求高而控制精度要求不高的场景中仍是高效、可靠的解决方案<label for="10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="10" class="margin-toggle"/><span class="sidenote">开关控制虽然精度不高，但可以保证稳定，也就是说系统输出会自动限制在一定范围内，是“有界”的。这就是所谓的BIBO稳定性，Bounded Input Bounded Output。</span>。
+</p>
+
+<p>
+更高的控制目标更高级的控制算法。学术研究所热衷的，也大多是在算法方面。从古典控制到现代控制，各种算法曾出不穷；学术界乐此不疲，不断推出更新更复杂精确的算法，大大提高了一些行业的控制水平，比如航空航天。
+</p>
+
+<p>
+但对大多数行业，目前的绝对主力依然是百年老將PID算法，也就是比例-积分-微分算法。PID算法的思想朴素而深刻：根据当前偏差、历史偏差和偏差变化趋势，综合计算出调节量。它不要求对被控对象有非常精准的了解，只需要大致了解其动态特性，比如反应快慢、有无滞后，凭经验调整三个参数，就能应对绝大多数常规控制问题。
+</p>
+
+<p>
+对于更复杂的系统，比如多变量、大滞后、多约束，则需要更高级的算法。这种比PID负责的控制算法统称先进控制<label for="11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="11" class="margin-toggle"/><span class="sidenote">先进过程控制 Advanced Process Control</span>。其中应用最广、最成功的是模型预测控制（MPC）。
+</p>
+
+<p>
+MPC最早由工业界的控制工程师在实践中提出。它通过建立被控对象的数学模型，预测未来一段时间内的系统行为，在满足各种约束条件的前提下优化当前的控制动作。自八十年代问世以来，MPC已在炼油、化工、电力等复杂工业过程中广泛应用。学术界后来成功地证明了MPC的收敛性和稳定性，使其理论根基更加坚实。如今，MPC也已扩散到其它控制领域，像无人机、无人驾驶汽车和航天器的控制都在尝试用MPC来获得更好的控制效果。
+</p>
+
+<p>
+但MPC对前几块木板要求要比PID更高：它需要精确的对象模型和充足的算力。这也是为什么MPC在流程工业中应用广泛，在快系统中仍然受限。
+</p>
+
+<p>
+近年来，人工智能在控制领域的应用备受关注。但坦率地说，目前在工业控制中，AI更多还是“锦上添花”。它的角色更像是“参谋”，提供优化建议，可以辅助建模或故障诊断一类的开环或线下任务，还无法直接执行决策，取代PID和MPC的主流地位。因为控制算法不仅需要“聪明”，更需要可信赖、可解释、可预测。一个算法在生产线上运行，必须保证在任何情况下都不会“胡思乱想”或随时罢工。
+</p>
+
+<p>
+决策算法的选择必须与其他四块木板匹配。一个完美的MPC算法，如果受控对象特性未搞清、目标设定不合理、感知精度不够、执行器反应迟钝，同样无法发挥作用。这正是木桶原理的核心。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org3c5cf05" class="outline-3">
+<h3 id="org3c5cf05"><span class="section-number-3">4.5.</span> 调节机制：决策最终要靠行动落地</h3>
+<section><p>
+控制的最终目的是“做出改变”。再完美的感知与判断，如果没有执行，控制便无法落地。
+</p>
+
+<p>
+现实中的执行器五花八门。在流程工业，最常见的是调节阀，通过改变阀芯开度控制流体流量；在运动控制中，伺服电机和步进电机是主力；在电力系统，晶闸管调压装置实现功率调节；在社会治理中，是政策的执行；在经济领域，是利率的调整；在个人生活中，是“迈出第一步”：“千里之行，始于足下”。
+</p>
+
+<p>
+从微观的机械臂动作，到宏观的政策执行与项目落地，执行都是决定成败的关键一环。“招之能来，来之能战，战之能胜”“令行禁止”，指的是强悍的执行力。“眼高手低”“鞭长莫及”“心有余而力不足”，本质上都是执行手段这块木板太短，够不着目标。
+</p>
+
+<p>
+调节手段的效能取决于两个因素：响应速度和精度。调节速度跟不上系统的变化速度，控制就会滞后，甚至引发振荡。一个卡涩的阀门，纵然有任何精妙的算法，结果都会大打折扣。
+</p>
+
+<p>
+在现实世界里，执行机构往往是反馈控制这个木桶的最短的一块木板。每种执行器都有自己的脾气：阀门有死区、有滞环，电机有惯性、有最大扭矩。例如，智能加热服装的短板是电池续航（执行能源）；自动驾驶汽车的短板是执行器的冗余和可靠性；政策执行的短板往往是落地时的“最后一公里”。因此，当我们诊断一个控制系统时，首先要检查执行机构是否到位：它能否快速、精准地响应指令？它是否有足够的范围和分辨率？
+</p>
+
+<p>
+执行器的“短板”有时很隐蔽，也最致命。比如，控制效果不好，工程师怀疑模型、怀疑算法、怀疑传感器，折腾很长时间后，发现是调节阀定位漂移，导致阀门的实际开度与指令不符。这类故事在工业界比比皆是。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org0b956db" class="outline-3">
+<h3 id="org0b956db"><span class="section-number-3">4.6.</span> 五块木板，缺一不可</h3>
+<section><p>
+一个完整的反馈控制回路，必须同时具备：受控对象（要管什么）、控制目标（管成什么样）、感知手段（怎么知道当前状态）、决策算法（怎么算偏差、怎么调）、调节机制（怎么实际改变）。任何一块木板过短，系统都会“漏水”——要么振荡，要么失控，要么效率低下。因此，诊断控制问题时，要先从整个木桶开始，找到那一块木板是短板，再去想着如何补上这块短板。还要考虑这块补长的桶板是不是和其它桶板匹配。
+</p>
+
+<p>
+现代京剧《沙家浜》里的“智斗”一场戏体现了反馈控制的精髓。“不寻常”的阿庆嫂能“眼观六路，耳听八方”，展现出极强的观察感知能力；“胆大心细，遇事不慌”，让胡传魁“水缸里面把身藏”，体现了冷静果断的决策能力；然后“提壶续水，面不改色，无事一样”，说明了非凡的执行能力；而她的目标也很明确、现实、可行，那就是“骗走东洋兵”，帮胡传魁“躲过大难一场”，而不是不自量力地试图打跑东洋兵。最终这一切都是建立在对环境和人性的透彻了解上。这些环节都无纰漏，才实现了预想的目标。
+</p>
+
+<p>
+在接下来的章节中，我们将用这个木桶框架反复拆解具体的控制案例。你会发现，绝大多数控制问题的根源，都可以归因到某一两块木板的短板。而控制工程师的工作，本质上就是找出短板，补齐它，或者重新匹配五块木板的规格。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-org25c3dd5" class="outline-2">
+<h2 id="org25c3dd5"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-org84b3e63" class="outline-2">
+<h2 id="org84b3e63"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-orgce9c2fd" class="outline-2">
+<h2 id="orgce9c2fd"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-orgb08f0de" class="outline-2">
+<h2 id="orgb08f0de"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-orgdf9ff1e" class="outline-2">
+<h2 id="orgdf9ff1e"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org5e0ac39" class="outline-2">
+<h2 id="org5e0ac39"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-org3cbf19d" class="outline-2">
+<h2 id="org3cbf19d"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-org030c31a" class="outline-2">
+<h2 id="org030c31a"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org7007ea7" class="outline-2">
+<h2 id="org7007ea7">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">木桶原理，又称“短板效应“，是美国管理学家劳伦斯.彼得（Laurence J. Peter）在研究组织效率时提出的概念，引发了后来著名的“木桶原理”讨论，后来被广泛演化并应用到管理学、经济学及个人发展等各个领域。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">太极拳武禹襄宗师在《十三势行功解略》中解释太极拳的发力：“其根在脚，发于腿，主宰于腰，形于手指。“</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">口语中“色”常读作 shǎi，重叠后为xíng xíng shǎi shai</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这就是控制理论中的“可观性”（Observability）。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这就是控制理论中的“可控性”（Controllability）。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">关键时刻犹豫不决也是一种决策错误，“当断不断，反受其乱”。不做决策本身其实也是一种决策，只是这个决策通常都不是好的决策。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">开关控制 On/Off Control</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">因为这个原因，开关控制也被成为Bang-Bang控制。挺形象的名词！</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">但注意“左右”这个描述。如果温度一超过25度就启动，一低于25度就关机，空调机就会频繁地启动和关闭，对机器寿命会大大影响。常用的措施是设一个“死区”：虽然设定目标值是25度，但温度高过26是再启动空调，而温度落到24度以下后再关机。这样可以有效降低空调机的启停频率，不过，室温可能就在24至26度间晃荡了。这也是贪图简单可靠必须付出的代价吧。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">开关控制虽然精度不高，但可以保证稳定，也就是说系统输出会自动限制在一定范围内，是“有界”的。这就是所谓的BIBO稳定性，Bounded Input Bounded Output。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11" role="doc-backlink">11</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">先进过程控制 Advanced Process Control</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

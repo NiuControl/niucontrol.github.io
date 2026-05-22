@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-org70b4584" class="outline-2">
+<h2 id="org70b4584">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org94c52a0" class="outline-2">
+<h2 id="org94c52a0"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-orgcf4ac7d" class="outline-2">
+<h2 id="orgcf4ac7d"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-orga9231b9" class="outline-2">
+<h2 id="orga9231b9"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-orgf0aa59b" class="outline-2">
+<h2 id="orgf0aa59b"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+<section><p>
+上一章我们看到了人类如何利用反馈，无论是出于自身的本能还是主动的学习。但那些都离不开人的感官、大脑和四肢。如果把“获取反馈、比较偏差、做出决策、付诸实施”这个过程交给可以独立运行的逻辑系统，比如机械、电路和计算机时，反馈便从一种生物本能，演化为一种工程手段。这就是自动控制。
+</p>
+
+<p>
+在所有已知的控制方式中，自动反馈控制是最常见、也是最成功的一种。
+</p>
+
+<p>
+随着感知手段的丰富、执行能力的增强，以及自动决策能力的成熟，将反馈机制规模化、系统化地应用于现实世界，便形成了我们今天所熟知的——自动化。
+</p>
+
+<p>
+在讨论自动反馈控制之前，先看看两种更基础的控制方式：开环控制和顺序控制。它们虽然简单，但在合适的场景下非常高效。
+</p>
+</section>
+
+<div id="outline-container-orgb9e70b5" class="outline-3">
+<h3 id="orgb9e70b5"><span class="section-number-3">3.1.</span> 开环控制：计划赶不上变化</h3>
+<section><p>
+想象一次子弹出膛或高尔夫杆击球。扣扳机或挥杆之前，你可以计算、判断、调整姿态；一旦出手，子弹或球的轨迹便不再受你干预。这种“一旦开始便无法中途修正”的方式，在控制理论中被称为开环控制<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">严格来说，“开环控制”这个名称是在“闭环控制”出现之后才被追认的。在闭环概念诞生之前，没有人管生火做饭叫“开环控制”——那就是“控制”本身。就像彩色电影出现之前，没有人特意说“黑白电影”。而且，“开环”这个词也容易让人误解，以为存在一个“环”被打开了。实际上，开环控制系统自始至终就没有环。更准确的说法或许是“无反馈控制”，但“开环”这个名称早已约定俗成。</span>。。
+</p>
+
+<p>
+这种对轨迹的控制，看似简单，实际上要求极其苛刻。击球发力必须符合人体动力学。狙击手是否命中目标，完全取决于扣动扳机的那一瞬间是否考虑周全——风向、温度、湿度，一丝误差都可能会被无限放大，“差之毫厘，谬以千里”。
+</p>
+
+<p>
+开环控制本质上是“孤注一掷”的一次性决策。为了对抗不可控的干扰，弥补这种“出手即失控”的风险，人类只能选择一条原始但有效的办法：通过成千上万次重复，把动作固化为肌肉记忆，也就是所谓的“熟能生巧”。
+</p>
+
+<p>
+高尔夫球手“指哪儿打哪儿”的背后，是绿茵场上无数次挥杆；卖油翁轻松的一句“我亦无他，唯手熟尔”，掩盖的是长年累月的动作重复；狙击手“百步穿杨”的神技，也是在天赋之外，用成箱成箱的子弹一点点喂出来的。
+</p>
+
+<p>
+正因为这个原因，开环控制只适用于确定性高或容错范围大的稳定场景。你可以放心让五六岁的孩子去拐角的小卖店打瓶酱油，但绝不会让他独自去两条街外的银行，替你完成一次复杂而不可撤销的交易。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org918e5e3" class="outline-3">
+<h3 id="org918e5e3"><span class="section-number-3">3.2.</span> 顺序控制：有序世界中的规则依赖</h3>
+<section><p>
+在现实生活中，更常见、也更实用的一种做法，是提前把一系列动作安排好，然后让它们按顺序自动执行。
+</p>
+
+<p>
+这种方式对应的不是一次性的瞬间决策，而是一整套预设流程。只要条件大体稳定，系统便可以不用中途检测和修正，按照既定步骤，一步一步走下去。
+</p>
+
+<p>
+许多我们习以为常的现象，正是这种思想的体现。
+</p>
+
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 1: </span>开环控制需要对系统有足够的认知，对控制效果有把握或不在意</span><img src="assets/control-loop-open.png" alt="control-loop-open.png">
+
+</figure>
+<p>
+这种“按部就班”的执行方式，就是顺序控制<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">顺序控制，Sequential Control。逻辑编程控制（PLC）就是专长于此。</span>。顺序控制可以是依赖时间顺序，也可以是依赖事件发生的顺序。
+</p>
+
+<p>
+“好雨知时节，当春乃发生。随风潜入夜，润物细无声。”<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">唐代诗人孟浩然的诗《春晓》</span>，这是老天按照时间进行的定时控制，不管我们喜欢不喜欢，需要不需要。厨房里的烤箱，温度设定好，时间定下来，按钮一按，不管里面的鸭子是熟了还是飞了，时间一到，火便自动熄灭。全自动洗衣机更是典型例子：进水、搅拌、排水、甩干，程序一旦启动，就会完整执行，即便洗衣桶里空无一物，也不犹豫。
+</p>
+
+<p>
+城市路口的红绿灯同样遵循预定节奏。它并不关心街道上是车水马龙，还是空无一人，只是按既定周期在红、黄、绿之间切换。
+</p>
+
+<p>
+甚至从更宏观的角度看，我们的生命本身，也是在遵循身体生物钟的时间顺序：出生、成长、衰老，死亡，最后尘归尘，土归土，不会因为个体的意愿而停顿。
+</p>
+
+<p>
+也有很多控制是是依赖事件的先后来触发。四百米接力赛中，下一棒的选手只有在接力棒到手之后，才真正开始自己的比赛。手工计数器通过齿轮结构实现自动进位，每按一次按钮，个位数便加一——它只关心动作发生了多少次，而不关心这些动作发生得有多快。
+</p>
+
+<p>
+
+</p>
+<p>
+在工业生产中，这类思路被大量采用。工厂里的自动装配线，往往由事件触发：上一道工序完成，下一道工序便被激活，整条流程依次推进<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">在早期的人工装配线上，为了最大限度地压缩时间，管理者甚至会用定时节奏来驱动工人动作。卓别林在电影《摩登时代》中，对这种把人当作机器、让人服从流程的方式，做出了辛辣的讽刺。</span>。
+</p>
+
+<p>
+从结构上看，这种控制方式逻辑清晰、目标明确、实现简单。以洗衣机为例，电机一通电便转动，水阀一打开便进水，延迟小、干扰少；交通信号灯的亮灭同样如此，动作可靠而确定。正因为如此，这类控制方式效率高、成本低，在流程固定、环境稳定、且对误差不敏感的场景中，几乎是不二选择。
+</p>
+
+<p>
+但它的局限也同样明显：一旦现实偏离了预先假设的轨道，系统并无应对变化的能力。比如一个指令发出，得到的回应并不确定，时间也难保证，那这种顺序控制就难以奏效了。虽然规则仍然会被严格执行，但结果不由规则保证。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orge3bd679" class="outline-3">
+<h3 id="orge3bd679"><span class="section-number-3">3.3.</span> 闭环控制：明察秋毫，随机应变</h3>
+<section><p>
+无论是射击那样的瞬时动作，还是按时间或事件触发的顺序执行，都有一个共同点：控制在执行之前就已经完成。要么像射击一样，在出手之前算清一切，“发射后不管”；要么像交通灯一样，提前设定好流程，按部就班地走下去。
+</p>
+
+<p>
+从开环控制到顺序控制，我们的生活已经获得了巨大的便利。烤箱只要设好温度和时间，按钮一按，到点儿自动关火，已经足够省心。全自动洗衣机按下开关，会把衣物自动洗好，到时取出即可，已经非常方便。
+</p>
+
+<p>
+但这种省心和方便，仍然是以事先的计算为前提，而且结果是无法保证的。烤鸭子，你仍然需要查菜谱、估火候、设时间，稍有疏忽，鸭子就可能烤老，或者仍然夹生。全自动洗衣机，在按“开始”键之前，还是要根据衣物的类别和数量，做很多的选择。选择不当，就可能清洗不足使得衣物不净，或过度清导致衣物受损。
+</p>
+
+<p>
+如果洗衣机能够感知衣物是否已经洗净、烘干，并在合适的时候自动停机，你就不必再担心衣服被过度甩干，或仍然潮湿。那才是真正意义上的“全自动”。同样地，如果红绿灯能够实时感知各个方向的车流，根据交通状况动态调整配时，我们也就不必在空无一车的路口，浪费时间等待红灯变绿。
+</p>
+
+<p>
+子弹出膛之后，既不可观，也不可控，这是典型的开环过程；如果在飞行中持续检测速度和姿态，并通过控制系统不断纠正偏差，这就是导弹，属于闭环过程了。
+</p>
+
+<p>
+两者之间的关键差别就在于，对导弹来说，是“发射后不用管”；而对子弹来说，是“发射后不能管”。前者把控制权交给了系统，后者则彻底失去了控制的可能。
+</p>
+
+<p>
+这些设想背后，都依赖于一个关键前提：系统必须随时知道自己处在什么状态。烤箱要知道鸭子是否已经熟透，洗衣机要知道衣物的干湿程度，交通信号灯要知道路口车流的变化。
+</p>
+
+<p>
+一旦系统能够对执行结果进行观测，把当前状态与预期目标进行比较，并据此调整后续动作，控制方式就发生了根本变化。这便是闭环控制了。
+</p>
+
+<p>
+从开环到闭环，本质上不是“多装几个传感器”，而是不再完全依赖事先的计划，更多的是依赖于对结果的感知。也就是允许系统在执行过程中犯错，并不断纠正这些错误。
+</p>
+
+<p>
+现实中，人和系统都是会犯错的。允许系统犯错出偏差，就等于控制的理念对大多数系统敞开了大门，大大降低了应用门槛。这不仅是技术的进步，更是认知方式的转变。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 2: </span>闭环控制不仅需要引入测量机构和执行机构，还需要设定目标，增加决策机制</span><img src="assets/control-loop-closed.png" alt="control-loop-closed.png">
+
+</figure>
+<p>
+拉普拉斯妖式<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">“拉普拉斯妖式”（Laplace's Demon）描述了一种对世界的理解方式：世界是完全由因果律决定的。只要知道当前所有事物的精确状态（位置、动量等）和物理定律，就可以完美地预测未来的一切，也可以倒推出过去的一切。</span>的“全知全能控制”在现实面前是虚妄的。真正的控制哲学不是“掌控一切”，而是“拥抱不确定性”。
+</p>
+
+<p>
+如果说开环控制更像是一种艺术，那么闭环控制更接近一门技术。
+</p>
+
+<p>
+开环控制依赖精准的计算、经验和技巧，讲究“一锤定音”<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">严格来说，现实中的开环控制很少是纯粹的开环。射击虽然在子弹出膛后无法修正，但优秀的射手会根据前一次的结果，调整下一次的参数；高尔夫球一旦击出便不再受控，但正是通过无数次击球后的反馈，人才能逐渐形成稳定的技术。从这个角度看，人类本身，就是一个在更大时间尺度上工作的“闭环系统”。</span>。狙击手在扣动扳机的瞬间，必须把风速、湿度、距离、角度全部考虑进去，力求一击而中，因为可能根本没有第二次机会；高尔夫球手通过成千上万次挥杆，把动作固化为肌肉记忆，才能做到“指哪儿打哪儿”，而每一次偏差，只能留到下一杆来修正。红绿灯的设计，要准确地获取各个路口各个方向各个时间段的车流量信息，否则就反而会造成交通混乱。
+</p>
+
+<p>
+控制工程师的工作，就是把开环控制的“艺术”，通过现有的感知和操纵手段，变成闭环控制的“技术”，来做更加可靠和精细的调节。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgb4f72ea" class="outline-3">
+<h3 id="orgb4f72ea"><span class="section-number-3">3.4.</span> 自动反馈控制：机器取代人</h3>
+<section><p>
+闭环控制并不等于自动控制。它可以是人工的，也可以是自动的，区别仅仅在于“感知—判断—调整”这个环节是由人完成，还是由机器完成。
+</p>
+
+<p>
+比如你设置空调温度为25℃，空调就会自动感知室温，并据此判断是否开启制冷系统。这整个“感知-比较-调节”的过程，就是自动反馈控制的完整闭环。再比如一辆自动驾驶汽车，摄像头和雷达负责感知周围环境；中央处理器根据传感器数据计算最优行驶策略；执行系统调节方向盘、油门和刹车。一辆完全自主的无人驾驶的汽车，就是完全脱离人的干预而自主完成的反馈控制，也就是自动反馈控制，或曰自动控制<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">有人总结的简版L0到L5：
+L0： 啥都没有，纯手工; L1：不用腿; L2：不用手; L3：不用眼; L4：不用脑; L5：不用人。</span>。
+</p>
+
+<p>
+据说，早在公元前三世纪，古希腊的凯特斯比斯<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">凯特斯比斯（Ctesibius，又译 Ktesibios），约公元前285-公元前222年，是古希腊托勒密王朝时期著名的工程师、发明家和气体力学奠基人，常被认为是“空气动力学之父”与自动控制思想的早期先驱。</span>发明了自动水钟，被认为是控制历史上的最早反馈装置原型。其利用的就是自动控制原理来自动稳定水位，从而实现均匀滴水来维持准确计时。
+</p>
+
+<p>
+其设计简单巧妙，又可靠实用：在一个中间容器中设置一个浮子，水箱里水位降低，浮子随水面下降，进水阀打开。随着水位的升高，浮子上升，水位达到规定高度后，使得进水阀完全关闭。水位的感知、阀门的调节、以及调节量的计算，都得以自动实现，因而成为一个经典的设计。
+</p>
+
+<p>
+是不是听着很熟悉？对，现在家家户户都在使用的马桶注水器就是沿用了这种设计。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 3: </span>凯特斯比斯的自动水钟 (H.Diels 复制图）</span><img src="assets/water-clock.jpg" alt="water-clock.jpg">
+
+</figure>
+<p>
+现代意义的自动化控制，开始于瓦特的飞轮调速器<label for="9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="9" class="margin-toggle"/><span class="sidenote">詹姆士·瓦特（James Watt），苏格兰发明家，蒸汽机的改进者。飞轮调速器: Flywheel Governer.</span>。
+</p>
+
+<p>
+托马斯·纽考门发明的蒸汽机引发了第一次工业革命。蒸汽机的原理并不复杂：用煤炭把锅炉的水烧开，产生高压蒸汽，体积膨胀推动活塞往复运动，通过曲轴转化为转轴的旋转运动，就可以带动各种机械了。
+</p>
+
+<p>
+但当时存在的问题是，蒸汽压力不稳使得转速时快时慢。转速失控甚至会造成机毁人亡。
+</p>
+
+<p>
+1788年，瓦特发明了飞锤调速器。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 4: </span>瓦特的飞轮控制器原理（一个实物照片见封面）</span><img src="assets/control-flywheel.jpg" alt="control-flywheel.jpg">
+
+</figure>
+<p>
+瓦特在蒸汽机的转轴上，安装了两根小棍，小棍的一端与转轴相连，另一端是一个小重锤。转轴转动时，重锤在离心力的作用甩开，带动小棍升高。小棍通过连杆、提环和杠杆系统来控制蒸汽阀门的开度，自动调节进入气缸的蒸汽流量。
+</p>
+
+<p>
+重锤、小棍、阀门都处于在一个平衡的位置，转速保持在要求的数值，通过联动调节。蒸汽机不需要人的照看，就可以自动保持稳定的转速<label for="10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="10" class="margin-toggle"/><span class="sidenote">飞锤调速器的应用实例见本书封面。</span>。
+</p>
+
+<p>
+控制器把传感器、执行器、反馈算法溶于一体，既保证安全，又方便使用，一个闭环的自动控制系统就形成了。
+</p>
+
+<p>
+现实生活中，自动控制的可靠性仍然不尽人意，很多时候人工控制和自动控制需要混合运用——自动控制出现故障时自动退出，交由人工接管<label for="11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="11" class="margin-toggle"/><span class="sidenote">工业控制器一般都有自动模式和手动模式，对应自动控制和手工控制。自动控制失败时，会自动降级（shed)到手动模式。</span>。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgbb62a03" class="outline-3">
+<h3 id="orgbb62a03"><span class="section-number-3">3.5.</span> 自稳控制：无为而治是最可靠的控制</h3>
+<section><p>
+很多时候，最可靠的控制是“无控制”。利用自然规律，“无为而治”，达到“无剑胜有剑”的境界。
+</p>
+
+<p>
+一个经典的例子便是烧水壶：水烧开后会沸腾，释放出蒸气，蒸汽的体积迅速膨胀，推动壶盖发出鸣响<label for="12" class="margin-toggle sidenote-number"></label><input type="checkbox" id="12" class="margin-toggle"/><span class="sidenote">报警。通常报警有两种方式：声音和灯光，也就是听觉报警和视觉报警。</span>，同时利用蒸汽压力自动切断电源。整个过程完全不需要人为干预，却能安全可靠地避免干烧。
+</p>
+
+<p>
+同样是烧水，如果在海拔3650米的拉萨，水温不到90℃就会沸腾。要想让它达到100℃，一个简单的办法就是高压锅。用高压锅提高锅内压力，从而提升沸点。高压锅并不是“控制”水的温度，而是改变锅内的物理环境，利用物理定律，顺势而为。一样是无需控制，一样是简单可靠。
+</p>
+
+<p>
+但若需要将水温精确地维持在85℃来冲泡绿茶或90℃来泡白茶，那就无法再无为而治了。这时就必须具备温度传感器、目标设定装置、电源控制开关、算法逻辑与执行元件。控制器实时检测水温，用合适的算法把期望温度和实际温度之间的误差转换成调控手段的动作，这就形成了闭环控制。当然，这样的烧水壶成本会飙升，可靠性也随之下降。
+</p>
+
+<p>
+另一个经典是都江堰。都江堰工程在第一章已经提及。但都江堰工程因势利导，巧夺天工，值得多费些笔墨介绍。
+</p>
+
+<p>
+“古往今来，一切水利工程，归根结底，不外乎控制和调度水沙，工程的关键性与成败得失，都取决于此。”这种对被控对象的深刻理解，奠定了这个不朽工程的的成功的基础。
+</p>
+
+<p>
+都江堰工程中用三道核心屏障：鱼嘴、飞沙堰和宝瓶口，对上游来水来沙进行了逐级筛选，从而达到了水旱从人、取清排浑之功。
+</p>
+
+<figure width="100%"><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 5: </span>都江堰水利工程。东晋史学家常璩《华阳国志·蜀志》：“冰乃壅江作堋，穿郫江、检江，别支流双过郡下，以行舟船……又溉灌三郡，开稻田。于是蜀沃野千里，号为陆海。旱则引水浸润，雨则杜塞水门。故记曰：水旱从人，不知饥馑，时无荒年，天下谓之天府也。</span><img src="assets/dujiangyan-2.jpg" alt="dujiangyan-2.jpg" width="100%">
+
+</figure>
+<p>
+鱼嘴作为第一道屏障，分水排沙，将岷江分成内外二江。内江为引水河道，将岷江部分水量引入地势较高的宝瓶口；外江为泄洪排沙河道。利用内外江河床的高低差异和枯涝季节水速的不同，鱼嘴将水自动分流：枯水季节，六成水入内江，保证下游用水；洪水季节，大部分水流到外江，不足四成流入内江<label for="13" class="margin-toggle sidenote-number"></label><input type="checkbox" id="13" class="margin-toggle"/><span class="sidenote">这就是所谓的“鱼嘴分四六”的原则。</span>，防止下游涝灾。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 6: </span>都江堰工程示意图</span><img src="assets/dujiangyan.jpg" alt="dujiangyan.jpg">
+
+</figure>
+<p>
+第二道屏障飞沙堰，主要作用就是排沙。利用弯道环流的离心力作用，在洪水季节，泥沙会从飞沙堰甩出，不流入内江。水流在弯道中会形成螺旋流，在入口狭窄的宝瓶口，挟带泥沙的底层流从堰顶翻越到外江。第三道屏障宝瓶口起到了“引清排浑”的作用。
+</p>
+
+<p>
+经过三道屏障得到的流量稳定不含泥沙的水，源源不断地流入四川平原，直至今日。成都平原得称天府之国。
+</p>
+
+<p>
+都江堰利用鱼嘴分水、飞沙堰排沙、宝瓶口限流，完全依靠水流本身的力学特性实现自动调节，不需要任何外部能源或人工干预。它的“决策算法”是被固化在物理结构中的——不需要传感器和计算机，而是利用水流本身的力学特性自动完成比较和调节。这种“以物理结构承载调控逻辑”的思路，正是“顺势而为”和“无为而治”的最高境界。
+</p>
+
+<p>
+但另一方面，都江堰工程的巧夺天工，是充分利用了当地山体和水流的独特地理特点，把观测（水位）、决策（分流比例由物理结构自动完成）、执行（水流自身做功）三者融为一体，是一个因地制宜、难以复制的独特设计。瓦特的飞轮调速器，虽然已经有了一定程度的通用性，但也是集感知、决策、调控于一体，需要因不同的应用而量身打造。如果在实用中，每次都需要这样的创造性思维，那就太累了。最好有一个系统的方法，可以解决“所有”的自动控制问题，这就是控制理论的由来<label for="14" class="margin-toggle sidenote-number"></label><input type="checkbox" id="14" class="margin-toggle"/><span class="sidenote">可以设想一下，如果李冰父子在当时就有能力建造大坝、制造巨型水闸、可以使用大功率水泵，那都江堰工程就可能完全是另一个样子，可能就像一个三峡工程了。</span>。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org82ba3d7" class="outline-3">
+<h3 id="org82ba3d7"><span class="section-number-3">3.6.</span> 精密控制：从锦上添花到不可或缺</h3>
+<section><p>
+坦率地讲，真正带来文明跃迁的，通常是系统结构的重构，而非控制技术的改良。改进工艺、升级结构，是提升品质最有效的方式。控制，则是让一个优秀的系统可靠地实现既定目标，达成“指哪儿打哪儿”的精确执行。
+</p>
+
+<p>
+换言之，控制是“锦上添花”。花添在锦上，是艺术；花插在牛粪上，只是掩盖腐朽的装饰。正确的工艺设计提供了“可能”，而可靠的控制将其变为“现实”。
+</p>
+
+<p>
+原始人早就知道，烤熟的肉比生肉好吃，这是对食物本质的理解。撒上盐更有味道，这是对工艺的改进；但要把肉烤到外焦里嫩、盐撒得恰到好处，则依赖对火候的精准把控——这就是控制的加持。
+</p>
+
+<p>
+系统越复杂，就会变得越脆弱，越容易受干扰。如果缺少控制技术的保障，高速行驶中的汽车可能因为一次爆胎而失控，超音速飞行的飞机则可能因微小的扰动而空中解体。美国的高性能战斗机F-22为了追求极致的机动性，其气动外形被设计成“静态不稳定”的。如果没有毫秒级的超高精细控制，这架飞机在起飞瞬间就会失控解体。
+</p>
+
+<p>
+在这些场景下，控制不再是“锦上添花”，而是让“锦”得以存在的先决条件。控制技术从“锦上添花”变成了“雪中送炭”。没有控制，再先进的设计也只是空中楼阁。
+</p>
+
+<p>
+控制技术无法凭空创造质变，但它让质变后的系统变得可控、可复现、可依赖。而在某些极端场景下，它直接决定了系统能否成立。
+</p>
+
+<p>
+那么，一个反馈控制系统到底由哪些部分构成？为什么有时候换了更好的传感器，系统性能却没有提升？为什么算法很先进，执行器跟不上还是白搭？
+</p>
+
+<p>
+下一章，我们将用木桶原理来拆解控制回路的五大要素，并介绍如何诊断一个控制系统的短板。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-orgdb91dfa" class="outline-2">
+<h2 id="orgdb91dfa"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-orgd819643" class="outline-2">
+<h2 id="orgd819643"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-orgcaacd4d" class="outline-2">
+<h2 id="orgcaacd4d"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-orgbe8f80f" class="outline-2">
+<h2 id="orgbe8f80f"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-org491129c" class="outline-2">
+<h2 id="org491129c"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-org0124506" class="outline-2">
+<h2 id="org0124506"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org2dba619" class="outline-2">
+<h2 id="org2dba619"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-org967d2e6" class="outline-2">
+<h2 id="org967d2e6"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-org70ab9a9" class="outline-2">
+<h2 id="org70ab9a9"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org5a05a25" class="outline-2">
+<h2 id="org5a05a25">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">严格来说，“开环控制”这个名称是在“闭环控制”出现之后才被追认的。在闭环概念诞生之前，没有人管生火做饭叫“开环控制”——那就是“控制”本身。就像彩色电影出现之前，没有人特意说“黑白电影”。而且，“开环”这个词也容易让人误解，以为存在一个“环”被打开了。实际上，开环控制系统自始至终就没有环。更准确的说法或许是“无反馈控制”，但“开环”这个名称早已约定俗成。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">顺序控制，Sequential Control。逻辑编程控制（PLC）就是专长于此。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">唐代诗人孟浩然的诗《春晓》</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">在早期的人工装配线上，为了最大限度地压缩时间，管理者甚至会用定时节奏来驱动工人动作。卓别林在电影《摩登时代》中，对这种把人当作机器、让人服从流程的方式，做出了辛辣的讽刺。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“拉普拉斯妖式”（Laplace's Demon）描述了一种对世界的理解方式：世界是完全由因果律决定的。只要知道当前所有事物的精确状态（位置、动量等）和物理定律，就可以完美地预测未来的一切，也可以倒推出过去的一切。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">严格来说，现实中的开环控制很少是纯粹的开环。射击虽然在子弹出膛后无法修正，但优秀的射手会根据前一次的结果，调整下一次的参数；高尔夫球一旦击出便不再受控，但正是通过无数次击球后的反馈，人才能逐渐形成稳定的技术。从这个角度看，人类本身，就是一个在更大时间尺度上工作的“闭环系统”。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">有人总结的简版L0到L5：
+L0： 啥都没有，纯手工; L1：不用腿; L2：不用手; L3：不用眼; L4：不用脑; L5：不用人。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">凯特斯比斯（Ctesibius，又译 Ktesibios），约公元前285-公元前222年，是古希腊托勒密王朝时期著名的工程师、发明家和气体力学奠基人，常被认为是“空气动力学之父”与自动控制思想的早期先驱。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">詹姆士·瓦特（James Watt），苏格兰发明家，蒸汽机的改进者。飞轮调速器: Flywheel Governer.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">飞锤调速器的应用实例见本书封面。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11" role="doc-backlink">11</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">工业控制器一般都有自动模式和手动模式，对应自动控制和手工控制。自动控制失败时，会自动降级（shed)到手动模式。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12" role="doc-backlink">12</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">报警。通常报警有两种方式：声音和灯光，也就是听觉报警和视觉报警。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13" role="doc-backlink">13</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这就是所谓的“鱼嘴分四六”的原则。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14" role="doc-backlink">14</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">可以设想一下，如果李冰父子在当时就有能力建造大坝、制造巨型水闸、可以使用大功率水泵，那都江堰工程就可能完全是另一个样子，可能就像一个三峡工程了。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

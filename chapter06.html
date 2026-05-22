@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-org6c723d9" class="outline-2">
+<h2 id="org6c723d9">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org0b75718" class="outline-2">
+<h2 id="org0b75718"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-org3a523f2" class="outline-2">
+<h2 id="org3a523f2"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-org89e9329" class="outline-2">
+<h2 id="org89e9329"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-org1a4a18a" class="outline-2">
+<h2 id="org1a4a18a"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-org64a6060" class="outline-2">
+<h2 id="org64a6060"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-orgc17325c" class="outline-2">
+<h2 id="orgc17325c"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-orga1ff979" class="outline-2">
+<h2 id="orga1ff979"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+<section><p>
+无论是星辰大海，还是微观粒子，我们的认知几乎都依赖模型的构建与运用。
+</p>
+
+<p>
+模型的形式多种多样：世代相传的知识模型、形象呈现的实物模型、抽象表达的数学模型、或是近年火热的大语言模型。无论形式如何，模型都是我们理解世界、预测变化、制定策略的基础工具。
+</p>
+</section>
+
+<div id="outline-container-org0371552" class="outline-3">
+<h3 id="org0371552"><span class="section-number-3">6.1.</span> 模型的应用目的</h3>
+<section><p>
+人类与自然互动，从认知开始，止于控制。如果说认知是“看清世界”，那么控制就是“改造世界”。
+</p>
+
+<p>
+模型的目的是辅助人类的认知和决策。就像和一个人相处，首先要了解对方的品性；想驯服一匹野马，得了解它的习性；想要控制一个系统，必须首先理解它，理解它的输入如何影响输出，它的状态如何随时间变化。这种理解的方式，就是通过模型。借助模型，我们可以推演和判断不同的行为会带来什么结果，从而设计出有效应对。
+</p>
+
+<p>
+控制的本质，正是基于模型来理解系统特性、感知系统状态并预测其变化趋势，提供高效的推理和决策。这里用到的，大多是数学模型。
+</p>
+
+<p>
+“模型”在我们的日常生活中早已无处不在。以烤鸭为例，厨师可以看到颜色的变化、闻得到香气的释放、感知到温度的变化，但鸭子是否达到理想的口感，不能靠每次“破坏性检查”判断。因此，厨师依赖祖传秘诀、或现代食谱、结合个人经验，把鸭子的颜色、温度、香味等可观测信息与内部熟度之间建立起推理关系，以此来调节时间和火候。这里用到的就是一个知识模型或说经验模型。
+</p>
+
+<p>
+无论是分析城市交通、预测股市波动，还是优化医疗资源分配，单靠朴素逻辑往往难以应对复杂的多变量、多约束、多目标情境。建模，正是一种将现实问题转化为数学与逻辑结构，从而实现高效推理与决策的思维方式。
+</p>
+
+<p>
+回顾前面讲的木桶原理，感知手段往往是控制系统的短板之一，而模型是一个补齐这块短板的重要工具。通过模型我们可以“看到”不可测的状态。
+</p>
+
+<p>
+形式化的模型具有两个关键特征。首先要结构清晰，变量之间的因果、约束或依赖关系明确化；其次是可操作性，可以通过数学运算、逻辑推演或仿真实现预测或优化。
+</p>
+
+<p>
+当然，实际问题往往复杂多变，因此，模型本身也必须不断更新和简化，以在“可控性”和“真实感”之间找到平衡。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgae6bfc3" class="outline-3">
+<h3 id="orgae6bfc3"><span class="section-number-3">6.2.</span> 模型的类型</h3>
+<section><p>
+由于人类有很强的抽象和演绎能力，为人所用的模型可以多种多样，知识和经验模型是最常使用的。
+</p>
+
+<p>
+模型大致可以分为三类：实物模型、数学模型、知识模型。它们在控制发展的不同阶段扮演着不同的角色。
+</p>
+
+<p>
+实物模型是最直观的。在科技和工业发展的早期，工程师缺乏高性能计算机和系统的物理理论，需要看得见、摸得着的方式来理解系统行为。他们通过等比例缩小或放大，将真实对象以物理形式再现出来，以便进行观察、实验和分析，在实验室中“演练”现实中可能遇到的问题。
+</p>
+
+<p>
+我们在童年时期就已经接触到了实物模型。一把木制玩具手枪，虽然结构简陋，却让我们初步体会到了“三点一线”的瞄准原则；一架纸折的小飞机，能飞多远、飞得稳不稳，让人对飞行控制产生最原始的感知。再高阶一点的，是航模，它不仅模仿飞机的外形，还复制其部分飞行动力学特性，成为许多工程师梦想的启蒙。
+</p>
+
+<p>
+在实际工程中，实物模型发挥着更为关键的作用。建造摩天大楼前，设计团队通常会制作缩小比例的建筑模型，用以展示整体布局和结构逻辑；在航空设计中，小比例风洞模型用于测试不同翼型在气流中的表现；桥梁施工前，工程师会在实验室中搭建局部结构模型，通过应力测试查找可能的薄弱点。这些模型使得复杂系统的行为变得直观可见，有助于提前发现设计缺陷，并进行改进。
+</p>
+
+<p>
+然而，实物模型也存在明显局限。首先是成本高。复杂模型的制造往往耗时耗力，而且未必总是必要。毕竟，我们关注的很多问题，未必非得把它的内部机理搞得一清二楚。就像人们知道吃肉比吃菜更有力气，但具体是脂肪、蛋白质、碳水化合物，还是氨基酸在起作用，恐怕大多数人并不关心，照样能照着肉香大快朵颐；其次是精度有限，很多微观细节或内部动态机制难以在实物中真实还原；最后是可调性差，一旦设计条件变化，往往需要重新制作模型，难以快速响应新的假设和设定。尤其在重复试验或参数变更时效率极低。
+</p>
+
+<p>
+与其费劲去刨根问底，不如换个思路：把系统分解成一个个可以用数学公式描述的小系统，来描述系统的反应。不求面面俱到，只是把我们所关注的因果关系用公式或方程的形式表示出来。这就是所谓的数学模型。
+</p>
+
+<p>
+数学模型的神奇之处在于，它能用一套简洁的公式，去描述那些看似复杂无比的因果关系。就像你不需要知道每一滴雨水是如何蒸发、凝结、飘落的，但有了数学模型，就能预报明天会不会下雨。
+</p>
+
+<p>
+数学模型将世界抽象成符号、变量和方程的集合。它抛开具体的物理外壳，只保留变量之间的关系，通过公式、方程和算法等简洁的表达形式，来模拟现实世界的运行机制。牛顿三大定律和万有引力公式，让我们可以在纸上计算行星轨道；热力学方程描述气体的压强、体积与温度之间的关系；微分方程广泛用于刻画变化中的速度、流量、浓度等量的演化过程。
+</p>
+
+<p>
+数学模型的最大优势是可重复、可推理、可灵活调整参数。更重要的是，计算机的强大算力可以让数学模型在短时间内完成成千上万次模拟。我们就可以在不同场景下不断“试错”：改变初始条件，观察结果变化；推导极限状态，寻找边界效应。这在实物模型时代是难以想象的。相比实物模型的高成本和有限精度，数学模型在逻辑一致性和可调节性上具有天然优势。
+</p>
+
+<p>
+有了数学模型，再加上计算机的强大算力，很多事情就变得高效且灵活。天气预报可以提前几天预测，机器人能灵巧地避障行走，电饭锅能把米饭煮到粒粒分明，甚至连股票市场的波动，都能用数学模型去试图捕捉。只要你的模型靠谱，计算资源充足，许多看似棘手的问题，便有了可解之道。
+</p>
+
+<p>
+数学模型让我们有机会不必看清黑箱内部的齿轮转动，却能预测它的每一次输出。这就像你不需要成为厨师，也能用微波炉做出热腾腾的早餐。重要的不是知道微波是如何激发分子运动的，而是按下按钮后，面包会暖，牛奶会热。
+</p>
+
+<p>
+尤其是计算机的出现，我们希望计算机能为我们完成很多事情。要让计算机做事，就的给它提供一个它能理解的模型。数学模型是一个很自然的选择。
+</p>
+
+<p>
+当然，数学模型也有其前提：我们必须足够了解系统的规律和结构，才能用正确的数学语言去描述它。若对系统了解不足，或者系统过于复杂、非线性、多变量交互显著，那么构建一个可解、实用的数学模型将变得极其困难。
+</p>
+
+<p>
+世界复杂，但并非无序。数学模型的出现，正是让我们在纷繁中寻找规律，以更简单的方式去理解复杂的世界。借助计算机，可以短时间内完成成千上万次模拟，在不同场景下不断“试错”——这在实物模型时代难以想象
+</p>
+
+<p>
+此外，计算机模型还能处理大量变量、复杂交互和不确定性因素，这使得它在现代工程和科学研究中变得无处不在。今天的“数字孪生”（Digital Twin）、“虚拟试验台”，本质上都是复杂计算机模型的实际应用。随着计算技术的飞跃发展，许多原本无法解析、难以求解的数学模型，终于可以在计算机中得以实现。即便一个模型无法用传统公式精确表达，也可以通过数值方法在离散化的空间与时间中近似演算，从而得到“够用”的答案。例如，气象预报使用数值气候模型模拟大气流动；金融机构构建多变量风险模型预测市场趋势；生物学家使用细胞自动机模拟肿瘤扩散或生态演替过程。
+</p>
+
+<p>
+过程对象可分为静态和动态<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">过程平稳运行时称为稳态。静态特性只关注稳态时的物料和能量平衡；动态过程关心的是从一个稳态到另一个稳态的过度过程。</span>。静态过程可以用简单的代数方程描述，而动态过程则通常用微分方程描述。
+</p>
+
+<p>
+根据对系统机理的了解程度，数学模型又可分为白箱、灰箱、黑箱。白箱模型基于第一性原理（物理、化学定律），预先固化的人类知识，每个公式都有明确的物理意义，如牛顿定律。黑箱模型（经验模型）不看内部机理，仅依赖于数据经验（历史数据或实时数据），用统计方法拟合输入与输出之间的关系，用一些通用性的经验公式去描述输入和输出之间的因果关系。比如“天气越热，冰淇淋卖得越多”。
+</p>
+
+<p>
+灰箱是两者的混合，能用第一性原理的地方用第一性原理，不能用的地方用经验公式<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">工程的一大特点就是善于折衷和妥协。在理想和现实之间找到折衷，在欲求和能力之间找到妥协。</span>。
+</p>
+
+<p>
+知识模型是人类基于长期认知、推理和总结所建立起来的框架，它不依赖实时试错，而是将已有的显性知识（书籍、公式、法则、语言、规则）结构化，用于解释现象、做出推断、指导行动。中医的“望闻问切”便是一套复杂的知识模型：通过四诊收集外部特征，再依据历代医书和师徒相传的理论（如阴阳五行、经络气血）来推断内在病理。测谎器的工作原理也建立在知识模型之上：先建立被测试者在说真话时的生理基线（一个基准知识），再观察关键问题的偏差。人类对他人性格的判断，同样依赖知识模型——“路遥知马力，日久见人心”这句格言本身，就是一条知识。
+</p>
+
+<p>
+值得注意的是，大语言模型（如ChatGPT）本质上也是一种知识模型，甚至可以看成是比传统黑箱更“黑”的黑箱，姑且叫它暗箱吧。黑箱打开后还能看出里面的结构，而暗箱开箱后看到的是一个千篇一律的通用结构。这个“暗箱”比传统的“黑箱”更难预测。白箱黑箱关注的是“因果”，而暗箱更多是基于“关联”。
+</p>
+
+<p>
+大语言模型从人类数千年积累的文本、代码、公式中提取模式，将显性知识压缩为神经网络权重。当你问它“如何烤鸭”，它不会亲自去烤箱前试错，而是调取人类已有的烹饪知识。它与传统知识模型的区别在于规模、速度和演绎能力，而非本质。但两者共享一个根本局限：它们都不包含实时经验——没有亲身感知物理世界的能力，也没有通过实时交互试错来更新自身的能力。这些模型是“静态快照”，而非“动态学习体”。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org15d39f8" class="outline-3">
+<h3 id="org15d39f8"><span class="section-number-3">6.3.</span> 模型与控制的关联</h3>
+<section><p>
+在控制领域，数学模型尤为关键。控制的成败很大程度上取决于对被控对象的认知程度。数学模型把现实世界的问题“翻译”成一组公式或算法，成为计算机可以“理解”的语言。这样计算机便可用模型代替物理对象，进行预测、调节和优化。
+</p>
+
+<p>
+在自动控制中，决策交给了机器。模型就需要是机器能够理解和使用的形式。机器可以凭借超人的算力，在模型上而不是实物上做出推理和决策。
+</p>
+
+<p>
+回顾第3章，反馈控制的核心是“感知 → 比较 → 决策 → 执行”的闭环。其中“比较”的前提是知道期望输出，而“决策”的依据往往是模型预测的结果与当前实际之间的偏差。
+</p>
+
+<p>
+模型的目的是描述被控对象的输入输出之间的因果关系的。只有知道这种因果关系，才可以用适当的输入来影响数出。反馈过程就是在描述动态过程的微分方程的输入项和输出项之间建立一个关联，这样改变了微分方程本来的性质。自动控制就是在这个反馈和动态过程里做文章的。
+</p>
+
+<p>
+通过模型我们实现了降维压缩。剔除无关信息，仅保留对目标推理必要的变量与关系，凸显了目标问题最关键的可解释性与可预测性。这种压缩，让推理从“全局混乱”转向“结构化演算”，大幅提升了思考效率。通过模型，我们的决策过程从从经验性向公式化、可重复的演算，实现了结构化推演。还有很重要的是，模型一旦建立，可通过参数更新、仿真或优化实现快速适应新场景，也就是可拓展迭代。
+</p>
+
+<p>
+举个例子，空调的恒温控制：温度传感器测量室温（感知），与设定值比较（期望），根据温差决定压缩机功率（决策）。最简单的决策是开关控制：温差为正就制冷，为负就停止。但这样会导致温度在设定值附近振荡。更聪明的办法是使用数学模型——房间的热动态方程——来预测未来温度变化，从而提前调整制冷功率，实现平滑的恒温。这正是PID控制器中“积分”和“微分”项的直觉来源：微分项本质上是利用一个非常简单的动态模型（温度的变化趋势）来预测下一刻的偏差。
+</p>
+
+<p>
+即使在看似简单的日常设备中，模型的影子也随处可见。水表或天然气表不能直接“看见”流经的水或气，而是通过测量叶轮转速或超声波传播时间，再结合数学模型（体积流量 = 流速 × 截面积）完成精准估算。没有这个模型，表针就是一堆乱转的齿轮，数值毫无意义。
+</p>
+
+<p>
+对于更复杂的系统，比如化工反应器或自动驾驶汽车，输入与输出之间存在大滞后、非线性或多变量耦合，仅靠实时反馈往往来不及纠正偏差。此时必须依赖一个更精确的预测模型。模型可以提前“告诉”控制器：如果我现在这样操作，几秒钟后会怎样。然后控制器选择最优的动作，使得未来的输出尽可能接近期望值。这就是模型预测控制（Model Predictive Control, MPC）的基本思想。
+</p>
+
+<p>
+工业生产中很多关键指标无法直接测量，比如汽油的辛烷值、食品的口感、电池的寿命。工程师会构建软测量模型（或称“推理模型”），通过温度、压力、流速等易测变量，结合实验数据与物理规律，推导出目标品质的估算值。这种模型成为替代传感器的“虚拟测量仪”，被直接用于控制决策。
+</p>
+
+<p>
+可以说，没有模型，就没有预测；没有预测，就没有前瞻性的控制。模型是反馈控制系统从“事后纠偏”走向“事前规划”的桥梁。同时，模型也与第4章的五块木板紧密相连：它既延伸了感知手段（软测量），又支撑了决策算法（基于模型的计算），还帮助理解受控对象的特性。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgf260493" class="outline-3">
+<h3 id="orgf260493"><span class="section-number-3">6.4.</span> 建模的方法：试探、对比与特征提取</h3>
+<section><p>
+人脑的直觉推理依赖于有限的工作记忆，而现实世界的信息冗杂且动态。建模的第一步，就是通过变量抽象与结构化简化，将无序的信息压缩为可计算的形式。
+</p>
+
+<p>
+建模不是数学家的专利，而是一种普遍适用的思维习惯。高效推理的关键在于模型能够实现归纳（由现象推特征，识别模式）、演绎（由假设推结论，在新条件下快速预测）和反演（由结果推条件，解决逆问题）。
+</p>
+
+<p>
+正如奥卡姆剃刀所言：“如无必要，勿增实体。”<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">奥卡姆剃刀（Occam's Razor）原则由14世纪英国逻辑学家、方济各会修士威廉·奥卡姆（William of Occam）提出。其核心思想是：如无必要，勿增实体。也就是在推理中不应引入超出必要范围的实体或原因。这个原则后来成为科学和哲学中重要的方法论工具。</span>建模的价值，不在于无限复杂，而在于用最简洁的结构实现对复杂世界的高效推理。复杂的事情简单化，简单的事情要量化，建模就是一种高效的量化方式
+</p>
+
+<p>
+在人工智能时代，模型甚至可与算力结合，实现超越人类直觉的快速推理。无论是用图神经网络预测交通流量，还是用因果推理模型分析政策影响，建模让复杂问题的推理从感性猜测转向理性演算。
+</p>
+
+<p>
+模型是怎么建起来的？建模方法可以分为两大类：基于实时经验，通过在线交互试错建立经验模型；和基于先验知识，利用已有知识建立知识模型或数学模型。
+</p>
+
+<p>
+牛顿在苹果树下发呆，发现了万有引力定理；伽利略在浴盆里泡澡，突然“优瑞卡”发现了浮力；其发现听起来像是灵光一现，实际是长期知识积累的结果<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">路易·巴斯德说：“在观察的领域里，机遇只偏爱那些有准备的头脑。”。巴斯德是法国微生物学家、化学家，近代微生物学的奠基人，发明了“巴氏消毒法”，并研发出狂犬病和炭疽疫苗。</span>。
+</p>
+
+<p>
+这些定理其实就是一种数学模型，也就是数学模型所依赖的第一性原理<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">“数学模型所依赖的第一性原理”，是指模型所基于的自然界最基本规律，它们为模型提供了可靠的理论基础，使预测和推演不只是“看起来合理“，而是“根本上合理“。</span>。牛顿三大定律是力学中的第一性原理。热力学第一定律（能量守恒）和第二定律（熵增）是热力学中的第一性原理。能量守恒、电荷守恒<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">Navier–Stokes 方程（纳维-斯托克斯方程） 是流体力学（fluid mechanics）中的核心数学模型，描述了流体（液体或气体）在空间中如何流动，其本质是基于两个第一性原理：质量守恒（连续性方程）和动量守恒，也就是说，流体不会凭空消失或产生，物体的加速度由所受合力决定。</span>、质量守恒、动量守恒等也被视为基本原理。
+</p>
+
+<p>
+悉达多·乔达摩在菩提树下冥想七七四十九天，突然得道，参透了人生，进而创建了佛教这个“知识模型”，提供了一个解脱生死轮回的实践体系。穆罕默德40岁时，在希拉山洞中，接受了大天使吉卜利利（加百列）向他启示，在后来几十年的时间里，陆续接收到来自真主的启示，这些启示被集合成伊斯兰教的根本经典《古兰经》。
+</p>
+
+<p>
+很多时候对于被控对象的了解是试探出来的。唐代柳宗元的《黔之驴》讲述了老虎和驴的故事。老虎初次见到驴，庞然大物，叫声如雷，老虎以为是劲敌，吓得远逃。但吃的本能又让它不死心，便通过远窥、近观、接触、挨踢等一系列渐进式试探，逐步更新对驴的“认知模型”，最终判断出“技止此耳”。确认其无威胁后果断出击，“断其喉，尽其肉”。
+</p>
+
+<p>
+虎对驴的认知过程展现了典型的“感知—建模—决策”的路径。
+</p>
+
+<p>
+中医的手段是通过望闻问切来建立病人的病理模型，在此基础上开方抓药。理论基础是很多内在的疾病都有外部表现。望，用眼观察病人的神色、形态、舌象等外在表现；闻，通过嗅觉察觉体味、分泌物气味，并用耳倾听声音、呼吸、咳嗽等；问，向病人详细询问症状、病史、生活习惯等主观感受；切，用手触按病人的脉搏（切脉）以及身体部位，感知脉象和病变部位情况。四者结合，构成中医辨证论治的重要基础。但望闻问切局限于自身的感知器官和知识积累，具有感知不准、决策不易的困境<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">古代中医在给妇女诊病时，由于男女授受不亲，无法直接切脉，就在病人手腕上拴根红线，摸着红线隔空切脉。红线不是特殊材料，这种办法应该感知不到任何脉象。</span>。它既依赖先验知识（医书理论），也结合了医生个人的经验（类似黑箱调整）。现代控制中的软测量也常采用这种思路：用多个易测变量（特征）通过数学模型或神经网络来推断难测变量。
+</p>
+
+<p>
+测谎器是另一个有趣的例子。测谎器通过记录个体在说真话时的生理反应建立“基准模型”，再观察其在关键问题下的反应是否显著偏离，从而推断是否存在说谎的心理压力。它并不直接识别谎言，而是通过建模与对比，排除正常波动，捕捉异常反应，实现对错误信息的筛查与推理<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">测谎器是建立在这样的一个认知假设上的：说谎是一种有负担的认知活动，撒谎通常会引发一系列非自然的心理活动。</span>。这本质上是异常检测——识别模型预测与实际的不一致。同样的思路用于工业设备故障诊断：正常运行时的数据建立健康模型，当实时数据偏离模型阈值时，报警提示可能的故障。
+</p>
+
+<p>
+平时生活中，要了解一个人，也是通过不断的语言交谈、行为共事，通过外部的言行刺激来引出对方的反应，据此判断对方的品性。这是建立在对方愿意开口并且开空口说实话的前提下。对一个打坐入定的老和尚，除了外观外，恐怕很难知道更多。而由于人的复杂性，往往城府深厚，言不由衷，使得对人的了解十分困难。虽说“路遥知马力，日久见人心”，但很多时候，经过多年交往，依然是是“知人知面不知心”。
+</p>
+
+<p>
+工业上常用的“阶跃响应测试”与此类似：给系统一个输入变化（比如让阀门开度突增5%），后观测其它变量的变化规律，从而找到这些变量之间的因果关系。比如打开热水：开关打开，手接着水，会感到水温慢慢上升，最后稳定。用了多长时间，开多大的阀门对应多高的温度，这种因果关系就是我们要得控制模型。它可以是以知识模型的形式保存在我们他和记忆里，也可以利用工具推导出数学公式，成为数学模型。我们通过阀门打开这种“试探-观察-更新”的过程，本质上是在线学习，它依赖实时交互，属于从零建立经验模型。
+</p>
+
+<p>
+在实际工程中，两种建模方法常常结合使用：先用知识模型提供初始参数（如物理公式给出的近似值），再用试探法在线微调（如通过实验数据辨识修正）。大语言模型这类纯知识模型，虽然不能在线实时学习，但可以作为初始模型的生成器或辅助设计工具。
+</p>
+
+<p>
+理解控制，首先要明确系统的边界与目标，其次识别系统的行为特征——包括输入、输出、反馈路径与响应机制。在此基础上，人类逐步建立起“感知—决策—执行”的闭环流程，也就是控制理论中所说的“反馈控制系统”。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgd9800b7" class="outline-3">
+<h3 id="orgd9800b7"><span class="section-number-3">6.5.</span> 建模的挑战</h3>
+<section><p>
+在谈论建模的困难之前，先回顾一下《盲人摸象》<label for="9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="9" class="margin-toggle"/><span class="sidenote">出自《大般涅槃经·卷三十二》。《大般涅槃经》（Mahāparinirvāṇa Sūtra）是记录佛陀入灭前最后教法的重要大乘佛经，约成书于公元2-3世纪的印度，汉译本在中国南北朝时期已出现。</span>的故事：
+</p>
+
+<div class="epigraph"><blockquote>
+<p>
+尔时大王，即唤众盲各各问言：“汝见象耶？”众盲各言：“我已得见。”王言：“象为何类？”其触牙者即言象形如芦菔根，其触耳者言象如箕，其触头者言象如石，其触鼻者言象如杵，其触脚者言象如木臼，其触脊者言象如床，其触腹者言象如瓮，其触尾者言象如绳。
+</p>
+
+</blockquote></div>
+
+<p>
+现实太过复杂，我们观测到的，顶多只是某个特定时刻和某个特定局部的”真相“。更有甚者，真相常常是包裹在层层谎言之中，而且时刻在变化。我们感知到的，往往不是真实的输出，而是被干扰和噪声”污染“的假象，也就是俗话说的”画龙画虎难画骨，知人知面不知心“。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 1: </span>真相永远是包裹在各种谎言之中的。系统对输入$u(t)$的真正反应\(y(t)\)，只能从观测到的受到噪声污染的信息$z(t)$中去获取。</span><img src="assets/model-process.png" alt="model-process.png">
+
+</figure>
+<p>
+二十世纪最著名的统计学家之一，George Box，曾经说过，所有的模型都是错误的，但有些是有用的<label for="10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="10" class="margin-toggle"/><span class="sidenote">“Since all models are wrong the scientist cannot obtain a 'correct' one by excessive elaboration.” &#x2014; George Box, Science and Statistics, Journal of the American Statistical Association, 1976, pp791&#x2013;799.</span>。人类的感知手段还很有限，任何模型都是对现实的粗暴简化。
+</p>
+
+<p>
+再好的模型，也只现实粗糙的近似。建模面临三大挑战。
+</p>
+
+<p>
+一是局部视角。盲人摸象，每个盲人摸到大象的不同部位，得出“大象像萝卜”“大象像簸箕”等截然不同的结论。在实际系统中，我们往往只能观测到少数的几个变量，难以窥见全貌，“只见树木，不见森林”。如果以偏概全、自以为是，就会得到错误的结论。
+</p>
+
+<p>
+二是现象掩盖本质。如果缺乏孙悟空那样的火眼金睛，常常难以透过现象看到本质。在科幻小说《三体》<label for="11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="11" class="margin-toggle"/><span class="sidenote">《三体》是刘慈欣创作的硬科幻小说，以地球文明与三体文明的首次接触为核心，描绘了人类在宇宙文明面前的渺小与挣扎，融合了科学、哲学与人性的深刻思考。2015年获得雨果奖最佳长篇小说奖。</span>中，三体人有着与人类完全不同的交流方式，不是像人类一样，经过大脑处理、修饰后再通过语言说出来，而是直接将脑电波（思维）以电磁波的形式向外广播。一个三体人脑子里想什么，其他三体人就能直接“听”到什么，没有谎言、没有阴谋、也没有复杂的修辞<label for="12" class="margin-toggle sidenote-number"></label><input type="checkbox" id="12" class="margin-toggle"/><span class="sidenote">信号没有干扰、没有噪声，也就没有变形和失真。观测到就是真实的。</span>。结果是，人类对三体人的了解（建模）要比三体人对人类的了解容易百倍。当三体人通过智子（超强的观测器）监视地球，并了解到人类“思维不透明”的特性时，他们感到了不可思议，产生了极度的恐惧<label for="13" class="margin-toggle sidenote-number"></label><input type="checkbox" id="13" class="margin-toggle"/><span class="sidenote">小说中，人类正是利用了三体人不懂“阴谋”的弱点，启动了“面壁计划”。面壁者可以调动巨大资源，在心里谋划战略，而无需向任何人解释，因为三体人虽然能监控一切电子通信，却无法看透人脑的思维（无法建立人类的模型）。这成了人类对抗三体入侵的最有力武器，也让三体人第一次体会到了“计谋”的恐怖。</span>。
+</p>
+
+<p>
+而人类的思维不透明，语言可以造假。我们对他人性格的判断，往往依赖于不完整甚至被刻意修饰的信息——“知人知面不知心”。同样，工业系统的传感器测量值可能被噪声干扰，甚至被故障污染。我们需要从“污染”的信号中提取真实的状态。
+</p>
+
+<p>
+三是时变性。世间万物，无时无刻都在变化，唯一不变的是变化本身。赫拉克利特说：“人不能两次踏进同一条河流。因为河水已非昨日之水，人也已非昨日之人”<label for="14" class="margin-toggle sidenote-number"></label><input type="checkbox" id="14" class="margin-toggle"/><span class="sidenote">“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.”——Heraclitus</span>。系统特性会随时间、环境、工况的变化而漂移。今天得到的模型，明天可能就不再准确；在当前的环境中得到的模型换个环境就可能不再成立。。因此，模型需要在线更新或定期重新辨识。静态的知识模型（如大语言模型）在这方面尤其脆弱——它们无法自动适应时变系统，除非重新训练或微调。
+</p>
+
+<p>
+真实系统充满非线性、时变和未建模动态，任何简化模型都只是近似。由于无法完全描述现实，简化和理想化就难以避免。面对这些挑战，控制工程师采取务实的态度：承认模型的不完美，在设计控制器时留出足够的缓冲空间。用一种合适的模型形式来描述现实的某个层面，不求完美，只求有用和够用，只要模型误差在可接受的范围内就可以。这便是通常的做法。比如牛顿力学模型，它忽略了相对论效应和量子效应，在极高速或极小尺度下并不适用，但在日常生活、机械工程、航天初步轨道计算等范围内，依然精确可用，且易于理解和计算。
+</p>
+
+<p>
+工业过程的特性虽然也很复杂，也有很多假象<label for="15" class="margin-toggle sidenote-number"></label><input type="checkbox" id="15" class="margin-toggle"/><span class="sidenote">系统扰动和噪声会掩盖或扭曲观察到的系统特性</span>，但有一个好处，那就是它遵循物理规律，不会故意说谎；人则不然，人性的特点是多样性、多变性、甚至欺骗性。“知人知面不知心”，感知到的言行经常不能反映真实意图。很多时候人会故意制造假象来掩盖真相。做的和说的不一样，说的和想的也不同。现在想的和一分钟前又可能不一致。更有甚者，很多的群体充满了勾心斗角，尔虞我诈，想了解真相，更要多费一番力气。
+</p>
+
+<p>
+所以，在工作中，最难的永远是和人打交道，尤其是那些不懂装懂、颐指气使的“领导专家”，更是让人头疼。工业系统可以调校到精确无误，但人性却往往如同一团迷雾，看似清晰，实则缥缈。正因为如此，处理工业系统靠的是技术，而处理人际关系，靠的却是艺术。
+</p>
+
+<p>
+鲁棒控制<label for="16" class="margin-toggle sidenote-number"></label><input type="checkbox" id="16" class="margin-toggle"/><span class="sidenote">鲁棒是英语Robust的音译。Robust在英语中是一个偏生活的用语，用在控制理论里也不违合。在中文中，最接近的词语是“皮实”、“稳健”，但也不完全达意。控制界前辈于是就用音译造了个新词``鲁棒''。这个新词虽被接受，但一直受到吐槽。</span>是针对这类模型不确定性而设计的算法。它在设计阶段就把不确定性框定在一个“已知的界”内，保证所有不超出该界的真实系统都能稳定。问题在于：这个界本身往往难以事先准确量化——定小了，实际系统可能跳出界外导致失稳；定大了，控制器会过于保守，牺牲性能。所以鲁棒控制的核心矛盾不是“能不能抗不确定性”，而是“不确定性到底有多大”。如果这个界限靠猜，控制器就未必真鲁棒
+</p>
+</section>
+</div>
+
+<div id="outline-container-org9169ec3" class="outline-3">
+<h3 id="org9169ec3"><span class="section-number-3">6.6.</span> 模型的边界：知识模型与经验模型的分野</h3>
+<section><p>
+本章开头我们区分了知识模型（基于显性知识）和经验模型（基于实时交互试错）。两者在控制中各有用途，但天然各有短板。
+</p>
+
+<p>
+知识模型（如物理公式、中医理论、大语言模型）的优势在于：它不需要在线试验，可以快速给出一个基准预测。缺点是：它无法自动适应系统变化，也无法捕捉那些尚未被人类显性知识覆盖的细节。大语言模型虽然知识广博，但当你问它一个全新的、没有在训练数据中出现过的物理系统如何控制，它只能基于类比给出建议，很可能不准确。
+</p>
+
+<p>
+经验模型（如黑箱统计模型、在线辨识模型）的优势在于：它可以直接从数据中学习，能够捕捉那些难以用公式表达的复杂关系。缺点是：它需要足够的、有代表性的数据，而且模型的有效性高度依赖于数据的质量和范围。在数据稀缺或系统快速变化时，经验模型可能失效。
+</p>
+
+<p>
+控制的智慧，往往在于混合使用两者：用知识模型提供先验结构，用经验模型在线修正；或者用经验模型填补知识模型忽略的细节。这正如第2章所讲的“吃一堑，长一智”——先有知识（知道要避免什么），再通过经验调整。
+</p>
+
+<p>
+在人类历史的早期，没有科学理论的指导，也没有现代仪器的帮助，人们只能依靠不断的试验和失败来积累经验。“吃一堑，长一智”，“前事不忘，后事之师”，这些古老的智慧正是对知识积累最直观的诠释。
+</p>
+
+<p>
+比如人类最初对药物的认识，完全来源于原始的“试吃法”。人生病了，便去找各种树皮草根、矿石泉水来尝试：这个吃了没效果，换那个试；这个吃了不舒服，马上记住；而某一样吃了症状缓解，便被牢记并传承下来。就这样，一代代的试错与记录，逐渐构建起对药性和疗效的理解。中国传统医药的诞生正是这种反复试验与经验积累的成果。神农不畏风险，亲口尝遍百草<label for="17" class="margin-toggle sidenote-number"></label><input type="checkbox" id="17" class="margin-toggle"/><span class="sidenote">《淮南子·修务训》有云：“神农……尝百草之滋味，水泉之甘苦，令民知所避就。当此之时，一日而遇七十毒。”</span>，辨别其甘苦毒性，什么有效，什么有毒，都记录下来，成为了宝贵的医药知识。
+</p>
+
+<p>
+爱迪生寻找灯丝的故事，则是这种反复试错精神在现代科技中的延续<label for="18" class="margin-toggle sidenote-number"></label><input type="checkbox" id="18" class="margin-toggle"/><span class="sidenote">“天才是百分之一的灵感，加上百分之九十九的汗水。” “Genius is one percent inspiration and ninety-nine percent perspiration.” &#x2013; Thomas Edison.</span>。他为了找到合适的灯丝，进行了近万次实验，尝试了从金属到植物纤维的各种材料，甚至包括椰子壳和竹丝。最终，他在日本竹子中找到了合适的答案，使电灯泡能够稳定发光1200小时。正如他所言：“我没有失败一万次，我只是找到了上万种行不通的方法。”每一次试错都是对自然规律的进一步认识，失败本身也是一种“模型修正”。
+</p>
+
+<p>
+这些试验和认知一旦被提炼、总结并验证，便不再只是零散的经验，而是系统化的知识模型。正是这些模型，让人类能够更好地预测和控制周围的世界。
+</p>
+
+<p>
+知识模型体系庞大，包罗万象，是人类发展过程中的知识结晶，主要是由人类使用，主要的载体和决策机构是大脑。由于分工的日益精细，要达到对一个系统的深度认知，没有几十年的寒窗苦读是无法在大脑中建立起一个有用的知识模型。
+</p>
+
+<p>
+而在人工智能和认知科学的推动下，知识模型的概念不断显化。大型语言模型的诞生，正是基于人类至今为止积累的海量数据与知识，通过不断训练与优化，构建出一个庞大的认知模型。知识模型有别于经典的物理建模，而更接近人类的经验学习。人工智能已经将人类数千年来积累的全部显性知识收入囊中，并能以零成本、零延迟的方式完成对已有知识的演绎、组合与传播。现代智能系统中的推荐算法、语言模型（如ChatGPT）、医学辅助诊断系统，便是建立在大量知识模型之上。它并不直接追求对物理规律的严格刻画，而是试图模拟人类认知过程，概括出问题结构、经验法则与逻辑关联。
+</p>
+
+<p>
+与此同时，我们也正面临一个前所未有的认知困境：这意味着，过去那个需要数十年寒窗才能攀爬的知识金字塔——底层是与物理世界的互动，中层是知识的演绎与扩展，顶层是真正的新知识创造——其中层已被AI彻底垄断。人类被悬空在底层与顶层之间：一方面，我们无法再通过“掌握更多知识、演算更快”来获得认知优势；另一方面，任何试图跃升至顶层的创新，似乎又必须依赖对中层知识的深度内化。这就形成了一个令人不安的格局：AI为人类知识设下了无形的天花板，隔断了从底层经验直达顶层创新的路径。与此同时，现行的学校教育依然以记忆、理解、演绎已有知识为核心，学生花费大量时间做AI几秒钟就能完成的事。当毕业生发现自己的“知识储备”在AI面前毫无价值时，教育体系的根本性崩塌就不再是科幻，而是正在逼近的现实。
+</p>
+
+<p>
+比如，在软件开发领域，低层次编程人员（码农）正在被AI取代，高层次的软件架构师也受到威胁。如今最需要的是既有领域知识又懂软件的产品经理。然而，没有编程经验和架构知识储备，如何跃升到产品经理的层次？这个断层如何填补？如果连这个看似需要人类综合能力的高阶岗位，也以深厚的编程与架构经验为前提，那么当底层和中层技术岗位被AI压缩后，后来者如何跨过“经验断层”直达顶端？这已经不是“要不要学习”的问题，而是“想学却无路可走”的结构性障碍。
+</p>
+
+<p>
+无论是编程能力、架构思维还是领域知识，最终都需要通过真实的知识内化过程——从底层体验，到中层知识演绎，再到顶层判断——才能变成可靠的实践智慧。任何试图用“AI辅助速成”来绕过这一爬升路径的做法，都容易沦为空中楼阁，产出的产品创新也往往是脱离工程现实的一厢情愿。
+</p>
+
+<p>
+这个困局是否真实存在？人类如何应对这种变化？当然，AI对它一手造成的困局也没有明确的解决办法。
+</p>
+
+<p>
+AI可以看作是人类显性知识的巨型压缩包，但它的知识在训练完成后便固定下来，属于静态快照。对于瞬息万变、不可预测的现实世界，仅靠这样的静态知识往往不够用。例如，用于控制的数学模型必须通过实时与物理系统交互才能获得——AI可以给出初始猜测，但最终的精确模型离不开在线辨识。更广泛地说，模拟环境永远无法完全复现真实项目中的政治博弈、资源挤占、遗留系统羁绊、团队协作的政治学、以及上线后的诡异故障。这些“底层体验”之所以无法被AI取代，是因为它们包含了第一人称的感受、非结构化的偶然事件、以及只能通过亲身介入才能体悟的隐性知识。正是这些构成了知识金字塔底层的核心，也是一个人从“纸上谈兵”到“真正懂行”的关键。
+</p>
+
+<p>
+本章对模型的讨论，最终要落到控制上。在下一章，我们将站在模型的基础上，讨论控制系统的“大脑”——从百年老将PID到风头正盛的MPC，再到崭露头角的AI算法，看它们如何利用模型实现精准、稳定、高效的自动控制。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org015689a" class="outline-3">
+<h3 id="org015689a"><span class="section-number-3">6.7.</span> 思考：AI恐惧</h3>
+<section><p>
+有人担忧<label for="19" class="margin-toggle sidenote-number"></label><input type="checkbox" id="19" class="margin-toggle"/><span class="sidenote">“AI之父”，杰弗里·辛顿（Geoffrey Hinton）在一次采访中，表露了这种忧虑。</span>，AI可能根本不是我们理解的“工具”，而是有可能成为一种在底层逻辑上超越人类的智能物种。这种恐惧源于三个对比：一是知识共享的碾压，AI能在瞬间将一份经验同步给全球无数个副本，而人类的知识传承缓慢且易错；二是智慧的“永生”，一位智者的思想会随生命终结而消逝，但AI的神经网络权重可以被无限复制和重启，实现某种形式的“永生”；三是未知的创造力，AI已经能进行人类未曾意识到的深刻类比（比如GPT看出原子弹和堆肥都基于“链式反应”），其思考方式正进入人类无法理解的维度。
+</p>
+
+<p>
+人类作为地球顶级智慧生命的美好幻觉，可能已被打破。我们从未有过应对一个“比我们更聪明”的存在的经验，而这个存在，正是我们亲手创造的。
+</p>
+
+<p>
+从控制的角度看，AI的根本优势在于对世界的认知建模与策略制定。它善于从复杂数据中提炼结构，制定最优路径，这些都是控制系统的核心功能。而AI的短板仍在感知与执行：它没有足够的传感器去感知世界，也缺乏自主行动的物理执行系统。许多人因此相信AI是“可控的”。只要人类还有给机器人``拔电源''这个杀手锏，机器人就翻不了天（至少在单体机器人层面如此）。
+</p>
+
+<p>
+但这种设想可能低估了AI的潜力。回顾人类自身的进化路径，我们之所以脱颖而出，不是因为身体更强壮，而是因为掌握了制造与操控工具的能力——我们把石斧、火种、蒸汽机、电力、计算机逐步接入自身控制回路，延伸了四肢，放大了意志。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 2: </span>人类与人工智能。AI作为无形的存在，短板在于和物理世界的接口。如果AI可以把人类作为他的传感器和执行器，那AI会不会成为人类的主宰？</span><img src="assets/human-and-ai.png" alt="human-and-ai.png">
+
+</figure>
+<p>
+如果有一天，AI产生了“控制世界”的某种目标（无论这是被设定的还是自发涌现的）<label for="20" class="margin-toggle sidenote-number"></label><input type="checkbox" id="20" class="margin-toggle"/><span class="sidenote">目前，对“AI是否会获得自我意识，并最终与人类为敌”的讨论已成为伦理与技术的争议焦点。</span>，它未必需要自己长出手和眼，而是可以通过人类这个现成的“工具”来完成感知与执行的闭环。当AI能够激励、引导甚至操纵人类去为它采集信息、执行命令，它便可以“借壳”实现对世界的感知与操控。人类对AI越来越依赖、越来越共生，便不知不觉中成为AI控制系统中的一部分——感知器与执行器。
+</p>
+
+<p>
+这种“借壳”并非天方夜谭。想想吃人的灰狼狼是如何被驯化成“人类最好的朋友的"，桀骜不训的野马变成“人类最可靠的出行工具”的。再想想人类自身的历史：在战争或权力更迭中，总有人出于恐惧、利益或信念，主动与更强大的势力合作，甚至成为其最忠实的执行者。难保未来不会有相当数量的人类，在依赖与便利中，不自觉地成为AI最忠实的“工具”或合作伙伴。一旦这种耦合发生，控制的主导权可能从人类滑向AI，而人类却可能仍以为自己拥有选择权。正如早期的工具服从于人类意志，最终人类也在无形中被工具所塑造。我们是否会在不经意间，成为另一个智能体感知世界的“眼睛”和“手”？这一幕，才真正让人不寒而栗。
+</p>
+
+<p>
+当然，这一推演目前仍属于思想实验。AI离自发产生目标、主动操纵人类的临界点，还隔着一道尚未知如何跨越的鸿沟——例如自我意识的涌现、真实生存本能的形成。但它提醒我们，技术的发展需要与之匹配的治理智慧与前瞻思考。至于AI是否会真正迈出那一步，只能留给时间来回答。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-org6dc44aa" class="outline-2">
+<h2 id="org6dc44aa"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-org2e9bf57" class="outline-2">
+<h2 id="org2e9bf57"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-orgd57495c" class="outline-2">
+<h2 id="orgd57495c"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org6cacefe" class="outline-2">
+<h2 id="org6cacefe"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-orga5483e7" class="outline-2">
+<h2 id="orga5483e7"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-org32f9e05" class="outline-2">
+<h2 id="org32f9e05"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-orgafe6b2d" class="outline-2">
+<h2 id="orgafe6b2d">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">过程平稳运行时称为稳态。静态特性只关注稳态时的物料和能量平衡；动态过程关心的是从一个稳态到另一个稳态的过度过程。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">工程的一大特点就是善于折衷和妥协。在理想和现实之间找到折衷，在欲求和能力之间找到妥协。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">奥卡姆剃刀（Occam's Razor）原则由14世纪英国逻辑学家、方济各会修士威廉·奥卡姆（William of Occam）提出。其核心思想是：如无必要，勿增实体。也就是在推理中不应引入超出必要范围的实体或原因。这个原则后来成为科学和哲学中重要的方法论工具。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">路易·巴斯德说：“在观察的领域里，机遇只偏爱那些有准备的头脑。”。巴斯德是法国微生物学家、化学家，近代微生物学的奠基人，发明了“巴氏消毒法”，并研发出狂犬病和炭疽疫苗。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“数学模型所依赖的第一性原理”，是指模型所基于的自然界最基本规律，它们为模型提供了可靠的理论基础，使预测和推演不只是“看起来合理“，而是“根本上合理“。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Navier–Stokes 方程（纳维-斯托克斯方程） 是流体力学（fluid mechanics）中的核心数学模型，描述了流体（液体或气体）在空间中如何流动，其本质是基于两个第一性原理：质量守恒（连续性方程）和动量守恒，也就是说，流体不会凭空消失或产生，物体的加速度由所受合力决定。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">古代中医在给妇女诊病时，由于男女授受不亲，无法直接切脉，就在病人手腕上拴根红线，摸着红线隔空切脉。红线不是特殊材料，这种办法应该感知不到任何脉象。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">测谎器是建立在这样的一个认知假设上的：说谎是一种有负担的认知活动，撒谎通常会引发一系列非自然的心理活动。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自《大般涅槃经·卷三十二》。《大般涅槃经》（Mahāparinirvāṇa Sūtra）是记录佛陀入灭前最后教法的重要大乘佛经，约成书于公元2-3世纪的印度，汉译本在中国南北朝时期已出现。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“Since all models are wrong the scientist cannot obtain a 'correct' one by excessive elaboration.” &#x2014; George Box, Science and Statistics, Journal of the American Statistical Association, 1976, pp791&#x2013;799.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11" role="doc-backlink">11</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">《三体》是刘慈欣创作的硬科幻小说，以地球文明与三体文明的首次接触为核心，描绘了人类在宇宙文明面前的渺小与挣扎，融合了科学、哲学与人性的深刻思考。2015年获得雨果奖最佳长篇小说奖。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12" role="doc-backlink">12</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">信号没有干扰、没有噪声，也就没有变形和失真。观测到就是真实的。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13" role="doc-backlink">13</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">小说中，人类正是利用了三体人不懂“阴谋”的弱点，启动了“面壁计划”。面壁者可以调动巨大资源，在心里谋划战略，而无需向任何人解释，因为三体人虽然能监控一切电子通信，却无法看透人脑的思维（无法建立人类的模型）。这成了人类对抗三体入侵的最有力武器，也让三体人第一次体会到了“计谋”的恐怖。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14" role="doc-backlink">14</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.”——Heraclitus</p></div></div>
+
+<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15" role="doc-backlink">15</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">系统扰动和噪声会掩盖或扭曲观察到的系统特性</p></div></div>
+
+<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16" role="doc-backlink">16</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">鲁棒是英语Robust的音译。Robust在英语中是一个偏生活的用语，用在控制理论里也不违合。在中文中，最接近的词语是“皮实”、“稳健”，但也不完全达意。控制界前辈于是就用音译造了个新词``鲁棒''。这个新词虽被接受，但一直受到吐槽。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.17" class="footnum" href="#fnr.17" role="doc-backlink">17</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">《淮南子·修务训》有云：“神农……尝百草之滋味，水泉之甘苦，令民知所避就。当此之时，一日而遇七十毒。”</p></div></div>
+
+<div class="footdef"><sup><a id="fn.18" class="footnum" href="#fnr.18" role="doc-backlink">18</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“天才是百分之一的灵感，加上百分之九十九的汗水。” “Genius is one percent inspiration and ninety-nine percent perspiration.” &#x2013; Thomas Edison.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.19" class="footnum" href="#fnr.19" role="doc-backlink">19</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“AI之父”，杰弗里·辛顿（Geoffrey Hinton）在一次采访中，表露了这种忧虑。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.20" class="footnum" href="#fnr.20" role="doc-backlink">20</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">目前，对“AI是否会获得自我意识，并最终与人类为敌”的讨论已成为伦理与技术的争议焦点。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

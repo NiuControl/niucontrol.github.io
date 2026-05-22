@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-orgd582b7e" class="outline-2">
+<h2 id="orgd582b7e">写在前面的话</h2>
+</div>
+
+<div id="outline-container-orgb3425f9" class="outline-2">
+<h2 id="orgb3425f9"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-org751ab5e" class="outline-2">
+<h2 id="org751ab5e"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-org74cb9a2" class="outline-2">
+<h2 id="org74cb9a2"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+<section><p>
+前一章我们讲到，人类通过“观测—决策—执行”这个闭环，一步步从古猿演化为地球的主宰。这个闭环之所以能不断迭代、螺旋上升，靠的是一个看不见却无处不在的驱动力——反馈。
+</p>
+
+<p>
+反馈，就是将当前结果的一部分送回到决策机构，目标进行比较，从而指导下一步动作的信息。根据反馈的决策主体不同，可以分为三个层次：本能的下意识的反馈机制，比如身体自动响应；主动的有意识的反馈控制，也就是有目的地接收反馈、调整行动；还有机器自动反馈控制，就是由人设计好逻辑后，由机器自动接受反馈、进行决策和执行。
+</p>
+
+<p>
+本章讨论前两个层次。第三个层次——自动反馈控制——将是第三章的主题。
+</p>
+</section>
+
+<div id="outline-container-orgc3f3269" class="outline-3">
+<h3 id="orgc3f3269"><span class="section-number-3">2.1.</span> 本能中的反馈：身体的无意识智慧</h3>
+<section><p>
+我们都有过这样的经历：手碰到滚烫的锅边，还没等大脑反应过来，手已经缩回去了；一着急，心率和血压就会上升。这就是最典型的无意识反馈。痛觉信号在脊髓层面就被处理，直接命令肌肉收缩，根本不需要请示大脑。着急时，肾上腺髓质会迅速分泌大量的肾上腺素（和一部分去甲肾上腺素）进入血液，让我们能有力气“打架”或“快跑”。哪怕只是心理上的“着急”，这套古老的应急系统也会被触发。
+</p>
+
+<p>
+类似的例子还有很多：看到强光瞬间眯眼、走路时自动维持平衡、吃饭时唾液分泌……这些都不是我们“决定”去做的，而是进化写进神经系统的自动反应。
+</p>
+
+<p>
+要实现如此高效的调节，人体拥有一个强大敏感的的检测网络，包括已知的体温、血糖、血压、血氧、心率等我们已能通过人工设备测量，眼睛（视觉）、手指（触觉）、肌肉（本体感觉）的感觉手段，和大量尚未被完全理解的感知机制，例如某些荷尔蒙变化、细胞应激反应、情绪对应的神经活动等。这个多传感器融合<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">多传感器融合（Sensor Fusion）,指将来自多个物理传感器（或不同来源）的数据进行综合、关联和分析，从而获得比单一传感器更准确、更完整、更可靠的环境感知或状态估计的技术。</span>系统提供了各方面的实时反馈。
+</p>
+
+<p>
+而执行层面同样令人惊叹。比如胰岛素的分泌、激素的调整、白血球的动员、免疫细胞的反制。内分泌系统通过激素调控各类代谢活动；免疫系统可快速识别病原并发起针对性应答。其精确和顺畅，令人叹而观止。细胞层级的控制甚至能在局部环境内实现自我修复、自我调节、自我牺牲（如细胞凋亡）。
+</p>
+
+<p>
+再看一个日常动作：用筷子夹菜。我们的眼睛看到菜的位置，信号传到大脑，大脑自动计算出手臂和手腕的运动轨迹。在筷子接近菜的过程中，视觉持续监测偏差——偏左了就往右调，偏右了就往左调。每零点几秒更新一次，但我们完全感觉不到，因为我们从没“命令”自己去做这些微调。这是视觉、小脑、肌肉之间的无意识反馈回路，是进化赠予我们的精准伺服系统。
+</p>
+
+<p>
+人体通过极其复杂的闭环，在混乱的环境中维持高度有序的生命。人体内部运行着成千上万个这样的自动反馈回路。包括激素平衡，电解质平衡，血氧平衡等等数不胜数的自动调节。体温高了出汗，低了哆嗦；血糖升了胰岛素出动，降了胰高血糖素顶上；血压、血氧、心率、电解质……每一个关键指标都被一套或多套反馈机制牢牢看住。
+</p>
+
+<p>
+其实，这些看似简单的动作，其实已经包含了反馈控制的所有基本要素：目标（夹到菜）、感知（眼睛看位置）、决策（大脑计算偏差）、执行（手移动）、被控对象（手和筷子）。只不过决策和感知都在无意识中完成。我们把这种本能的调节成为反馈机制<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">在这里，我们把这种无意识、被动的调节行为定义为机制；把主动有意识的调节行为成为控制。以示区别。</span>。
+</p>
+
+<p>
+下一章我们会看到，当我们把这些要素设计和组装在一起，不需认为介入而自主运行时，就成了工程上的自动控制系统。不过，目前最先进的仿生机器人也难以同时完成对空间定位、目标识别、动作微调和即时修正的全流程控制，更别提做到人体那样的连贯与优雅。
+</p>
+
+<p>
+但是，过犹不及<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">出处：《论语·先进》。子贡问孔子：子张和子夏谁更贤明？孔子说：子张过头了，子夏不及。子贡又问：那是不是过头更好？孔子答：过犹不及（过头和不及同样不好）。做事超过合适的“度”，和没做到位一样，都是不恰当的。</span>，凡事皆有度。这套灵敏复杂的系统也只是在一定范围内有效，这就是人体自身的承受范围<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">操作空间或说操作范围，即Operating Envelope。飞机发动机称其为包络线，工程上叫做操作空间。这是在整体设计时非常重要的一个考虑。后面详谈。</span>。超出这个操作范围，内部控制系统就可能力不从心，就会表现为疾病、退化甚至崩溃（如糖尿病、癌症、免疫紊乱等）。糖尿病就是胰岛素反馈失灵，癌症则是细胞增殖的约束失控，高烧惊厥或免疫风暴本质上是负反馈变成了正反馈，导致系统失控甚至自毁。疾病，本质上就是控制回路的失效或失控。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org4d27e93" class="outline-3">
+<h3 id="org4d27e93"><span class="section-number-3">2.2.</span> 意识中的反馈：人主动利用反馈来进行决策</h3>
+<section><p>
+与身体的无意识本能不同，人类还发展出另一种能力：主动利用反馈来调整行为。这需要意识的参与，是有目的的学习和决策。
+</p>
+
+<p>
+俗话说，“谋事在人、成事在天”，“人生不如意事常八九”。很多事情的发展，常常遭遇各种各样的干扰<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">这些不确定因素在控制理论中被称为“扰动”，是导致系统偏离目标的主要因素。一位同事经常说：You may have your perfect plan, but God always has his master plan. 控制方面的大多努力和进步都是和克服干扰相关的。</span>。很多时候，结果是不依人的意志为转移的。
+</p>
+
+<p>
+面对失败，不同的人有不同的态度。弱者选择躺平，一蹶不振；愚者拒绝反思、重蹈覆辙；智者则反复尝试，不断反思和修正，逐步接近目标。这个“尝试—修正—再试”的循环，就是反馈控制，依赖的对反馈的主动接受。
+</p>
+
+<p>
+人类在与自然长期对抗、不断试错的过程中，那些能够根据来自环境的反馈及时修正自身行为的个体，更容易存活下来；那些一意孤行、不顾后果的行为方式，则被现实迅速消灭或慢慢地被淘汰。久而久之，反馈机制逐渐演化内化为一种生物本能<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">这种生物本能就是一种反馈机制 Feedback Mechanism，但还算不上反馈控制 Feedback Control。前者是本能的，后者是主动的。</span>，甚至不再需要意识参与。这就是进化论中的“优胜劣汰”的自然选择。
+</p>
+
+<p>
+反馈是从哪里来呢？
+</p>
+
+<p>
+生活中，反馈无处不在。古人说”以铜为镜，可以正衣冠；以古为镜，可以知兴替；以人为镜，可以明得失。“<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">出自《旧唐书·魏徵传》。魏徵是唐太宗时期著名的谏臣，是唐太宗最重要的反馈源。</span>铜、古、人提供的都是反馈信息。
+</p>
+
+<p>
+反馈必须是可以被人或机器感知或观测到的。最初的感知，靠的是人类与生俱有的感官<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">视觉、听觉、嗅觉、味觉、触觉，外加平衡、温度、疼痛等，构成了人类最基本的感知系统。</span>。随着认知的发展和技术的进步，人类慢慢制造出各式各样的工具，望远镜、显微镜、听诊器、助听器、温度计、压力传感器等科学仪器<label for="9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="9" class="margin-toggle"/><span class="sidenote">在工业控制中，这些就是传感器，传统上包括四大参数：温度、压力、流量、液位，近年来在线分析仪和软测量也开始大行其道。</span>，不断扩展和延伸自己的感知能力，以获取更多更精细的反馈。
+</p>
+
+<p>
+反馈能不能发挥作用，首先取决于我们能否接纳它，并据此调整决策，落实到行动。以铜为镜能不能正衣冠取决于你愿不愿意睁开眼看，以古为镜是不是知兴替取决于你会不会静下心想；以人为镜可不可明得失要看是不是付诸行动去改。“屡败屡战”<label for="10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="10" class="margin-toggle"/><span class="sidenote">野史记载，在镇压太平天国运动时，曾国藩率领的湘军初期多次战败。据传，曾国藩在向朝廷呈递的奏折中原本写道“臣屡战屡败”，承认军事失利。但他的幕僚（一说为李元度或李鸿章）认为这种表述可能让朝廷认为湘军无能，招致责罚，于是建议将词序改为“臣屡败屡战”。虽然事实未变，但后者突出了顽强不屈的意志，更易获得谅解。</span>，虽然勇气可嘉，但不调整策略、改进战术，那就是愚勇，结果只可能是“屡战屡败”。
+</p>
+
+<p>
+“一朝被蛇咬，十年怕井绳”，“吃一堑，长一智”<label for="11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="11" class="margin-toggle"/><span class="sidenote">出自《孟子·滕文公下》引申，后常见于明代王阳明《传习录》。“堑”原义为战壕，引申为挫折、失败。此语意为：遭遇一次挫折，就增长一分智慧。</span>都是最朴素的表述。人类在一堑一智之中，将失败的经验转换成智慧。而智慧的积累，构成了人类最宝贵的财富 &#x2014; 知识，并代代相传，反馈给后人。
+</p>
+
+<p>
+爱迪生试验灯丝时，曾经失败过上万次。他没有放弃，而是把每一次失败都当作反馈信号，排除一种错误材料。他曾说：“我没有失败，只是找到了一万种不起作用的方法。”这种“尝试—反馈—修正”的循环，核心就是有意识地接收信息、分析偏差、改变行动。
+</p>
+
+<p>
+人是社会性动物，活在世上，总会与周围的人和环境产生互动，这些互动也提供了反馈。我们日常的言行，其实都在执行一套复杂的反馈控制逻辑，只不过绝大多数时候，我们对这套系统是习以为常的。开车时，看到限速牌、读速度表，这就是人工观测；与限速比较，判断是否需要加速、减速或刹车，是人工精算；踩下油门或刹车，便是人工调整。
+</p>
+
+<p>
+“谦虚使人进步，骄傲使人落后”<label for="12" class="margin-toggle sidenote-number"></label><input type="checkbox" id="12" class="margin-toggle"/><span class="sidenote">出自毛泽东《在中国共产党第八次全国代表大会上的开幕词》。</span>，``谦虚''意味着乐于接受反馈。``不听老人言''，往往会”吃亏在眼前“，因为``老人言''里包含的是宝贵的智慧和经验。
+</p>
+
+<p>
+如果一个人我行我素，特立独行，我们通常就说此人没有反馈。做人唯唯诺诺，做事瞻前顾后，过分在意别人的眼光，动辄反思，左右摇摆，这是反馈过度。有些人试图摆脱这种社会反馈，比如和尚出家、隐士入山，追求与世隔绝的平静，就是“切断反馈回路”；有些人犯了错误总是“虚心接受，坚决不该”，这就等同于没有反馈。而有些人“闻过则怒”，反其道而行之，将反馈扭曲为敌意。结果往往是成为孤家寡人，让人敬而远之<label for="13" class="margin-toggle sidenote-number"></label><input type="checkbox" id="13" class="margin-toggle"/><span class="sidenote">这类行为在控制理论中类似于正反馈（positive feedback）：误差越大，反应越强，最终可能导致系统发散、失控。这个后面细讲。</span>。
+</p>
+
+<p>
+可以说，从家庭沟通到职场协作，从社交微表情到网络舆论，人类时时刻刻都在进行着“感知—判断—回应”的反馈过程。
+</p>
+
+<p>
+反馈能不能发挥作用，还依赖于我们对系统的理解和认知。古埃及金字塔的建造，也是一个典型的反馈驱动下的设计优化过程。从最初的阶梯金字塔，到中途结构失稳的弯曲金字塔，最终建成稳定对称的胡夫金字塔。每一次结构问题暴露后，工匠们都从中吸取教训，调整方案，逐步逼近理想形态。
+</p>
+
+<p>
+反过来看，缺乏反馈的系统是盲目的；反馈失真或畸形的系统，则更危险。工业中，失控的反应器会导致温度飙升，引起爆炸；金融中，缺乏监管的资本流动容易引发泡沫与崩盘，危及经济根基；社会中，听不到群众回声的政策很容易脱离现实，造成民怨；网络时代，算法制造的信息回音室，让人沉浸于强化偏见的泡沫之中，误以为自己所见即真理。
+</p>
+
+<p>
+这种有意识、主动利用反馈来调整行为的过程，已经属于“反馈控制”的范畴。但与通常理解的“自动控制”不同，它的决策主体仍然是人——你主动选择接收哪些反馈、如何分析、怎么改变。而下一章我们将看到，当决策逻辑被固化在机械或电路中，由机器自动执行、无需人脑持续介入时，反馈控制会呈现出完全不同的面貌。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgbc635c3" class="outline-3">
+<h3 id="orgbc635c3"><span class="section-number-3">2.3.</span> 负反馈与正反馈：纠偏与放大</h3>
+<section><p>
+反馈有两种基本类型：负反馈和正反馈。
+</p>
+
+<p>
+古语说，“人非圣贤，孰能无过”。即使是圣贤，也难免会有错误言行。因此曾子强迫自己“日三省吾身”<label for="14" class="margin-toggle sidenote-number"></label><input type="checkbox" id="14" class="margin-toggle"/><span class="sidenote">出自《论语·学而》，“曾子曰：‘吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？’”曾子用来表达他每天多次自我反省的三件事。</span>。省完后，“有则改之，无则加勉”。
+</p>
+
+<p>
+“有则改之”：发现偏差，及时修正，让状态回到正确轨道。这是负反馈。“无则加勉”：目标达成后继续努力，向更高水平迈进。这就是正反馈。
+</p>
+
+<p>
+物理学告诉我们，宇宙的终极宿命是混乱<label for="15" class="margin-toggle sidenote-number"></label><input type="checkbox" id="15" class="margin-toggle"/><span class="sidenote">这是热力学第二定律的核心内容，即熵增：宇宙的总体趋势是从有序走向无序，从集中走向分散。维持秩序需要持续的能量输入，而混乱是不需要努力的“默认状态”。</span>。一块石头会风化，一碗热汤会变凉，一切有序最终都会化为无序。而控制的本质是人为地制造“负熵”，建立秩序。
+</p>
+
+<p>
+生活中负反馈随处可见。开车时看到超速立即减速，温控系统发现室温偏低就启动加热，都是为了维持目标值不变。
+</p>
+
+<p>
+宇宙中早有负反馈的范例。太阳内部，引力试图将它压垮，而核聚变产生的压力向外推，两者正好平衡。如果引力稍强，核心被压缩，聚变加快，压力升高，又把引力顶回去；如果聚变过强，核心膨胀，聚变减慢，压力下降，引力又占上风。这种自动调节让太阳稳定燃烧了数十亿年。
+</p>
+
+<p>
+地球上的生物圈也是一个极为庞大复杂的、有着不同层面负反馈的自平衡系统。生命之所以成为宇宙中最高级的“逆行者”，就是因为我们体内时刻运行着成千上万个负反馈闭环。这种被称为“内环境稳态”的过程<label for="16" class="margin-toggle sidenote-number"></label><input type="checkbox" id="16" class="margin-toggle"/><span class="sidenote">内环境稳态（Homeostasis）是生物学中的一个核心概念，最早由法国生理学家贝尔纳提出，后由美国生理学家坎农系统阐述。</span>，就是生物体通过自动调节机制维持内部环境相对稳定的状态。
+</p>
+
+<p>
+生活中，正反馈也并不罕见。麦克风靠近扬声器时产生的刺耳啸叫，就是声音信号被不断放大的正反馈过程；金融市场中的恐慌性抛售，也是价格下跌引发更多抛售，导致价格进一步下跌的正反馈循环。青春期少年的“逆反心理”就是一种对抗性的正反馈：“让他往东他偏往西，叫他打狗他偏撵鸡”。社会中的“马太效应”<label for="17" class="margin-toggle sidenote-number"></label><input type="checkbox" id="17" class="margin-toggle"/><span class="sidenote">出自《圣经·马太福音》：“凡有的，还要加给他叫他有余；没有的，连他所有的也要夺过来。”</span>也是如此：强者愈强、弱者愈弱，优势和劣势在循环中被不断放大。
+</p>
+
+<p>
+通常我们依赖负反馈来维稳，防止震荡与失控；但正反馈也并非一定是“坏事”，它可以推动变化，加速进步。在需要加速、扩散或强化某种趋势时，正反馈就成了有效工具。比如，单位对先进事迹和人物的宣传和表扬，就是一种正反馈；欧美的基础教育倾向于鼓励和赞美，这种“你真棒！”的正反馈能让孩子更有自信地探索和尝试。
+</p>
+
+<p>
+实际上，很多现象都不是单一的反馈。人类通过无数负反馈做到了优胜劣汰、适者生存；但从宏观角度看，物竞天择式的负反馈使人类拥有了对其他物种的相对优势，而这种优势又像马太效应式的正反馈加速了人类的进化速度。
+</p>
+
+<p>
+核反应可以用来发电，也可以用来制作原子弹。前者是受控状态下的反应，控制工程师的任务是通过冷却系统（负反馈）抵消放热产生的正反馈，将系统强行锁定在一个不稳定的平衡点上。后者是撤除一切负反馈，甚至通过中子反射层等手段叠加正反馈，让连锁反应在微秒级完成能量释放。
+</p>
+
+<p>
+负反馈用于纠偏维稳，使系统趋于稳定；正反馈用于放大推动，使系统加速变化或走向极端。理解两者的差异，善加利用，才能更好地掌控局势。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org503dc4c" class="outline-3">
+<h3 id="org503dc4c"><span class="section-number-3">2.4.</span> 反馈过度：当本能失控或人为反应过度</h3>
+<section><p>
+反馈过强或反馈过快都是反馈过度。前者是“矫枉过正”，后者属于“操之过急”。
+</p>
+
+<p>
+负反馈调节系统如果出现反馈过度，都会从一个逐步逼近目标的稳定过程，转化为振荡过程。例如，一台空调若对温度变化反应过于频繁，就可能在“开—关”之间剧烈震荡，反而难以维持稳定；一项政策如果试图面面俱到、控制每一个变量，反而可能因复杂性暴涨而陷入瘫痪。
+</p>
+
+<p>
+神经生理学指出，肌肉的有目的的运动都是靠一系列反馈来进行的。比如当我们用手去拿一件东西时，靠眼，目的物，大脑，和手之间的反馈调节，不断逼近目的物。如果人的神经系统受到损伤，使得每一次调节都做出过度反应，就会形成振荡，手在目的物周围摆来摆去，拿不到东西<label for="18" class="margin-toggle sidenote-number"></label><input type="checkbox" id="18" class="margin-toggle"/><span class="sidenote">这种振荡在医学上称为目的性震颤，是小脑受损而出现的一种病症。</span>。
+</p>
+
+<p>
+在人类认识真理的过程中，用“实践—理论—实践”逼近客观真理，出现反馈过度是难免的。我们用实践检验理论，发现偏差后修改理论。但如果修改时反馈过度，就会发生认识过程的振荡，使我们的认识从一种极端走向另一种极端<label for="19" class="margin-toggle sidenote-number"></label><input type="checkbox" id="19" class="margin-toggle"/><span class="sidenote">大多数事物的认识过程，都是先经过在错误中振荡，在波浪式的前进中慢慢接近真理。但是分析振荡出现的原因，使以后的认识过程少走弯路，这也是一种反馈，对认识论研究是很有意义的。</span>。
+</p>
+
+<p>
+在现代社会，信息技术的发展极大加速了反馈的传递与放大。一方面，反馈路径更短，反应更快。社交媒体、即时通信、数据追踪——这些工具让个体与环境之间的反馈速度空前加快。点赞、评论、转发，甚至算法推送，都是对人的行为的“实时回响”。这种高度联通的“超反馈系统”带来了新的挑战：舆情可以在数小时内压垮一个企业形象，错误言论可在几分钟内被放大成公共危机；网络风暴往往形成于毫秒之间。这是一种“快反馈”，但不是“好反馈” &#x2014; 它可能基于误解、情绪，甚至操控。
+</p>
+
+<p>
+另一方面，强反馈往往带来系统失衡。当一个人过于依赖外部反馈，比如过度在意网络评价、社交点赞，便容易陷入焦虑、虚荣或自我否定之中。而群体系统在强反馈下更容易出现“回音室效应”、舆论极端化与信息茧房，使得社会控制系统面临新的不稳定风险。
+</p>
+
+<p>
+反馈控制的核心不只是快速响应，更在于理性评估与适度调节。很多时候，需要“让子弹飞一会儿”，确认效果，再进行下一步的动作。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org43cc652" class="outline-3">
+<h3 id="org43cc652"><span class="section-number-3">2.5.</span> 中美社会的反馈结构</h3>
+<section><p>
+可以对比一下中国与美国的生活环境来进一步理解正负反馈的左右。中美两种社会环境的差异，本质上是社会反馈系统结构的差异，是“反馈密度和强度”上的区别。
+</p>
+
+<p>
+中国是一个典型的高语境、强关系社会。一个人从出生起便嵌入进了一张密集的社会网络：父母、家庭、亲戚、朋友、同学、老师、同事、领导。这是一套全天候、多通道的反馈与校正机制。每个人无时无刻不在受到``关照''（反馈）和几乎强制性的纠正压力，否则就有``社死''的风险。同时，每天还被被动摄入大量主旋律、全球视野的信息。因此，一个人要想形成真正奇葩的思想或做出出格的行为，其实很不容易。
+</p>
+
+<p>
+美国则不同。社会关系相对淡漠，各人自扫门前雪是常态，法律只划定一个最低底线。虽然宗教在理论上具有规范行为、提升德行的功能，但其覆盖力和强制力有限，效果可议。在媒体反馈上，自由度极高，选择多到不可思议，一个人完全可以一天24小时只关注NBA，对其他世事不闻不问。这种环境顺应人的本性——趋乐避苦、自我合理化。但缺少负反馈，甚至充满了自我强化的正反馈。
+</p>
+
+<p>
+其结果产出高度分化的社会和极度发散的人群。极少数像比尔·盖茨、埃隆·马斯克这样的天才，在这种不受约束的环境中得以将非常规的想法推向极致，不受群体平均化的压制；而成功一旦出现，又通过马太效应式的正反馈迅速放大，成为个人奋斗的成功典范。但另一方面，绝大多数人都不会成为天才，更可能的是成为我行我素、自私冷漠的利己主义者，以及一些在正常社会反馈下本应被校正的、匪夷所思的怪人。
+</p>
+
+<p>
+两种社会反馈结构没有绝对的优劣，只有不同的代价与产出<label for="20" class="margin-toggle sidenote-number"></label><input type="checkbox" id="20" class="margin-toggle"/><span class="sidenote">不过，中国的社会环境也在快速改变，越来越趋向于美国式的社会，人性在大幅度地得到解放。这是大势所趋、人心所向吧。对个体来讲，无疑是好事。对整个社会来说，好坏值得争论。</span>：前者压制了极端个体却保障了集体稳定，后者为天才留出了生长空间，但也大规模生产了冷漠与怪异。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-orgc55dcfd" class="outline-2">
+<h2 id="orgc55dcfd"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-org65e31c5" class="outline-2">
+<h2 id="org65e31c5"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-org3770687" class="outline-2">
+<h2 id="org3770687"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-org84d2088" class="outline-2">
+<h2 id="org84d2088"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-org246bc08" class="outline-2">
+<h2 id="org246bc08"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-org4a150c5" class="outline-2">
+<h2 id="org4a150c5"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-org38749ac" class="outline-2">
+<h2 id="org38749ac"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org50caefa" class="outline-2">
+<h2 id="org50caefa"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-org74b1bdb" class="outline-2">
+<h2 id="org74b1bdb"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-org71e614a" class="outline-2">
+<h2 id="org71e614a"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org1ef804d" class="outline-2">
+<h2 id="org1ef804d">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">多传感器融合（Sensor Fusion）,指将来自多个物理传感器（或不同来源）的数据进行综合、关联和分析，从而获得比单一传感器更准确、更完整、更可靠的环境感知或状态估计的技术。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">在这里，我们把这种无意识、被动的调节行为定义为机制；把主动有意识的调节行为成为控制。以示区别。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出处：《论语·先进》。子贡问孔子：子张和子夏谁更贤明？孔子说：子张过头了，子夏不及。子贡又问：那是不是过头更好？孔子答：过犹不及（过头和不及同样不好）。做事超过合适的“度”，和没做到位一样，都是不恰当的。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">操作空间或说操作范围，即Operating Envelope。飞机发动机称其为包络线，工程上叫做操作空间。这是在整体设计时非常重要的一个考虑。后面详谈。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这些不确定因素在控制理论中被称为“扰动”，是导致系统偏离目标的主要因素。一位同事经常说：You may have your perfect plan, but God always has his master plan. 控制方面的大多努力和进步都是和克服干扰相关的。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这种生物本能就是一种反馈机制 Feedback Mechanism，但还算不上反馈控制 Feedback Control。前者是本能的，后者是主动的。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自《旧唐书·魏徵传》。魏徵是唐太宗时期著名的谏臣，是唐太宗最重要的反馈源。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">视觉、听觉、嗅觉、味觉、触觉，外加平衡、温度、疼痛等，构成了人类最基本的感知系统。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">在工业控制中，这些就是传感器，传统上包括四大参数：温度、压力、流量、液位，近年来在线分析仪和软测量也开始大行其道。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">野史记载，在镇压太平天国运动时，曾国藩率领的湘军初期多次战败。据传，曾国藩在向朝廷呈递的奏折中原本写道“臣屡战屡败”，承认军事失利。但他的幕僚（一说为李元度或李鸿章）认为这种表述可能让朝廷认为湘军无能，招致责罚，于是建议将词序改为“臣屡败屡战”。虽然事实未变，但后者突出了顽强不屈的意志，更易获得谅解。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11" role="doc-backlink">11</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自《孟子·滕文公下》引申，后常见于明代王阳明《传习录》。“堑”原义为战壕，引申为挫折、失败。此语意为：遭遇一次挫折，就增长一分智慧。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12" role="doc-backlink">12</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自毛泽东《在中国共产党第八次全国代表大会上的开幕词》。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13" role="doc-backlink">13</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这类行为在控制理论中类似于正反馈（positive feedback）：误差越大，反应越强，最终可能导致系统发散、失控。这个后面细讲。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14" role="doc-backlink">14</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自《论语·学而》，“曾子曰：‘吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？’”曾子用来表达他每天多次自我反省的三件事。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15" role="doc-backlink">15</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这是热力学第二定律的核心内容，即熵增：宇宙的总体趋势是从有序走向无序，从集中走向分散。维持秩序需要持续的能量输入，而混乱是不需要努力的“默认状态”。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16" role="doc-backlink">16</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">内环境稳态（Homeostasis）是生物学中的一个核心概念，最早由法国生理学家贝尔纳提出，后由美国生理学家坎农系统阐述。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.17" class="footnum" href="#fnr.17" role="doc-backlink">17</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自《圣经·马太福音》：“凡有的，还要加给他叫他有余；没有的，连他所有的也要夺过来。”</p></div></div>
+
+<div class="footdef"><sup><a id="fn.18" class="footnum" href="#fnr.18" role="doc-backlink">18</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">这种振荡在医学上称为目的性震颤，是小脑受损而出现的一种病症。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.19" class="footnum" href="#fnr.19" role="doc-backlink">19</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">大多数事物的认识过程，都是先经过在错误中振荡，在波浪式的前进中慢慢接近真理。但是分析振荡出现的原因，使以后的认识过程少走弯路，这也是一种反馈，对认识论研究是很有意义的。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.20" class="footnum" href="#fnr.20" role="doc-backlink">20</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">不过，中国的社会环境也在快速改变，越来越趋向于美国式的社会，人性在大幅度地得到解放。这是大势所趋、人心所向吧。对个体来讲，无疑是好事。对整个社会来说，好坏值得争论。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-org70f86d8" class="outline-2">
+<h2 id="org70f86d8">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org2508d37" class="outline-2">
+<h2 id="org2508d37"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-org6e7a141" class="outline-2">
+<h2 id="org6e7a141"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-org68a3068" class="outline-2">
+<h2 id="org68a3068"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-org70e2ce2" class="outline-2">
+<h2 id="org70e2ce2"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-org3762286" class="outline-2">
+<h2 id="org3762286"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-org7820a94" class="outline-2">
+<h2 id="org7820a94"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-org67d0042" class="outline-2">
+<h2 id="org67d0042"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-orge2397dd" class="outline-2">
+<h2 id="orge2397dd"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-org39552c1" class="outline-2">
+<h2 id="org39552c1"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+<section><p>
+运动控制与过程控制，是工业自动化的两大支柱。它们同宗同祖——都建立在反馈控制的理论基石上，但在实际应用中，却有很大的不同。运动控制和过程控制这两个控制木桶都是有五块木板组成，但对五块木板的要求大不相同。
+</p>
+</section>
+
+<div id="outline-container-org121c1a4" class="outline-3">
+<h3 id="org121c1a4"><span class="section-number-3">8.1.</span> 目的决定手段</h3>
+<section><p>
+运动控制是自动化技术中的一个关键分支，主要涉及对机械部件的位置、速度和加速度等运动参数的精确控制。它广泛应用于工业自动化、机器人技术、数控机床、半导体制造等领域。运动控制系统通常涉及多轴协调、轨迹规划和实时反馈控制。关注的是如何精确地让物体运动到目标位置，并且达到期望的速度和轨迹
+</p>
+
+<p>
+过程控制主要用于对工业生产过程中连续或周期性操作的参数进行调节，如温度、压力、流量、液位等。其目的是保持生产过程的稳定性和产品质量，常见于化工、石油、电力、食品加工等行业。
+</p>
+
+<p>
+工业过程涵盖从油气开发、炼油、石油化工、精细化工、发电、造纸、冶金、制药、食品加工等等，不胜枚举<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">不严格地讲，物料和能量连续流动的过程都属于过程，这一类的生产被称为流程工业，其控制就是过程控制。</span>；运行过程中存在各种各样的干扰或约束，使得同一个工艺设计在不同的工厂都需要量体定做的控制方案，不可能像无人机或自动驾驶中的控制器，一旦设计调试成功，便可以成千上万的复制。
+</p>
+
+<p>
+尽管应用侧重点不同，但两者的底层逻辑是通用的。它们都基于传感器反馈、控制器运算和执行器动作这一基本闭环。在现代先进制造业中，两者往往是相辅相成的。例如，在半导体制造设备或自动化包装线上，既需要运动控制来实现高频、精准的机械位移，也需要过程控制来维持环境的温度、压力和流量稳定。只有当精密位移与稳健环境协同作用时，才能实现高效的自动化生产。这种从“算法通用性”到“系统定制化”的跨越与结合，正是自动控制工程的精髓所在。
+</p>
+
+<p>
+一个更直观的对比：运动控制处理的是“离散”的机械动作——机器人挥臂、无人机悬停、机床切削；过程控制处理的是“连续”的化学物理过程——反应釜升温、精馏塔降压、管道流量调节。一个讲的是“位置对不对”，一个看的是“温度稳不稳”。
+</p>
+
+<p>
+过程控制和运动控制同宗同源，相辅相成。但由于面对的控制对象天差地别，运动控制中的大部分理论对过程控制来说都是削足适履，甚至南辕北辙。另一方面，运动控制的实践面对过程控制中的挑战显得束手无策。运动控制是把复杂的理论、精致的技术、应用到定常的对象，而过程控制则是用简单的理论、可靠的技术、应对复杂多变的对象。运动控制如今可以送航天器进太空，迎机器人入厨房。但在过程控制领域，PID百岁之躯修修补补仍然是绝大多数控制方案的首选，任重道远；MPC已过不惑之年依然独挑先进控制的重担。
+</p>
+
+<p>
+下面，我们利用木桶原理，把这两类控制的区别一一拆解。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org07d0e5e" class="outline-3">
+<h3 id="org07d0e5e"><span class="section-number-3">8.2.</span> 控制目标：运动控制求准，过程控制求稳，AI控制求优</h3>
+<section><p>
+运动控制的目标，可以概括为“快、准、敏”。快，是指面对高速动态控制场景，系统对指令和反馈的响应速度要快，甚至到毫秒甚至微秒级；准，是指能够实现微米级甚至更高精度的定位控制。敏，是轨迹跟踪的平滑与动态跟随能力。比如，一台贴片机要将电子元件以每秒数十颗的速度贴在电路板的指定位置，偏差超过一根头发丝就是废品。数控机床加工涡轮叶片，轨迹误差超过0.01毫米，叶片就可能报废。运动控制还要具有可编程性，根据不同应用需求进行定制，以适用于多种类型的机械系统和复杂的运动轨迹控制。
+</p>
+
+<p>
+过程控制的目标，则聚焦于“安、稳、省”。安是指生产安全。安全是第一刚需，在涉及高温、高压等危险工况时，过程控制系统必须具备高可靠性和安全性，确保生产在安全边界内，避免超压、超温、泄漏等事故；稳是指稳定性。过程控制系统通常运行在连续模式下，要求数年连续稳定运行。让温度、压力、流量、成分等参数稳定在设定值附近，不振荡、不漂移；省是指经济效益，是在满足质量的前提下，降低能耗、原料损耗和排放。一座炼油厂的常压塔，塔顶温度波动±1℃就可能影响汽油、柴油的收率比例，波动±5℃则可能导致产品不合格。反应器温度失控几秒钟，就可能引发“热失控”甚至爆炸。所以，过程控制宁可“慢”，也要“稳”。
+</p>
+
+<p>
+运动控制处理的是大多是物理位移。即便失控，通常也是因为惯性导致的超调或碰撞，其能量是可预测的机械能。而过程控制中，很多是化学反应，处理的是化学键的断裂与生成。放热反应<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">放热反应（Exothermic reaction）</span>自带“自激”属性：温度升高 → 反应加快 → 放热更多 → 温度进一步升高。这是一个典型的正反馈螺旋。在运动控制中，这是很难见到的。
+</p>
+
+<p>
+用户的互动不同。运营和维护上，运动控制，比如机器人在产品售出后，用户和内部的控制系统几乎是隔绝，对于用户来说是不透明的。但过程控制系统需要操作员来操作，系统人员来维护。无法解释的控制动作会很容易让操作员将控制器束之高阁。无法维护的复杂系统也很容易被抛弃。这也是为什么简单的PID控制算法百年高龄仍在唱着主角，MPC虽然势头凶猛，但实践中有太多的问题。它的成功在于它的复杂的算法。它存在的应用上的问题大部分也归咎于它算法的复杂性（相对于PID)
+</p>
+
+
+<p>
+近年来，人工智能（AI）引入了第三种控制目标——优化。AI控制不满足于“准”或“稳”，而是在满足约束的前提下，寻找全局最优的操作点。比如，在电力需求响应中，AI不仅维持室温，还根据电价预测自动调整设定值，让用户电费最低。这已经超出了传统运动控制和过程控制的范畴，成为一个更高级的层次。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org7615346" class="outline-3">
+<h3 id="org7615346"><span class="section-number-3">8.3.</span> 受控对象：运动对象定常，过程对象多变</h3>
+<section><p>
+运动控制主要应用于航空航天、导弹火箭、机器人、无人机、自动驾驶、精密机床和医疗设备等领域<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">数控机床：实现高精度的金属加工和模具制造。机器人技术：控制机器人关节的运动，实现复杂的操作任务。医疗设备：如手术机器人、康复设备等，需要精确控制的场合。航空航天：如卫星姿态控制、飞行器导航等。</span>，面对的是相对确定的物理边界。其核心任务是在高度受控的物理边界内追求动态极限。在这些应用中，受控对象通常具有明确的数学模型，系统在已知地图或预设轨迹中运行。这是一种在“确定性环境”下的存量博弈，工程师通过复杂的控制算法，在毫厘之间压榨硬件的性能上限。
+</p>
+
+<p>
+与之相对，过程控制主导着炼油、化工、发电及制药等“流程工业”。它面对的是一个本质上具有“不确定性”的世界。化学反应的非线性、长距离输送的大滞后，以及原材料组分的波动，共同构成了一个充斥着干扰的混沌系统。化学反应、热力平衡往往难以通过简单方程描述，控制系统必须在各种随机干扰中，确保生产线不“炸锅”、不产废料。在这些领域，控制策略的首要目标并非绝对的灵敏，而是极强的鲁棒性（Robustness）。面对充满噪声的对象，过程控制倾向于采用简单可靠的技术，确保系统在波动的工况中维持稳态生产。
+</p>
+
+<p>
+运动控制的对象通常是定常的、数学模型清晰的物理系统。比如，一个伺服电机、一个机械臂、一架四旋翼无人机。它们的动力学方程可以用牛顿-欧拉或拉格朗日方法精确推导，参数（质量、惯量、阻尼、刚度）在正常工作中变化很小。所以，运动控制工程师可以在实验室里建立精确的模型，然后在产品上批量复制。一套调试好的自动驾驶算法，可以烧录到成千上万辆车上。
+</p>
+
+<p>
+过程控制的对象则是时变、非线性、大滞后、多变量耦合的怪物。一台化工反应器，催化剂会随着时间老化，原料成分会有波动，环境温度会影响冷却效率。一个精馏塔，进料组分的变化会同时影响塔顶、塔底的产品纯度，调节一个阀门（如回流量）往往牵动多个温度点。更麻烦的是，许多关键变量（如熔融指数、产品粘度）无法在线实时测量，只能靠人工每几小时取样化验。这种“黑箱”或“灰箱”特性，使得过程控制没法像运动控制那样依赖精确的数学模型，只能靠“鲁棒性”——即不管对象怎么变，控制系统都能扛得住。
+</p>
+</section>
+</div>
+
+
+<div id="outline-container-orgfcc0242" class="outline-3">
+<h3 id="orgfcc0242"><span class="section-number-3">8.4.</span> 感知手段：运动控制靠高精度传感器，过程控制靠多变量推断</h3>
+<section><p>
+运动控制对感知的要求是“快、准、密”。测量的是位置、速度、力矩（机器人、无人机、数控机床）一类的快速变化的变量。通常使用编码器、激光干涉仪、加速度计、陀螺仪等高精度传感器，采样频率可达数千甚至数万赫兹。比如，数控机床的光栅尺分辨率达到纳米级，无人机每秒融合上百次IMU和GPS数据。
+</p>
+
+<p>
+过程控制的感知却是“慢、粗、间接”。测量的变量是温度、压力、流量、液位等常规仪表，响应时间从零点几秒到几秒不等；成分分析仪（如气相色谱）每几分钟甚至几十分钟才出一个结果。由于很多关键质量指标无法直接测量，工程师发展出“软测量”技术——用易测的辅助变量（温度、压力、流量）通过模型推断难测的主变量（产品纯度、反应转化率）。例如，在聚合反应中，通过测量反应器温度、压力和冷却水流量，可以实时估算聚合物粘度，从而在线控制反应进程。这相当于用“眼睛的余光”去判断事物的全貌。：慢悠悠、大滞后、多变量（化工、炼油、电厂）
+</p>
+
+<p>
+一个有经验的现场工程师，在仪表报警之前，往往能通过现场的声音、振动甚至空气中微妙的气味变化，预感到反应堆正处于‘热失控’的前夜<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">上医治未病。</span>。这种对物理世界的敬畏和感知，是任何数字模型都无法完全替代的。
+</p>
+
+<p>
+一个经典案例：上世纪60年代，美国阿波罗登月舱的着陆过程需要精确测距和测速。但雷达信号存在噪声。卡尔曼滤波算法在1960年由匈牙利裔美国工程师鲁道夫·卡尔曼提出。它的基本思想是：假设每个传感器的测量值都带有高斯噪声，且系统的状态变化符合马尔可夫过程（即当前状态只与上一时刻有关），然后通过数学迭代，为每个传感器分配一个“置信系数”（卡尔曼增益），最终从一堆噪声中“滤”出最接近真实的状态估计。这个算法后来在航天、导航、机器人领域大放异彩，成为运动控制感知融合的基石。而在过程控制中，由于缺乏精确的动态模型和高速采样，卡尔曼滤波的应用相对有限，更多的是用简单的移动平均或一阶滤波。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgbf46320" class="outline-3">
+<h3 id="orgbf46320"><span class="section-number-3">8.5.</span> 决策算法：运动控制精密复杂，过程控制简单可靠</h3>
+<section><p>
+运动控制倾向于“以精深的理论驾驭定常的对象”，在确定性环境中追求极致精度与响应<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">实际上，运动控制也往往沦于用精密灵敏、容错率很低的算法去解决粗糙不确定而且善变的对象。</span>；而过程控制则擅长“以稳健的技术应对多变的系统”，在充斥噪声与大滞后的混沌环境中追求系统鲁棒性。
+</p>
+
+<p>
+运动控制的算法往往是高维、非线性、多约束的。为了达到高动态性能，工程师使用状态空间法（用矩阵描述多变量系统的内部状态）、模型预测控制（MPC）、自适应控制、鲁棒控制等现代控制理论。例如，四轴无人机的飞控算法需要同时解算姿态、位置、速度，并协调四个电机的推力，其代码量可达数十万行。工业机器人的轨迹规划需要在躲避障碍物的同时保证加速度平滑，涉及大量的实时优化。
+</p>
+
+<p>
+过程控制的算法则倾向于简单、透明、易维护。PID（比例-积分-微分）控制器，一个诞生于1922年的算法，至今仍在90%以上的回路中唱主角。为什么？因为过程控制的受控对象太复杂、太不确定了，再高深的算法也未必比得上一线工程师根据经验调出来的PID参数。一个化工厂的操作工，如果看不懂控制器的动作逻辑，就会直接切回手动操作。所以，过程控制算法的首要要求是可解释性——操作员知道“为什么这个阀在关”。MPC虽然能处理多变量、大滞后、带约束的问题，但由于其算法内部是一个黑箱优化器，维护门槛高，许多工厂用了几年就废弃了。这就是“算法复杂性”的双刃剑。
+</p>
+
+<p>
+另一个深刻的区别在于技术的可复制性。运动控制具有极高的“算法杠杆效应”：一套成熟的自动驾驶方案或磁盘读写头控制逻辑，一旦在原型机上校验成功，便可以近乎零成本地批量移植到百万量级的终端产品中。这种“重算法、标准化”的特征，使得运动控制的技术突破能够迅速转化为规模化的经济效益。
+</p>
+
+<p>
+一个重要推论：运动控制具有极高的“算法杠杆效应”。一套成熟的伺服算法，一旦验证成功，可以零成本复制到百万台设备上。而过程控制几乎很难标准化复制。两座按照同一张图纸建造的化工厂，因为建在不同地区（气候不同）、用了不同批次的催化剂、管道走向有微小差异，其控制方案就必须现场适配。每一套方案都是定制化的“孤品”。这也是为什么过程控制更强调工程经验，而不是纯粹的理论推导。
+</p>
+
+<p>
+但在过程控制领域，这种标准化复制几乎难以实现。以一座大型化工厂为例，其内部集成数以千计的控制器，回路之间存在深刻的耦合与影响。虽然单个回路的算法可能并不复杂，但整体方案的系统工程压力极大。由于每座工厂的设备磨损、地理环境乃至当地气候各异，即便是基于同一份图纸建造的装置，其控制方案也必须进行大量的现场适配。这种低可复制性，使得过程控制更强调针对特定工业对象的深度集成，每一套方案都是定制化的“孤品”。
+</p>
+
+<p>
+运动控制和过程控制的生命周期也是不同的。运动控制很容易升级迭代◦
+</p>
+
+<p>
+工业过程控制普遍采用PID (proportional-integral-derivative)控制。设定值和未知干扰的频繁变化使积分器失效，人工化验和人工观测导致反馈信息滞后， 难以实现自动控制， 造成跟踪误差波动大， 往往超过生产工艺规定的目标值范围。
+</p>
+
+<p>
+由于组成生产全流程的多个工业过程相互影响， 特别是复杂工业过程的动态特性受上下游其他工业过程的影响， 加上复杂工业过程中被控工艺参数， 如选矿控制过程的浓度、粒度， 氧化铝溶出控制过程的苛性比值，只能靠人工化验获得。有的被控工艺参数不仅与工业控制过程的变量数据相关，而且与工况呈现的图像特征相关，如电熔镁砂生产过程根据矿石熔化的图像特征进行加料控制，根据炉壁的图像特征进行熔化电流控制。图像特征只能依靠人工观测。
+</p>
+
+<p>
+工业过程控制无法实现优化控制的原因。
+</p>
+<ol class="org-ol">
+<li>需要人工凭经验和知识设计和调试过程控制系统。当生产条件变化或受到未知随机干扰导致被控过程动态特性变化, 无法在线优化控制系统参数, 只能依靠人工离线调整。</li>
+<li>针对无法采用工业控制技术的复杂工业过程, 只能依靠操作人员凭经验和知识总结控制规则, 依靠人工化验或人工观测获得被控过程工艺参数, 反馈信息滞后, 无法及时优化控制规则。</li>
+<li>操作人员通过监控画面观测被控过程输入输出数据, 难以及时准确识别控制过程的动态特性变化和调整控制系统。</li>
+</ol>
+
+<p>
+过程控制需要多层防护。常规控制（BPCS）：像司机的方向盘，负责日常调节。安全联锁（SIS）：像汽车的安全气囊和自动紧急刹车。在热失控的极端情况下，常规 PID 已经无能为力，必须有独立的物理手段（如紧急停车、注入阻化剂）强行切断正反馈。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org971f7c0" class="outline-3">
+<h3 id="org971f7c0"><span class="section-number-3">8.6.</span> 调节机制（执行器）：运动控制靠电机，过程控制靠阀门</h3>
+<section><p>
+运动控制的执行器主要是伺服电机、直线电机、液压/气动缸。它们的特点是响应快（毫秒级）、定位准（可达微米级）、可频繁启停和换向。电机驱动器通过脉冲宽度调制（PWM）精确控制电流，从而实现力矩和速度的连续调节。
+</p>
+
+<p>
+过程控制的执行器绝大多数是控制阀（调节阀）。一个阀门由阀体、阀芯、阀座和电动/气动执行机构组成。与电机相比，阀门存在严重的非线性：死区（小开度没反应）、滞环（正反向行程不一致）、静摩擦（卡涩）、流量特性偏差等。更麻烦的是，阀门是机械部件，长期磨损后性能会下降。很多先进控制项目失败的原因，不是算法不行，而是阀门卡住了。所以，过程控制工程师花在阀门维护和诊断上的时间，往往比调参数还多。这也验证了木桶原理中最短的那块木板——执行器。
+</p>
+
+<p>
+一个值得一提的区别：运动控制系统的生命周期中，算法可以不断迭代升级（比如特斯拉通过OTA推送新的自动驾驶模型），而硬件（电机、编码器）相对稳定。过程控制系统的改造成本极高。一座化工厂建成后，控制方案基本就“焊死”了，再想改动需要停车、动火、更换管线，代价巨大。所以过程控制强调“一次做对”，设计阶段的谨慎远大于运行阶段的优化。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orge97157f" class="outline-3">
+<h3 id="orge97157f"><span class="section-number-3">8.7.</span> 极端案例：从热失控看过程控制的生死线</h3>
+<section><p>
+前面第二章我们介绍过正反馈和负反馈。运动控制中，失控通常是因为增益过高或者机械共振，能量是有限的——撞了墙就停。但过程控制中，有些化学反应自带正反馈属性，处理不好就是灾难。
+</p>
+
+<p>
+最典型的例子是放热反应（exothermic reaction）。以化工中常见的聚合反应为例：温度升高 → 反应速率加快 → 释放更多热量 → 温度进一步升高 → 反应速率更快……这是一个正反馈螺旋。如果冷却系统（负反馈）失效，温度会在几分钟甚至几秒内飙升到失控点，导致反应器超压、喷料，甚至爆炸。切尔诺贝利核事故的根源，就是反应堆设计存在正反馈机制（空泡系数为正），且操作人员人为关闭了安全系统，导致功率失控飙升。
+</p>
+
+<p>
+因此，过程控制系统必须设计多层防护：第一层，常规PID调节（相当于司机的方向盘）；第二层，安全仪表系统（SIS）——独立于控制系统的硬逻辑，当参数超过安全阈值时，自动启动紧急停车、注入阻化剂、打开泄压阀；第三层，物理防爆措施。有经验的现场工程师，往往在仪表报警之前，就能从反应器的声音、管道振动、甚至现场的气味变化中，预感到“热失控”的前夜。这种对物理过程的“手感”和“嗅觉”，是任何算法都无法替代的。
+</p>
+
+<p>
+这个案例提醒我们：负反馈用于维稳，正反馈可能带来毁灭。在过程控制中，最核心的指标不是“精度”，而是“安全”。宁可牺牲一点效率，也要保住“不出事”。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgc82fbd5" class="outline-3">
+<h3 id="orgc82fbd5"><span class="section-number-3">8.8.</span> 相辅相成：现代制造的协同</h3>
+<section><p>
+尽管运动控制和过程控制侧重点不同，但在现代先进制造中，它们往往是你中有我、我中有你。例如：
+</p>
+
+<ul class="org-ul">
+<li>半导体芯片制造：光刻机需要运动控制实现纳米级的工件台定位（运动控制），同时需要过程控制精确维持晶圆表面的温度和化学气氛（过程控制）。</li>
+<li>生物制药：发酵罐需要过程控制维持温度、pH、溶氧（过程控制），同时需要运动控制驱动搅拌桨和自动补料泵（运动控制）。</li>
+<li>自动化包装线：传送带由逻辑控制调度，机械手由运动控制驱动，热封温度由过程控制调节。</li>
+</ul>
+
+<p>
+可以说，运动控制提供了“动作的骨骼”，过程控制注入了“稳定的血液”，而逻辑控制则是“协调的神经”。只有三者协同，才能构建一个完整的自动化系统。
+</p>
+
+<p>
+一个优秀的控制工程师，不一定非要精通所有领域，但一定要理解这两种控制范式的差异，懂得在什么场合用什么样的思维。当你面对一台高速贴片机时，别拿过程控制的“慢慢调稳”去套；当你走进一座化工厂的中控室，也别指望用无人机的“精确模型”去预测反应器的行为。同工异曲，各美其美——这正是自动控制工程的魅力所在。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-orgf58b7c8" class="outline-2">
+<h2 id="orgf58b7c8"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org1ac4aa0" class="outline-2">
+<h2 id="org1ac4aa0"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-org89ca6db" class="outline-2">
+<h2 id="org89ca6db"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-orgfd06121" class="outline-2">
+<h2 id="orgfd06121"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-orga700e3c" class="outline-2">
+<h2 id="orga700e3c">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">不严格地讲，物料和能量连续流动的过程都属于过程，这一类的生产被称为流程工业，其控制就是过程控制。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">放热反应（Exothermic reaction）</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">数控机床：实现高精度的金属加工和模具制造。机器人技术：控制机器人关节的运动，实现复杂的操作任务。医疗设备：如手术机器人、康复设备等，需要精确控制的场合。航空航天：如卫星姿态控制、飞行器导航等。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">上医治未病。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">实际上，运动控制也往往沦于用精密灵敏、容错率很低的算法去解决粗糙不确定而且善变的对象。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

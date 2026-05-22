@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-org9f9be76" class="outline-2">
+<h2 id="org9f9be76">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org1fcf5db" class="outline-2">
+<h2 id="org1fcf5db"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-org1828f30" class="outline-2">
+<h2 id="org1828f30"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-orge449cc1" class="outline-2">
+<h2 id="orge449cc1"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-org6cef6a6" class="outline-2">
+<h2 id="org6cef6a6"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-orgedaec77" class="outline-2">
+<h2 id="orgedaec77"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-org27c1bd7" class="outline-2">
+<h2 id="org27c1bd7"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-org8d42502" class="outline-2">
+<h2 id="org8d42502"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-org7d98340" class="outline-2">
+<h2 id="org7d98340"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+<section><p>
+前面几章我们搭好了控制的基本框架：反馈机制、开环闭环、五块木板，还有模型这个描述被控对象的重要手段。现在聊聊控制系统的“大脑”了，那些怎么削除误差的算法。
+</p>
+
+<p>
+本章从百年老将PID讲起，再扩展到各种先进控制手段，然后介绍模型预测控制（MPC），最后聊聊AI在控制中能扮演什么角色。不推导公式，只讲基本的概念和底层逻辑。
+</p>
+</section>
+
+<div id="outline-container-orge673d33" class="outline-3">
+<h3 id="orge673d33"><span class="section-number-3">7.1.</span> PID：百年老将，依然任重道远</h3>
+<section><p>
+PID算法发明于1922年。百岁高龄，如今它依然是控制应用里的绝对主力。结构简单到只有一个公式，却撑得起锅炉烧水、卫星调姿、机器人走路等各种各样的人物。有人说：“给我们PID，我们就能控制世界。”(Hägglund and Guzman 2024) 这话虽然夸张了点，但八九不离十。
+</p>
+
+<p>
+为了说清楚P、I、D各自负责什么，我们利用古代排兵打仗的例子来做个通俗解释。
+</p>
+
+<p>
+两军对垒，并对兵，将对将。敌人出一个连，我派一个连；敌人来一个师，我派一个师。这是比例原则<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">当然，孙子兵法里的十则围之，五则攻之，倍则分之，敌则能战之，少则能逃之，不若则能避之，实则虚之，虚则实之一类的战术属于高级策略，是P控制无法比拟的。</span>，也就是比例调节。P是主力军，负责主攻。
+</p>
+
+<p>
+但天有不测之风云。为对付不可预测之意外，兵力部署上总要留一部分兵力搜索残敌和收容掉队士兵。这些预备队和收容队就相当于积分作用。这就是积分控制（I），用来消除长期积累的静差。
+</p>
+
+<p>
+行军打仗是难免碰上意外之地。主力部队的动作不够灵敏，所以派出侦察兵和先遣队，搜索和迟滞意外之敌，这就是微风左右。
+</p>
+
+<p>
+比例、积分、微分合在一起，就是PID控制<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">PID是比例-积分-微分的英文缩写。一个应用广泛、经久不衰的天才算法，却只有一个朴素的名字，真是“酒香不怕巷子深”。这也给中文翻译出了个难题，至今没有一个叫着响亮的中文短名字。</span>
+</p>
+
+<p>
+1922年，俄国工程师米诺尔斯基观察舵手操舵，总结出来这个调节算法。他把这个逻辑写成了公式。1942年，齐格勒和尼科尔斯给出了简便的参数整定法，PID从此在工业界称王称霸。
+</p>
+
+<p>
+微分（D）调节用于提前应对干扰，有个毛病——太过敏感。传感器上一点噪声，它就当回事，就像一个过度警惕的哨兵，草被风吹低了点就以为是敌袭，搞得系统一惊一乍的。所以很多工程师干脆不用D，只用PI。这就像团队管理，太在意每天的短期波动（D）会累死，不如看月度趋势（PI）。
+</p>
+
+<p>
+PID控制算法是工业控制领域里的绝对主力，无处不在。它结构简单、易于理解、使用方便且运行可靠，历经百年考验，始终鲜有对手。期间出现了很多的变体，实现方式也从气动方式、到电子、再到数字控制，但基本原理依旧。即使在MPC盛行的今天，PID依然作为底层基础算法不可替代。
+</p>
+
+<p>
+然而，凡事都有两面。PID短板之一就是参数整定。PID说穿了就是一个含三个参数的计算公式。但在实际应用中，绝大多数场景只调整P和I两个参数。用这样一个简单的公式去应对千差万别千变万化的工艺和工况，难免力不从心。结果就是PID成为一种“通用而不精细”的”万金油“算法，在面对非线性、强耦合或时变特性显著的系统，常需在响应速度、稳态精度和鲁棒性之间进行妥协。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 1: </span>PID是一个``万金油’‘，能适应各种工况。但“样样通，样样松’‘，很难做到最优调节</span><img src="assets/pid-vs-mpc.png" alt="pid-vs-mpc.png">
+
+</figure>
+<p>
+要保持良好的控制品质，PID参数必须随工况变化而及时调整，这就是PID参数整定。也就是每个控制回路的P-I-D三个参数都不一样，需要一个回路一个回路逐个调试。而这个整定过程虽然直观，但很难量化，是个耗时费神的差事。大型工厂中往往有成百上千的PID控制器，由有限的工程师维护。控制工程师作为工厂里的``万精油’‘，任务繁忙。所以只要不是造成重大问题，大多数的PID参数都得不到及时调整，这叫“小车不倒只管推”。世界上虽然实际上90%以上的控制器都是以PID为基础，但不夸张地讲，大部分都是处于”亚健康“状态，没有发挥最佳控制性能。
+</p>
+
+<p>
+如何使PID参数随即应变、与时俱进，这是目前PID控制最大难题。
+</p>
+
+<p>
+PID的另一个痛点，就是内卷，正式名称为积分饱和。
+</p>
+
+<p>
+PID算法的核心逻辑是：只要实际值与目标值之间有偏差，就持续累加调节量，直到偏差为零。虽然粗暴，但也简单有效。反馈控制是建立在纠差的基础上的。只要实际状态与期望间有偏差<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">偏差也就是控制误差，control error</span>，控制器就产生纠偏动作。这样契而不舍、集腋成裘，直到误差为零。
+</p>
+
+<p>
+这种逻辑在“教育内卷”中表现得淋漓尽致。比如，对要考大学的孩子，家长望子成龙，要求每门成绩都满分。目标是满分，现状是成绩不如人意。成绩不达标，那就是努力不够，就得增加努力，这就是增量为王的逻辑。不考虑孩子的资质极限，也不考虑身体的承载力，以为增加学习负担。当学习时间达到饱和，成绩依然不达标时，积分项（I）会陷入“积分饱和”的陷阱——这种盲目的、不计后果的累加，不仅无法提升性能，反而会让系统在下一次调整时反应迟钝，甚至彻底崩溃。
+</p>
+
+<p>
+糖尿病控制也是类似：每天一片二甲双胍，血糖不达标就加到两片、三片……当药物加到一定量仍然不达标时，说明身体的动态响应已经改变，应该换药或注射胰岛素。但PID算法不管这些，只知道继续加量。
+</p>
+
+<p>
+PID算法是“线性”的，但世界是“非线性”的。当孩子每天学习达到24小时（执行器饱和），积分项（I）如果还在继续累加，就会产生严重的积分饱和。当目标已经由于客观原因不可达时，控制系统仍在后台疯狂‘加码’。等到环境好转时，系统却因为之前积累了太多的‘历史包袱’（积分值过大），无法及时掉头，导致严重的超调。为防止这种无限制内卷，必须增加额外的监管机制。换句话说，当努力没有结果时，如何避免盲目发力。这个时候，控制工程师就需要给这个盲目的公式加上“理性的约束”。不仅要整定P、I、D三个参数，更要通过逻辑防止系统在不可达的目标面前“空转”和“死磕”。
+</p>
+
+<p>
+PID参数调不好，系统会振荡甚至失控。如何判断一个控制系统是否稳定？1932年，奈奎斯特提出了频率域稳定性判据；1940年，波德发明了对数坐标图（波德图）；1948年，伊文斯提出了根轨迹法。这些理论工具帮助工程师分析系统稳定性，设计出不会“发疯”的控制器。
+</p>
+
+<p>
+不过，对绝大多数应用工程师而言，“会整定PID参数”比“会推导传递函数”更实用。工厂里流传着各种经验法则：先调P到临界振荡，再加I消除静差，最后微调D抑制超调。这些方法虽然“土”，但在实践中广泛使用。这种”试凑法“的优点是简单实用，但缺点也同样明显。得来容易，信任度不高，可能很快就放弃，重新再”凑“。PID整定方法，本质上都依赖于对系统动态特性的某种抽象模型。无论是最经典的齐格勒-尼科尔斯（Z-N）法，还是现代的自整定算法，如果对“被控对象”的物理模型一无所知，整定就变成了“盲人摸象”。
+</p>
+
+<p>
+如何能够快速可靠地整定PID参数，或者更进一步，如何让PID不断地随着其它几块木板的变化来自动整定自己，保证PID回路这个木桶”滴水不漏“，这是学术和工程两界一直在努力的一个方向。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgd68ace8" class="outline-3">
+<h3 id="orgd68ace8"><span class="section-number-3">7.2.</span> ARC：当简单PID不够用时</h3>
+<section><p>
+百年来，PID控制所向披靡，普及到了各行各业。但也有很多问题是PID力不从心的，比如复杂系统，多个输入输出相互影响，或者系统响应有大延迟。
+</p>
+
+<p>
+对多个输入输出的复杂系统，工业界很自然的做法就是，一个PID解决不了的事儿，那就来多个；单打独斗不行，那就群殴一起上。这就是复杂PID回路。
+</p>
+
+<p>
+最常见的复杂PID回路可能就是串级控制串级控制<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">串级控制 Cascade Control</span>了。一个PID回路上面再搭一个PID回路，称为内外回路。内回路负责目标，比如抑制噪声和干扰，外回路负责的调整指令发给内回路去执行。
+</p>
+
+<p>
+其实串级控制的概念在日常生活了很常见，说穿了，就是分级负责，层层放权。比如说，在你创业之初，孤家寡人，囊中羞涩，不得不事无巨细亲力亲为，全程掌控。后来生意兴旺，业务扩张，你分身乏术，就考虑雇个店长或经理，处理日常琐务。你就可以抓大放小，宏观掌控。如果事业有成，生意遍天下，即使你三头六臂，都已无法应付，就必须采取多层次的管理层，你在顶层遥控了。
+</p>
+
+<p>
+串级控制的精髓就是分工和放权，各级有各级的职责，各层有各层的权限。皇帝之下有三省六部，总裁之下有经理主任。上层负责愿景，中层负责指标，下层负责执行。各司其职，有条不紊。
+</p>
+
+<p>
+串级控制有串级控制的规矩。打破规矩就会造成混乱。古话说，“将在外，君命有所不受”。将在外，真可以违抗君命吗？当然不行，拥兵自重，视同谋反！不诛九族也得凌迟，岳飞袁崇焕就是先例。关键在于“有所不受”。战场形势瞬息万变。将在外，没时间也没必要大事小情都要征得国君的认可（更遑论碰上昏君或懒君），一定要有先斩后奏之权，杀伐果断之气。但遇到“死生之地，存亡之道”的“国之大事”，依然不受君命，独断专行，那就是找死了。这个微妙界限关乎到个人的生死存亡。
+</p>
+
+<p>
+蒋公中正志大才疏，刚愎自用，作战喜欢越级指挥，常常跳过军长师长，直接调动旅团。这就是破坏了串级控制的规矩，肯定造成混乱（当然，这也是因为系统已经混乱，无法令行禁止了）。同理，一个刚入职的员工因为和顶头上司的一点小矛盾而直接越级找到总裁投诉，那也是破坏了串级控制的规矩。即使不被当场解雇，那也离走人不远了。
+</p>
+
+<p>
+古代的皇帝动辄派遣钦差空降到全国各地去处理地方事务。钦差大人持尚方宝剑，快刀乱麻，先斩后奏。这是串级控制系统的失能而不得已的下策。同样，皇帝鼓励各级官吏密折上奏，大事小情儿，直达天听，也是控制系统崩坏之后的剜肉补疮之举，势必使系统更加失能。
+</p>
+
+<p>
+串级控制很必要很有效，但要守规矩。如果串级断开，内回路也应该可以正常运行，只不过控制目标可能不再及时更新。当然，内回路出现问题，外回路也可以一插到底，直接接管，只不过对情况不那么熟悉，应对不会太及时。
+</p>
+
+<p>
+另一个常见的先进控制手段是超驰控制<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">超驰控制 Overriding Control</span>。
+</p>
+
+<p>
+想象一下现实中开车的例子。过去开车不光是个技术活，还是个力气活。长途开车，右脚一直踩在油门上，并随时准备切换到制动刹车。如果是手动车，左脚还要照顾离合器。手脚并用，高度紧张，几个小时下来就腰酸腿麻了。
+</p>
+
+<p>
+后来有了巡航控制<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">巡航控制: cruise control</span>，轻轻按一个钮儿，车就可以按照设定速度平稳匀速的前行，双脚就解放出来了。巡航控制是车速的自动反馈控制。车速低于设定，就自动加油，车速高于设定，就自动减油。
+</p>
+
+<p>
+但美中不足的是，在你双脚离开油门和制动，听着音乐，欣赏着美景，如痴如醉之时，前面突然插入一辆比你速度低的大卡。你肯定不敢追尾它，只能手忙脚乱地减速（脚都可能不知道放在哪儿了）。
+</p>
+
+<p>
+在上下班的高峰期，即使在高速上，自动巡航也成鸡肋，没人敢用。毕竟安全高于舒适，不追尾是更优先的刚需。
+</p>
+
+<p>
+假如这个时候，系统介入，自动减速，和前面的大卡保持一个固定距离，它减速你也减速，它加速你也加速。如果前面的车加速，绝尘而去，你的车就自动恢复到原来的巡航控制，按已有的设定速度匀速前行。
+</p>
+
+<p>
+挺美的事儿，对吧？这就是目前新车大都提供的自适应巡航控制<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">自适应巡航控制: adaptive cruise control。也有很多其它叫法，功能大同小异。</span>，也就是超驰控制。
+</p>
+
+<p>
+超驰控制<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">被超驰了？听起来有点儿别扭，不像中文。Over是超，ride是骑、驰，合起来是超驰，似乎挺准确。不过over和ride合起来成为override以后，有压制和接管的意思。”超驰“没有体现出来。应该怎么翻呢？也确实找不到更贴切的翻法。和被吐槽多年的的鲁棒控制的翻译（至少这是音译）一样，听起来别扭，但时间长了也就接受对它赋予的新意思了。</span>就是一种优先覆盖或强制接管的逻辑。在安全成为问题时，自动巡航控制夺过对执行机构的操控权，从速度控制自动改为车距控制。换句话说，速度控制被车距控制超驰了。
+</p>
+
+<p>
+自动巡航控制最重要的是要实时感知到自己的车与前面的车辆的距离。执行机构和被它超驰的控制（速度控制）共享的。
+</p>
+
+<p>
+超驰控制最重要的考虑是被“超驰”以后保持什么心态。比如开车的巡航速度控制。本来是它在控制油门，结果被车距控制部分抢过去了，可它还得准备好一个油门开量啊，否则等车距控制把控制权还给它以后，它的油门开量不能不切实际造成速度的跳动。这就是控制中无扰切换的概念。
+</p>
+
+<p>
+比如化学反应器既要控制温度，又要防止压力超限。如果正常情况下，温度控制为主。如果压力触及红线，立即放弃温度，切换为压力控制。
+</p>
+
+<p>
+另一个常用的是前馈控制。PID是纯反馈行为，出了偏差才开始纠正，属于“亡羊补牢”。前馈则是测量扰动，直接调节。比如蒸汽压力波动前，提前增减燃料；测到前方有红灯，提前松油门。生活中，你早晨出门前，看天气预报知道下午要下雨，决定带上伞，也是前馈。
+</p>
+
+<p>
+前馈一般是和反馈结合使用。前馈对付已知的大扰动，反馈收拾残余偏差。这叫“前馈-反馈复合控制”。
+</p>
+
+<p>
+还有选择控制，也就是挑最要紧的管。多个目标冲突时，选一个优先。这叫选择性控制，生活中你同时有几件事要办，先处理最急的。就和"砸田鼠"游戏似的，只有一把锤子，哪一个冒头就砸哪一个。
+</p>
+
+<p>
+近年来一个备受重视的控制概念是推断控制，核心是用“替身”来代替测不到的变量。比如前面说过的挂炉烤鸭。烤熟没烤熟不能靠切开来来看，只能通过颜色、气味等来"推断"是否烤熟了。在工业生产中，有些关键指标没法实时测量，比如汽油辛烷值、炉子内部温度、生物发酵的菌体浓度。那就用容易测的变量，比如温度、压力、流量、pH值，来“推断”它。这也叫软测量。
+</p>
+
+<p>
+推断控制就是用软测量结果做反馈。某种意义上，它也属于“前馈加反馈”的混合体。现代工厂中，推断控制越来越重要，尤其是与AI结合后。
+</p>
+
+<p>
+这些先进控制手段没有取代PID，而是给PID组团，让它们从“单打独斗”变成了“团队作战”。实际上，这种复杂PID控制是非常实用和常用的做法。一个工厂的控制水平，往往体现在这些复杂PID回路的利用上。这些回路的作用，明显被低估。它们的应用，还是有很大的提升空间。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org2077a48" class="outline-3">
+<h3 id="org2077a48"><span class="section-number-3">7.3.</span> MPC：中年健将，风头正盛</h3>
+<section><p>
+PID简单可靠，易学易用，所以虽然已百岁高龄，依然无法退居二线，各种形式的PID在控制回路中依然挑着大梁。
+</p>
+
+<p>
+但随着控制品质要求的不断提高，很多变量相互影响，相互制约，像PID这种单打独斗，特种兵式的风格就不太够用了。而把几个特种兵整合在一起，往往又会互不买帐，难以很好地协同合作。
+</p>
+
+<p>
+PID和先进控制有个先天不足：它们只依赖当前和过去的误差，无法预见未来，只是见招拆招，被­动应对。就像盲人走路，因为眼睛这个最重要的感知器官的缺失，只能靠一根拐杖来探测路面，以拐杖传回的手感代替视力，由大脑进行处理和决策，然后调整下一步的步幅和方向。如此反复，探一步，走一步，步步为营。这样的走路，只能探测到前面一步。这种控制也叫提前一步预报控制<label for="9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="9" class="margin-toggle"/><span class="sidenote">One-step ahead prediction.</span>，也就是纯反馈控制。如果道路畸曲不平，盲人靠拐杖前行就很艰难了。
+</p>
+
+<figure ><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 2: </span>盲人靠手杖走路</span><img src="assets/blind-walking.png" alt="blind-walking.png">
+
+</figure>
+<p>
+正常人走路则不同。由于能看到前面很远一段路况，每迈出一步，都已将前面很多步考虑在内了，所以走得平稳、快捷。这样的走法我们已经习以为常，并没有感觉到这种向前多步的计算。如果在一个伸手不见五指的黑夜，那走起路来就完全失去感知，可能就寸步难行，连盲人都不如了。盲人有拐杖代替眼晴，白天黑夜没有区别。
+</p>
+
+<p>
+模型预测控制（MPC）解决了这个问题。它的思路和我们走路的道理很相似：用模型预测未来一段时间的输出，然后优化当前动作，使得未来尽可能接近目标。这样，控制器不再只是“被动”响应，而是能“主动”预测未来状态，提前调节。好比老司机下长坡前提前换低挡，不是等到了坡底再急刹<label for="10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="10" class="margin-toggle"/><span class="sidenote">同样，MPC在失去观测或模型失配时，效果可能还不如PID。</span>。
+</p>
+
+<p>
+另一方面，与PID的单打独斗不同，MPC就像是是一个训练有素的小分队，可以同时完成多个目标。就像做饭要同时看炒菜、煲汤、蒸鱼。PID就像盯着一口锅来回跑，手忙脚乱。MPC则像经验丰富的大厨：他知道每道菜需要的时间和火候，提前安排顺序，在灶眼数量、火力上限这些约束下，让所有菜同时完美上桌。
+</p>
+
+<p>
+“鱼和熊掌不可兼得”。生活中我们无时无刻不是生活在约束之中：法律的限制、道德的约束、父母的管制、社会的公约，这些直接影响着我们的言行。在工业生产中，在现有的设备和工艺前提下最大化产能是很常态的要求。提到产能就会把生产推到各种各样的约束，比如产品指标、安全边界、设备极限、能耗，如何寻找到一个工作点，来使利润最大化，同时又满足所有的约束，这是流程工业生产的刚需。
+</p>
+
+<p>
+模型预报控制的另一大特点就是可以引入约束条件下的优化控制，是生产在满足约束的前提下，运行在最优状态。举例来说，现代化工厂的生产线涉及温度、压力、流量等多项指标，相互关联且受限。传统PID很难同时调节好所有变量，而MPC可以基于模型预测未来的系统状态，协调所有变量，保证安全高效生产。MPC依赖一个动态模型（可以是物理公式，也可以是数据拟合的），实时预测未来输出，并计算最优控制策略的先进方法。它反复求解优化问题：在满足各种刚性约束（阀门不能超过100%，温度不能超安全值）和柔性约束（能耗尽量低）的前提下，算出最优的控制序列。它不是撞到约束再弹回来，而是主动“避开”约束。
+</p>
+
+<p>
+约束有刚性的，也有柔性的。比如阀门开度总是介于全开和全开之间，不可能超过100%，也不可能低于0，这就是刚性约束。安全约束也都是刚性约束，不可逾越。原油处理时，硫化氢的含量超过100ppm就可致死，生死大事，不可忽视。产品质量通常也是刚性约束，产品不合格，就需要回炉。但是在流程工业生产中，产品往往有储存有混合，所以很多时候短暂超标还可补救。但如何把握这个度，是需要对生产流程有足够的了解和经验积累<label for="11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="11" class="margin-toggle"/><span class="sidenote"></span>经济性方面的约束，往往都是柔性约束。可以打破，只是一些经济损失。比如开车，猛踩友们启动，猛踩闸停车。速度上可能很快，但会比较耗油。把耗油量作为一个约束指标的话，就是一个柔性约束。
+</p>
+
+<p>
+随着系统的复杂度越来越高，PID的应用越来越受限，而MPC则逐渐开始体现价值了，这一点也体现在全球工业控制算法占比中MPC的逐年升高。(Lee 2011)
+</p>
+
+<p>
+与PID相比，MPC更灵活智能，MPC特别适合炼油、化工、电力、自动驾驶这些复杂系统。但计算量更大，需要更强的计算硬件支持。不过随着硬件升级和算法进步，MPC已经在中低速过程和部分快速系统（无人机）中广泛使用，比如无人机、无人驾驶汽车、智能电网、航天器控制等高端领域。
+</p>
+
+<p>
+事实上，虽然MPC确实可以取得比PID更好的控制效果，但它的缺点也很明显。和PID相比，MPC在好的时候更好，在坏的时候可能更坏。仅仅为了控制性能上的一些提升是不足于证明MPC的必要性。MPC真正的吸引力是在约束条件下，把工作点推向更盈利的位置，从而实现2-5%的额外效益。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org91c0ee5" class="outline-3">
+<h3 id="org91c0ee5"><span class="section-number-3">7.4.</span> AI：少年新秀，堪当大任？</h3>
+<section><p>
+最近AI火得一塌糊涂。它能写诗、编代码、识图，它能帮我们控制机器吗？
+</p>
+
+<p>
+其实AI不是新玩意儿，AI的核心是神经网络模型。只不过是超大规模。
+</p>
+
+<p>
+工业界对AI的态度是“火热但谨慎”。因为控制要求可靠、可预测、可解释。神经网络这个黑箱，99.9%的情况表现良好，那0.1%的意外却可能炸掉一个反应器。所以AI目前更多是“锦上添花”——用来辅助整定PID参数、做故障诊断、构建软测量模型，而不是直接接管底层控制器。
+</p>
+
+<p>
+如今，代理式人工智能（Agentic AI）无处不在。这些自主系统能够自行推理、规划并采取行动。市场增长已远超所有预测。每家供应商都在讲“AI代理”的故事，演示效果也令人惊叹。但当你把一个自主代理放进化工厂时，会发生什么？
+</p>
+
+<p>
+在软件世界里，代理可以重试、回滚、探索。一个错误动作的代价，不过是一次失败的API调用。而在化工厂里，一个错误动作可能导致压力异常波动，或一批价值六位数的产品不合格，甚至更糟的后果。这里的约束不仅是程度不同，更是性质上的根本差异。热力学的极限不会跟你商量，安全系统也不会接受“让我换个方法试试”。
+</p>
+
+<p>
+瓶颈同样存在于模型与其所应控制的现实之间的接口：传感器漂移，未测量的扰动。代理式AI最终将在流程工业中发挥重要作用。但实现路径并非软件行业所想象的那样。它更像是经年累月地建立信任——一个回路接一个回路，一个单元接一个单元，而且人类始终深度参与其中。
+</p>
+
+<p>
+AI从海量数据中找关联，这叫“暗箱”。白箱（物理公式）打开了看得懂，黑箱（传统神经网络）打开还能看到结构，暗箱（大语言模型）打开只有千篇一律的通用结构，完全没法直观理解。控制工程师不敢轻易把命交给暗箱。数据-信息-知识-智慧。AI仍然停留在从数据中提取信息的阶段。对于信息的应用，还没形成实用的有体系的知识，更遑论最优决策所需要的智慧。
+</p>
+
+
+<p>
+不过，AI确实能赋能控制：自动整定参数、提前预警设备故障、用图像识别代替人工观察（比如看炉火颜色判断温度）。未来的方向是人机协同：AI做快速感知和模式识别，人做关键决策和异常处理。
+</p>
+
+<p>
+一个老工程师说得在理：“AI不会让你失业，但会用AI的工程师会让你失业。”与其害怕，不如学学怎么用。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-org70eead2" class="outline-2">
+<h2 id="org70eead2"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-org6944097" class="outline-2">
+<h2 id="org6944097"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org182acf6" class="outline-2">
+<h2 id="org182acf6"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-org55c7446" class="outline-2">
+<h2 id="org55c7446"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-orgbb363ee" class="outline-2">
+<h2 id="orgbb363ee"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org536ff6e" class="outline-2">
+<h2 id="org536ff6e">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">当然，孙子兵法里的十则围之，五则攻之，倍则分之，敌则能战之，少则能逃之，不若则能避之，实则虚之，虚则实之一类的战术属于高级策略，是P控制无法比拟的。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">PID是比例-积分-微分的英文缩写。一个应用广泛、经久不衰的天才算法，却只有一个朴素的名字，真是“酒香不怕巷子深”。这也给中文翻译出了个难题，至今没有一个叫着响亮的中文短名字。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">偏差也就是控制误差，control error</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">串级控制 Cascade Control</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">超驰控制 Overriding Control</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">巡航控制: cruise control</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">自适应巡航控制: adaptive cruise control。也有很多其它叫法，功能大同小异。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">被超驰了？听起来有点儿别扭，不像中文。Over是超，ride是骑、驰，合起来是超驰，似乎挺准确。不过over和ride合起来成为override以后，有压制和接管的意思。”超驰“没有体现出来。应该怎么翻呢？也确实找不到更贴切的翻法。和被吐槽多年的的鲁棒控制的翻译（至少这是音译）一样，听起来别扭，但时间长了也就接受对它赋予的新意思了。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">One-step ahead prediction.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">同样，MPC在失去观测或模型失配时，效果可能还不如PID。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11" role="doc-backlink">11</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara"></p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

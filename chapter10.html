@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-orgbb4b2b9" class="outline-2">
+<h2 id="orgbb4b2b9">写在前面的话</h2>
+</div>
+
+<div id="outline-container-orgdca63a3" class="outline-2">
+<h2 id="orgdca63a3"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-orgbf382dd" class="outline-2">
+<h2 id="orgbf382dd"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-orgcdabb96" class="outline-2">
+<h2 id="orgcdabb96"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-org33db46c" class="outline-2">
+<h2 id="org33db46c"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-orge634a76" class="outline-2">
+<h2 id="orge634a76"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-org43cf8c8" class="outline-2">
+<h2 id="org43cf8c8"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-orgdcd0d58" class="outline-2">
+<h2 id="orgdcd0d58"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-org96fe6d6" class="outline-2">
+<h2 id="org96fe6d6"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-org4831d5b" class="outline-2">
+<h2 id="org4831d5b"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-orga8f00f4" class="outline-2">
+<h2 id="orga8f00f4"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org49d2129" class="outline-2">
+<h2 id="org49d2129"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+<section><p>
+过程控制的一大特点就是它的跨学科性质。从知识层面讲，过程控制和工艺、设备、仪器仪表、控制系统有高度的重叠和依赖；从技能和经验的要求上看，过程控制又和工艺设计、操作运营、检修维护紧密相关。这就使得过程控制所需的知识和技能非常广泛和驳杂。
+</p>
+
+<p>
+由此带来的一个独特优势是大局观：过程控制人员在设计阶段要明白工艺，实施阶段要熟悉系统，运营阶段要了解操作。所以在生产中，过程控制可能是唯一对全局到细节都有足够了解的部门，懂大局、识大体，“万金油”的外号实至名归。
+</p>
+
+<p>
+但跨学科也带来一个不小的烦恼：知识爆炸，学不敷用。虽说艺多不压身，但人的精力毕竟有限，术业有专攻，深度和广度很难兼顾。“吾生也有涯，而知也无涯。以有涯随无涯，殆矣。”没有人可以在所有相关领域都样样精通，所以面对的最大困难就是“定位”和“取舍”。
+</p>
+
+<p>
+解决方法则是自我提高和团队合作：有些知识要知其然更要知其所以然，有些则只需知其然而无需知其所以然。看家本领上“食不厌精，脍不厌细”，边缘知识上则可临时抱佛脚，充分依赖相关专家。过程控制工程师永远不应该也不可能做到单打独斗：工艺工程师是最好的老师，仪表和系统工程师是最好的帮手，操作工是最好的朋友。当然，懂行的部门领导是最好的后盾。这才是过程控制完整的团队！
+</p>
+
+<p>
+老子在《道德经》中提出了“道”、“法”、“术”、“器”的概念。“道”，是万事万物的自然规律和发展方向，即天道。“法”，则是循道而行、为达目标所遵循的准则和方法，即人法。“术”，是为使人法得到实施所采取的技术层面的技巧和手段<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">在先秦法家思想中，“法”与“术”是统治者的两大支柱，韩非子将其整合为一套完整的治国理论。“法”是明面上的规矩，“术”是背后的驾驭之道。两者结合，构成古代帝王的统御之术。</span>。“器”，是为使术取得更完美、更有效的结果所必需的工具。
+</p>
+
+<p>
+过程控制的知识结构和应用范畴虽然广泛而复杂，但有鲜明的层次，可与“道”、“法”、“术”和“器”四个层次一一对应。
+</p>
+</section>
+
+<div id="outline-container-org2904879" class="outline-3">
+<h3 id="org2904879"><span class="section-number-3">10.1.</span> 器是设备与载体</h3>
+<section><p>
+在过程控制领域，传感器、变送器、控制阀、伺服电机，毫无疑问地属于“器”的层次。PLC（可编程逻辑控制器）、DCS（分散控制系统）、SCADA、SIS等控制系统或平台，现场总线等通讯设施，也都属于“器”的范畴。而PID控制器或模块化的MPC（模型预测控制）模块，也应归于“器”类。
+</p>
+
+<p>
+“器”的特点是知之为知之、不知为不知，易学易用，熟能生巧。
+</p>
+
+<p>
+孔夫子说过，“工欲善其事，必先利其器”<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">出自《论语·卫灵公》。工具的锋利程度直接影响工作的效率和质量。</span>。控制利“器”不可或缺，过程控制人员应该熟悉必需之“器”的功用，做到得心应手。但另一方面，器不在先进，在于好用和够用。
+</p>
+
+<p>
+这些“器”各自都是专门学问，体系庞大，日新月异。因此一定要知取舍，“有所为，而有所不为。有所不为，而后有为。”知其然而不知其所以然，足矣。就像一个熟练运用电脑进行工程设计的人未必需要会拼装或修理电脑；一个优秀的先进控制工程师并不需要熟练地搭建MPC与DCS的通讯系统。
+</p>
+
+<p>
+对过程控制来说，器都是工具。虽说磨刀不误砍柴工，但要牢记磨刀的目的是砍柴。切忌本末倒置，忘了初衷。一柄利刃在手，就想把所有的树木都劈成柴火；一把锤子在握，眼里看到的全是钉子。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgffb3575" class="outline-3">
+<h3 id="orgffb3575"><span class="section-number-3">10.2.</span> 术是策略和技术手段</h3>
+<section><p>
+一些常见的控制算法和手段，比如回路整定，数据处理，信号补偿，则属于“术”的层次<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">Methodology and Skills</span>。
+</p>
+
+<p>
+术的特点是实用和适用。大多数的术都是源于实践，熟能生巧。年轻工程师往往从“器”和“术”入手。
+</p>
+
+<p>
+借助最得手的“器”，熟练掌握常见和常用的“术”，来维持控制方案的正常运行，是对过程控制工程师的基本要求。
+</p>
+
+<p>
+不过，“学海无涯，书囊无底”，对这些基础知识和技能要有取有舍，适可而止。一个控制工程师不需要像一个数据科学家那样对各种数据分析算法了如指掌，也不需要像一个工艺工程师那样对精馏塔的塔板塔帽特性如数家珍。必要的知识，既要知其然也要知其所以然，熟悉常见的应用场景，融会贯通。边缘学科的知识，或临时抱佛脚恶补，或求教于相关专家。
+</p>
+
+<p>
+很多过程控制人员花费大量时间在PID回路整定，或DCS组态微调，甚至传感器控制阀调校等“术”和“器”上，乐此不疲。但很多时候是舍本逐末，捡了芝麻丢了西瓜，忘记了过程控制的真正使命是利用“术”和“器”完成更高层次的任务。
+</p>
+
+<p>
+比如，一个错误的控制方案，其中的PID参数再整定也难以改善控制性能。再比如，一个在工艺设计上物料失衡的过程，是不能靠增加几个控制器就能达到整体稳定的。事实上，现场大多数的控制问题都不是PID整定造成的，很多时候过程控制工程师的建议是改进工艺。
+</p>
+
+<p>
+没有大局在胸，仅仅关注局部，难以做到整体最优。局部最优是难以补救整体方案的缺陷的——覆巢之下无完卵。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgafe40a0" class="outline-3">
+<h3 id="orgafe40a0"><span class="section-number-3">10.3.</span> 法是架构与规范</h3>
+<section><p>
+PID控制、模型预测控制（MPC）的底层原理，物料和能量平衡，因果关系分析，动态响应过程，这些揭示系统内在规律的知识，属于"法"的范畴<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">Strategy and Standards</span>。
+</p>
+
+<p>
+“法”是集思广益后的方式方法，是行之有效的最佳实践。法的特点是具有理论体系和内在规律，可教可学，是学校教学的重点。法指导术，术借助器，方可得心应手。
+</p>
+
+<p>
+过程控制人员真正的特长和贡献应该是在“法”的层次，就是分析问题的方法和解决问题的技能，具体落实在控制方案的分析和设计，以及运行中问题的诊断和解决上。
+</p>
+
+<p>
+要做到法术高强，需要多年知行合一的修炼，和对术和器的灵活应用。修炼过程中不但要有成功的经历，更重要的是要接触足够多的失败案例，反中求正，方可不蹈覆辙。
+</p>
+
+<p>
+过程控制工程师面对的最大挑战往往是工艺。工业过程千变万化，很多工艺工程师终其一生，参不透手头有限的几个工艺工程。而过程控制工程师，一生可能要面对数不清的陌生工艺流程，更不可能个个精通。大部分人面对一个陌生工艺过程或复杂控制问题，感觉像狗咬刺猬，无从下口；或像盲人摸象，顾此失彼。
+</p>
+
+<p>
+但事实上，过程控制工程师和工艺工程师看工艺过程的角度迥异，所需要的工艺知识也有天地之别。对过程控制工程师来说，对工艺的理解最重要的是动态因果关系和过渡过程分析。从精馏塔到压缩机，这些分析手段有高度的一致性。而控制方案的设计或故障诊断，也有共同的法则可循。
+</p>
+
+<p>
+掌握这些“法”则，可变被动为主动，游刃有余。就像同样一辆汽车，在司机眼里和在机械师眼里是大不相同的。在司机眼里，所有的轿车都有它们的共性，需要学习的只是每辆车有限的一些特异性。一个司机可以驾驶奥拓，也就可以很快学会驾驶法拉利。而一个修理奥拓的机械师很可能对法拉利不知从何下手。
+</p>
+
+<p>
+庖丁解牛三年，眼中已无全牛，看到的只是一个个筋腱相连的器官和部件。一个资深的过程控制工程师，眼中看到的不再是管道塔炉，而是一个个流动着的测量变量，以及它们之间的因果关系和动态表现。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org2bec387" class="outline-3">
+<h3 id="org2bec387"><span class="section-number-3">10.4.</span> 道是核心和方向</h3>
+<section><p>
+修炼到极致的人会得"道"<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">Vision and Philosophy</span>。"道"是其职业能力的最高境界，它超越了具体的PLC指令或PID调优技巧，进入了对系统本质、因果逻辑和平衡哲学的理解。
+</p>
+
+<p>
+道是原理，道是规律。实际问题虽然千变万化，但万变不离其宗。道法自然，便可处变不惊，以不变应万变。
+</p>
+
+<p>
+对得道之人来说，“道”成为一种直觉、一种本能，是从必然王国进入到自由王国。将“法”和“术”贯通，从总体和本质去分析和解决各种问题。一眼看出系统的各个部分、各个变量之间的因果关系和动态特性，明察时间空间对系统特性的影响，然后用简单可靠的手段进行量化描述，最后落实到可靠有效的控制方案。
+</p>
+
+<p>
+“大道至简”，高明的方案往往意外的简单。比如有时一个小小的反馈机制可以取代很多深奥复杂的物料平衡和热量分配的计算。然而由简入繁易，由繁入简难——由繁入简是在全局在胸、融会贯通前提下的收放自如。
+</p>
+
+<p>
+“大妙无常”，完美的方案有时需要跳到盒子之外去获得。比如一个工艺上的简单改进有时可以大大简化控制方案。前提是洞察全局，熟悉每个环节的优点和缺陷。
+</p>
+
+<p>
+“大巧似拙”，有时候慢就是快，快就是慢。比如老老实实用测试和建模来整定PID，往往比貌似简便快捷的曲线试凑法更可信可靠，总体来说会事半功倍。但需要从业人员有足够的自信、自律和淡定。
+</p>
+
+<p>
+“道可道，非常道。”道是悟出来的，不是教出来的。悟道需要努力、机遇和天分，很难刻意为之，只可水到渠成。要达到这个层次，需要经历长期的一线经验、跨学科的融合，以及举一反三的思考水平和融会贯通的推理能力。
+</p>
+
+<p>
+工作团队里有一位得道高人，团队水平会很快提升——一人得道，鸡犬升天。同时，得道之人也往往乐于分享，独乐乐不如众乐乐。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org0aef6c1" class="outline-3">
+<h3 id="org0aef6c1"><span class="section-number-3">10.5.</span> 道法术器，各司其职，各显神通</h3>
+<section><p>
+工控界有一句玩笑话：一流工程师玩数学（道和法），二流工程师玩逻辑（术），三流工程师玩接线（器）。这当然只是戏谑和偏颇之语。但在解决问题的方法上，确实也有高低之别。如果强行拉郎配，把道法术器和控制木桶的五开木板想关联，那可以做成下面一个表格。
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-center">
+
+<col  class="org-center">
+
+<col  class="org-center">
+
+<col  class="org-center">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-center">器</th>
+<th scope="col" class="org-center">术</th>
+<th scope="col" class="org-center">法</th>
+<th scope="col" class="org-center">道</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">传感器</td>
+<td class="org-center">x</td>
+<td class="org-center">x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-center">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">执行器</td>
+<td class="org-center">x</td>
+<td class="org-center">x</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-center">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">系统特性</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-center">x</td>
+<td class="org-center">x</td>
+<td class="org-center">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">控制算法</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-center">x</td>
+<td class="org-center">x</td>
+<td class="org-center">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">目标设定/控制方案</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-center">&#xa0;</td>
+<td class="org-center">x</td>
+<td class="org-center">x</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+比如遇到PID控制变量的振荡。在“术”的层面的解决往往只是反复调整PID参数，直到振荡貌似消失。这种办法没有太多理论根据，通常只是根据一些口诀或经验公式，得到的参数可信度不高，来得容易，放弃得也快。
+</p>
+
+<p>
+在“法”的层面的解决办法则是通过测试和建模，得到输入输出之间的因果关系，由此计算出新的PID参数。虽然麻烦，但有根有据，结果可以信赖。
+</p>
+
+<p>
+而在“道”的层次的解决方案，则会从整体控制方案或PID回路入手，吃透控制的目的和策略，了解问题的前因后果，然后分析是哪个环节出现问题：是传感器错误、阀门故障，还是工艺变化或控制方案改变？或是受其它控制器或操作单元的无辜牵连？最后才检查PID参数。
+</p>
+
+<p>
+一个运行良好的PID控制器不会突然无缘无故地出现参数失调，因此过早花时间在参数整定上很可能事倍功半。控制器从来不仅仅是一个算法而已，更重要的是它运行的周边环境。
+</p>
+
+<p>
+但总体而言，道法术器各有各的作用，从职业角度只有侧重不同，并无高低之分。过程控制工程师的资质并非单一维度的积累，而是一个由多学科横向拓展与多层次纵向深入构成的庞大三维空间。在这个坐标系里，涵盖了海量的理论知识与工程技能。每个从业者的知识储备，最初都只是这个空间里一个小小的“气泡”。学校教育决定了气泡的初始位置与形态；而从业后的发展方向，则取决于你对自我的定位。是向控制系统的底层架构膨胀，还是向复杂的工艺设计靠拢？是满足于解决具体问题的“术”与“器”，还是进阶到参悟系统演进的“道”与“法”？
+</p>
+
+<p>
+每个人的情况不同，选择也自然各异。但前提是，一定要明白自己“愿意”做什么、“能够”做什么、“应该”做什么。也就是，综合考虑自己的能力、兴趣、和现实需要，然后自我定位，设计自己的知识结构，可明确知识的取舍。这样才能把握轻重与缓急，明确发展方向，方可达到事半功倍的效果。
+</p>
+
+<p>
+知识积累只是基础，要让学以致用，我们还需要格物致知，进入实战领域……
+</p>
+
+<p>
+理论与实践有很大的不同。理论追求的是完善完美，实践中需要的实用和适用；理论只告诉你什么是“对”的，而实践则要求你更要了解什么时候会“错”。学校里的课程讲的多是成功案例，却极少讨论失败经验。课堂里学到的是怎样设计和落地，但很少学到如何去调试和纠错。比如，如何在Matlab里仿真一个PID回路是举手之劳，但在在DCS上实现一个能够24/7连续工作的PID控制器则是难乎其难，因为它要应对各种想得到和想不到的应用场景和故障原因，经受各种突发工况与干扰的考验。这背后所需的知识，远比书本上复杂。
+</p>
+
+<p>
+俗话说，“手里有把锤子，满眼全是钉子”<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">“If all you have is a hammer, everything looks like a
+nail.“</span>。这是对教条主义的批评，但在现实世界中，这却有一定的道理。我们已经拥有了足够多精良的“锤子”，但我们真正的挑战在于识别什么是正确的“钉子”，以及决定把它们钉在什么地方。至于把钉子钉进去，反而是相对简单的部分。工业界满是各种各样的钉子，需要的是顺手合用的锤子，并不太关心锤子是用了什么理论研制出来的。锤子不需要多先进，也不需要多漂亮，能把手头的那颗钉子砸进去就好。有时找不到锤子用榔头铁锹也能把钉子砸进去。
+</p>
+
+<p>
+学术界热衷于制造各式各样的锤子，漂亮的线条、超强的硬度、完美的人锤互动，做工精益求精，功能登峰造极，锤子越来越像艺术品，越来越具欣赏价值。但遗憾的是，对钉子的认知不够重视，对钉子和锤子间的相互影响更少研究。结果是，工业界对这么华贵的锤子越来越不知如何去用，也不敢放心去用。
+</p>
+
+<p>
+学术界有一大工具箱的锤子和榔头，但面对的是工业界各种各样的钉子。如何以有限的锤子服务无限的钉子？一个控制工程师，不可能熟知千变万化的被控对象。遇到一个不熟悉的过程，从何入手？学校教育更应提供给学生的一套通用的思维方法和分析技能，这样才能做到一锤在手，眼里看到的不是一个个的钉子，而是钉子的共同特性。庖丁解牛<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">《庄子·内篇·养生主》:“&#x2026;始臣之解牛之时，所见无非牛者。三年之后，未尝见全牛也。方今之时，臣以神遇而不以目视，官知止而神欲行“</span>，一刀在手，三年后眼里已无全牛，而是对牛的筋骨结构了如指掌，能透视其内在机理。同样，控制工程师需要的是找到控制所需的系统共性<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">从控制角度讲，这些共性就是所关注的变量之间的因果关系和动态特性。这些后面详谈。</span>。对系统的辨识和建模，就是归纳和提炼这种共性的一个有效手段和技能，也是控制之所以能成为”万金油“的一大原因。
+</p>
+
+<p>
+工业界与学术界的一个根本矛盾：学术追求“普适性”和“创新性”，倾向于制造各式各样的“锤子”——漂亮的线条、超强的硬度、完美的人机互动，做工精益求精，功能登峰造极，锤子越来越像艺术品。但遗憾的是，对“钉子”的认知不够重视，对钉子和锤子之间的相互影响更少研究。结果，工业界面对这么华贵的锤子越来越不知如何去用，也不敢放心去用。
+</p>
+
+<p>
+而工业界需要什么？顺手的、合用的锤子，能把眼前那颗钉子砸进去就好，而不是完美但没人敢用的“艺术品”。。至于锤子是用了什么理论研制出来的，并不太关心。锤子不需要多先进、多漂亮，能干活就行。有时找不到锤子，用榔头、铁锹也能把钉子砸进去。
+</p>
+
+<p>
+控制工程师的尴尬：学校里教的是如何设计一个“正确”的系统，却很少教如何诊断一个“坏了”的系统。课堂里学的是怎样设计和落地，但很少学如何去调试和纠错。比如，在Matlab里仿真一个PID回路是举手之劳，但要在DCS上实现一个能够24×7连续工作的PID控制器则难乎其难——它要应对各种想得到和想不到的故障场景，经受突发工况与干扰的考验。这背后所需的知识，远比书本上复杂。
+</p>
+
+<p>
+作为工程师，我们必须时刻审视自己的“控制木桶”：哪块木板最短？哪里的缝隙在漏水？一个控制工程师不可能熟知千变万化的被控对象。遇到一个不熟悉的工艺过程，从何入手？学校教育更应提供一套通用的思维方法和分析技能，这样才能“一锤在手”，眼里看到的不是一个个的钉子，而是钉子的共同特性。庖丁解牛，一刀在手，三年后眼里已无全牛，而是对牛的筋骨结构了如指掌，能透视其内在机理。同样，控制工程师需要找到控制所需的系统共性。对系统的辨识和建模，就是归纳和提炼这种共性的有效手段，也是控制之所以能成为“万金油”的一大原因。
+</p>
+
+<p>
+控制理论日益数学化，像一门应用数学。但正如乔治·博克斯所说：“所有模型都是错的，但有些是有用的。”工业现场需要的是实用、可靠、能诊断的“锤子”，建议讨论：为什么很多先进控制（如MPC）在工厂用几年就废弃了？因为维护成本太高，操作工不懂。
+</p>
+
+<p>
+教科本上教给我们的基本上都是在一帆风顺的理想状况下系统该怎么设计、怎么运作，但很少讲解实际中会出现什么问题、该怎么解决。大部分WHAT IF的知识都是从一线获得。或是亲身在故障案例中经历到，或是从资深工程师那里学到（如果幸运遇上）。如何在DCS上让一个PID回路24×7稳定运行，远比在Matlab里仿真复杂得多。
+</p>
+
+
+<p>
+“手里有把锤子，满眼全是钉子”是批评，但现实中工程师确实需要先用既有工具解决问题。关键在于识别“真正的钉子”在哪里——是感知、执行，还是算法？不要一上来就重构整个系统。
+</p>
+
+<p>
+控制不仅是科学，也是手艺。经验体现在：能通过曲线形态判断是阀门摩擦还是控制器增益过大；能在没图纸的情况下推测管路走向对控制的影响。这些“知其然不知其所以然”的本事，往往来自现场的摔打。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-org0ba0c8c" class="outline-2">
+<h2 id="org0ba0c8c"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-org0a12dfc" class="outline-2">
+<h2 id="org0a12dfc"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org98f92b2" class="outline-2">
+<h2 id="org98f92b2">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">在先秦法家思想中，“法”与“术”是统治者的两大支柱，韩非子将其整合为一套完整的治国理论。“法”是明面上的规矩，“术”是背后的驾驭之道。两者结合，构成古代帝王的统御之术。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自《论语·卫灵公》。工具的锋利程度直接影响工作的效率和质量。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Methodology and Skills</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Strategy and Standards</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Vision and Philosophy</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“If all you have is a hammer, everything looks like a
+nail.“</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">《庄子·内篇·养生主》:“&#x2026;始臣之解牛之时，所见无非牛者。三年之后，未尝见全牛也。方今之时，臣以神遇而不以目视，官知止而神欲行“</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">从控制角度讲，这些共性就是所关注的变量之间的因果关系和动态特性。这些后面详谈。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

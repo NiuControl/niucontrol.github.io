@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-orgc8b0a8f" class="outline-2">
+<h2 id="orgc8b0a8f">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org993a43c" class="outline-2">
+<h2 id="org993a43c"><a href="chapter00.html">引言</a></h2>
+</div>
+
+<div id="outline-container-org5667751" class="outline-2">
+<h2 id="org5667751"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-org5d10726" class="outline-2">
+<h2 id="org5d10726"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-orgb5f9de7" class="outline-2">
+<h2 id="orgb5f9de7"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-org2be93ef" class="outline-2">
+<h2 id="org2be93ef"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-org14e9d74" class="outline-2">
+<h2 id="org14e9d74"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-org005f508" class="outline-2">
+<h2 id="org005f508"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-org0f8bf4b" class="outline-2">
+<h2 id="org0f8bf4b"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-orga649d71" class="outline-2">
+<h2 id="orga649d71"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-orgdfba828" class="outline-2">
+<h2 id="orgdfba828"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-org5b47fc3" class="outline-2">
+<h2 id="org5b47fc3"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-org15327be" class="outline-2">
+<h2 id="org15327be"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+<section><p>
+在某种意义上，自动控制可以与医学相比。控制工程师就好比一个全科医生，不仅需要广泛的理论知识，还需要充分的经验积累。这些完整的知识和能力体系来自与多年的理论联系实践。
+</p>
+
+<p>
+明代思想家王阳明提出了“知行合一”的理念，成为心学的核心命题之一。它讨论的是知识（知）与实践（行）之间的关系。“知行合一”提醒我们：真正的成长不在于知道多少道理，而在于把知道的道理活出来。
+</p>
+
+<p>
+从控制论的角度看，“知行合一”恰好可以理解为一个闭环反馈。“知”是感知与认知（反馈），“行”是决策与执行（调节）。真正的“合一”意味着感知与调节之间没有延迟、没有割裂——这正是控制系统追求的“实时闭环”状态。下面我们从四个维度看看，控制工程师如何修炼这种“知行合一”。
+</p>
+</section>
+
+<div id="outline-container-org629fae7" class="outline-3">
+<h3 id="org629fae7"><span class="section-number-3">11.1.</span> 接地气：理解真实的物理过程</h3>
+<section><p>
+小学语文里有一篇课文叫《小马过河》。小马驮麦子去磨坊，途中遇到一条河，不知道深浅。老牛说水很浅，只到小腿；松鼠说水很深，曾淹死过同伴。小马犹豫不决，回家问妈妈。妈妈说：“孩子，光听别人说，自己不动脑筋，不去试试，是不行的。河水是深是浅，你去试一试就知道了。”小马下河一试，发现河水既不像老牛说的那么浅，也不像松鼠说的那么深。
+</p>
+
+<p>
+这个故事里，老牛眼中的浅滩与松鼠眼中的深渊，都是基于各自立场的片面之词。每个人的感觉不同，如果没有亲自去体验，都是纸上谈兵。就像骑自行车、开车或打高尔夫，原理虽简单，但要达到挥洒自如、人车合一的境地，必须经过实实在在的体现，找到那种感觉，并融入肌肉记忆。控制工程也是如此，即使满腹经论，面对满屏幕振荡的曲线，乒乓乱颤的阀门，往往没有头绪——缺的就是这种“感觉”。
+</p>
+
+<p>
+在航空或机器人领域，受控对象通常定义明确、性能稳定。但在流程工业中，受控对象却生存在温度、压力、流量与成分的剧烈变幻之中，带有巨大的惯性与滞后，其特性随工况不断漂移。
+</p>
+
+<p>
+更主要的是，现代生产中，往往都是“卡边”控制，最盈利的工作点往往都是在边界上。
+</p>
+
+<p>
+英语里有句俗语称，Don't trouble trouble until trouble troubles you. 在很多时候，我们必须去trouble trouble，才可以知道trouble 在哪里。在约束控制中，我们要知道边界在哪里，才能设计我们的控制系统，来防止控制越界。要知道边界在哪里，我们就必须试着把系统推向边界，来找到边界的准确位置，但同时又要防止越界失控。这种分寸的拿捏是从书本上很难得到的，只能依赖我们对被控对象的深入了解和反复互动的基础上的建立起来的一种“感觉”。
+</p>
+
+<p>
+“纸上得来终觉浅，绝知此事要躬行。”<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">出自陆游的《冬夜读书示子聿》</span>这种难以言传的“感觉”和“直觉”，源于理论与实践的结合，是一个资深工程师和菜鸟工程师的重要区别。在生活中，这也是一个经验老道的“过来人”和横冲直撞的“初生牛犊”的本质区别。
+</p>
+
+<p>
+优秀的控制工程师，理解实际的真实需求。其基石在于对受控过程“物理本质”的深度理解。这是最耗时、最难习得，也最无可替代的隐性知识。在人工智能已经远超一个普通工程师的知识储备的今天，真正变得稀缺珍贵的，是那种来自现场、能够感应到被控对象的物理脉动，并将其转化为解决方案的那种“感觉”或“直觉”<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">感觉, “Sense”.也是我们常说的“第一感”。</span>。
+</p>
+
+<p>
+控制不仅是科学，更是手艺。这种“手艺”体现在：能通过曲线形态判断是阀门摩擦还是控制器增益过大；能在没有图纸的情况下推测管路走向对控制的影响；能从反应器的声音、管道的振动、甚至现场的气味变化中，预感到“热失控”的前夜。这些“知其然而不知其所以然”的本事，往往来自现场的摔打，是任何书本和算法都无法直接传授的。
+</p>
+
+<p>
+理论与实践的差距，本质上是“显性知识”与“隐性知识”的差距。显性知识可以写成公式、论文、教科书；隐性知识只能通过言传身教、长期实践、反复试错来积累。一个在象牙塔里研究了一辈子控制理论的教授，第一次走进化工厂的中控室，很可能被一个只有高中文化的老操作工“教做人”。这不是学历的差距，而是隐性知识的差距。
+</p>
+
+<p>
+控制工程师的成长，就是不断把隐性知识转化为显性知识，再在实践中沉淀新的隐性知识的过程。正如王阳明所说：“知是行之始，行是知之成。”只有在现场摸爬滚打，才能真正理解控制的本质。
+</p>
+
+<p>
+既要读万卷书，更要行万里路。万卷书可以借AI来快速读完，但万里路还是要自己迈腿一步步走，“千里之行，始于足下”。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org7a31795" class="outline-3">
+<h3 id="org7a31795"><span class="section-number-3">11.2.</span> 识大局：既见树木，也见森林</h3>
+<section><p>
+看待控制这个木桶时，不能仅仅盯着一块块的木板，心中一定要有整个木桶。俗话说，”牵一发动全身“，我们的情况经常是，动一块木板就可能影响到整个木桶。
+</p>
+
+<p>
+这里引用波音737MAX做一个例子。波音737MAX项目，常被视为现代大型工程系统中，一个关于技术设计、自动化控制与商业目标相互牵制的典型案例。
+</p>
+
+<p>
+2018年10月的印尼狮航610航班事故，以及2019年3月的埃塞俄比亚航空302航班事故，共造成346人遇难。事故发生后，737MAX在全球范围内被停飞，并引发了民航史上规模空前的适航审查和公众信任危机。
+</p>
+
+<p>
+从技术角度看，这两起事故都与一套名为MCAS的飞行控制功能密切相关。
+</p>
+
+<p>
+737MAX的推出，主要是为了与空客A320neo竞争。为降低油耗，波音为该机型换装了推力更强体积更大的LEAP-1B发动机。但由于737系列沿用较低的起落架设计，发动机只能被安装在机翼前方、位置更高的地方。这一改动在某些飞行状态下，改变了飞机的气动特性，飞机在操纵上容易出现机头上仰的倾向。
+</p>
+
+<p>
+动了飞机控制这个木桶里的被控对象这个木板，一定要考虑整个木桶的影响，以及如何修改其它木板来配合。按照通常做法，这类操纵特性的变化要么通过结构和气动设计加以解决，要么要求飞行员接受额外的机型转换训练。为了在适航认证和运营层面尽量保持与既有737系列的一致性，波音选择了一种软件层面的解决方案。先是感知这块木板的改进。新设计在飞机两侧各装了一个攻角传感器来感知飞机的仰角。然后是修改”决策“这块木板：引入了一个MCAS，即机动特性增强系统。在出现飞机过度上仰的情况下，MCAS强行介入，压低机头，以“补偿“新的气动特性变化。
+</p>
+
+<p>
+问题出现在MCAS的具体设计方式上。在控制逻辑中，虽然有两个攻角传感器的冗余设计，但每次飞行时MCAS只选用其中一个<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">错误一。关键测量，需要有冗余处理。过程控制中有“高选/低选/中间指”等多种逻辑。波音作为顶级航空企业却在关键攻角传感上用“单路切换”，这种对比能让工业读者感到震撼。</span>的数值，且不会对两侧数据进行相互比对<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">错误二。测量数据默认是不可靠的。错误概率需要量化分析。</span>。
+</p>
+
+<p>
+在印尼狮航事故中，被选中的那个攻角传感器发生故障，持续给出极端偏高的攻角读数。由于系统缺乏基本的冗余校验，MCAS将这一错误信号当作真实飞行状态，并不断触发自动向下配平。
+</p>
+
+<p>
+更关键的是，MCAS在当时被赋予了较高的控制权限<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">错误三。在现有的技术条件下，完全依赖机器操作仍不现实。紧急情况下，控制权需要移交给飞行员/操作员。</span>，而且具有重复激活的特性。当飞行员通过操纵杆试图拉起机头时，系统会在短暂间隔后再次介入，并重新施加向下的配平指令。这样一来，飞行员与自动系统之间形成了反复“争夺控制权“的状态，工作负荷迅速增加，而留给机组判断问题根源的时间却非常有限。
+</p>
+
+<p>
+与此同时，飞行员对问题的感知也受到限制<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">错误四。自动驾驶再先进，飞行员仍然需要掌握全局，不能完全盲驾。</span>。攻角传感器数据不一致的提示，在当时并未作为标准信息直接呈现在驾驶舱显示系统中，使机组难以及时意识到问题本质在于传感器失效，而非飞机真实的飞行姿态。
+</p>
+
+<p>
+在错误数据、自动系统反复干预以及高工作负荷的共同作用下，机组最终未能及时切断失效系统，飞机失去控制并坠毁。
+</p>
+
+<p>
+事故发生后，对MCAS的修改方案体现了对控制工程基本原则的回归。新的设计要求同时使用左右两个攻角传感器进行比对，一旦差异超过设定阈值，系统将被禁止工作；MCAS在一次飞行中只能介入一次，不再反复施加控制；同时，无论任何情况下，飞行员的手动操纵始终具有最高优先级。
+</p>
+
+<p>
+这些改动的核心目的，是防止单一传感器故障通过自动控制系统被放大为灾难性后果，也让飞行员能够始终清楚地知道系统在做什么，并随时夺回对飞机的控制权。
+</p>
+
+<p>
+要避免这样的低价错误，其实可以依赖一个简单而实用的思维框架，也就是新闻界使用的W5H原则：Why（为什么要做）、Where（在哪里做）、When（什么时候做）、Who（谁来做）、What if（如果…会怎样）、How（怎么做）。一个具有大局观的工程师，在接手任何控制问题时，应该会有意识或下意识地用W5H过一遍：这个控制目标合理吗？受控对象有什么特殊约束？感知手段够不够？执行器会不会饱和？如果某个传感器失效，系统会怎样？长此以往，我们可以慢慢做到”知其然，知其所以然，也知其所以不然，还知其WHAT IF“
+</p>
+
+<p>
+从日常生活到日常工作，我们都应该牢记“大处着眼，小处着手”，“既见树木，也见森林”。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org0c83937" class="outline-3">
+<h3 id="org0c83937"><span class="section-number-3">11.3.</span> 懂取舍：不求最完美，只求最适用</h3>
+<section><p>
+一个控制工程师的日常工作，甚至每一个人的日常生活中，都是充满了折衷、平衡，要一直做出取舍。可以说，一个控制工程师每时每刻都是在各种各样的约束中做妥协。
+</p>
+
+<p>
+干扰无处不在。有些干扰可以消除，有些只能“转移”。比如空调：外界气温变化是干扰，空调通过开关制冷来“消除”室内温度波动，实际上是把温度干扰转移成了用电负荷的波动。
+</p>
+
+
+<p>
+要买一个新手机，需要在钱包的深度力和手机性能之间做出折衷；职业选择，要在兴趣、能力和需要之间做出平衡。
+</p>
+
+<p>
+一个控制工程师，设计控制方案是要考虑到控制木桶的使用场景，选择最经济适用的五块木板，而不是最华贵的。
+</p>
+</section>
+</div>
+
+<div id="outline-container-org7859459" class="outline-3">
+<h3 id="org7859459"><span class="section-number-3">11.4.</span> 会前瞻：防患于未然</h3>
+<section><p>
+大局观是静态的。为适应我们多变的生活和工作，在大局观的基础上还需要增加一个时间维度，那就是历史观和前瞻性。遇到一个问题，除了了解问题的现状外，我们自然也需要了解它的来龙去脉：问题是什么时候开始的？是新问题还是老毛病？都做过什么样的处理和改进？木桶的五块木板最近有没有改变？问题不及时处理会有什么后果？如何预防将来问题再次发生？
+</p>
+
+<p>
+其实，生活和工作中正在的高手都具有前瞻性，真正高明的手段是防患于未然。
+</p>
+
+<p>
+在《鶡冠子·世贤》中有一则《扁鹊论医术》<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">魏文王问扁鹊曰：“子昆弟三人其孰最善医？“ 扁鹊曰：“长兄最善，中兄次之，鸿号（扁鹊自称）为下。“  文王曰：“可得闻邪？“扁鹊曰：“长兄于病视神，未有形而除之，故名不出于家。中兄治病，其在毫毛，故名不出于闾。若鸿号者，镵血脉，投毒药，副肌肤，闲而名出闻于诸侯。“</span>，的故事。
+    魏文王问扁鹊：“你们家兄弟三人，究竟谁的医术最高明？”扁鹊答道：“长兄最高，中兄次之，我最差。”文王问：“为什么？”扁鹊说：“我长兄治病，是看神色，在疾病还没有形成征兆时就将其铲除了，所以他的名气传不出家门；我中兄治病，是在病情刚有苗头时就将其治愈，所以他的名气传不出乡里；而我扁鹊治病，是刺破血脉、投用毒药、割开肌肤，干的都是大手术，所以名声反而传遍了各国。”
+</p>
+
+<p>
+《黄帝内经》把这句话总结为：“上工治未病，中工治欲病，下工治已病。”
+</p>
+
+<p>
+一个合格的控制工程师不仅知道一个控制方案在什么条件下能正常工作，还要能预见到在什么场景下会出现故障并如何应对<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">和IT系统类似，最好的控制就是让你感觉不到它的存在。在现代工业运行中，“扁鹊（下工）“往往是那个在深夜抢修、被全公司视为英雄的人；而“长兄（上工）“因为系统从来不出错，往往被认为“整天没事干“。</span>。当然，故障发生后惊慌失措、束手无策，那就是不合格的工程师了。
+</p>
+
+<p>
+上工治未病，从设计源头消除隐患。实际运行中，大部分的控制问题往往可以追溯到原始控制方案设计中的错误或缺陷。一个工厂一旦建成投产，运营寿命往往是十几年甚至几十年。这些设计错误会持续存在，无法根本修正，只能“带病”运行，生产处于“亚健康”状态，安全和效率大打折扣。虽然每隔几年会有一次停车大修，但这种大修一般也只是修修补补和局部改造，很难整体推到重来。
+</p>
+
+<p>
+一个重要原因是，在工程设计院里，专职且称职的过程控制工程师往往凤毛麟角，即使有，也人微言轻，对控制方案无法主导。控制方案的设计常常由工艺工程师代劳或主导。从控制角度看，工艺工程师了解控制的目的和需求（沾了“道”的边），但对于控制之“法”和“术”明显不够，对于控制之“器”则更加外行。这样设计出来的控制方案，能不能满足要求，可能只能靠运气了。
+</p>
+
+<p>
+近年来，许多企业开始认识到，让过程控制工程师在工艺设计阶段就参与进来，不仅有益，而且必要。控制工程师的加持，使得众多运行中才会显现的控制问题在源头就被消除，这就是“医未病”，事半功倍。一个资深控制师，在方案设计阶段就能预料到各种常见的故障场景，并在设计中加以防范。
+</p>
+
+<p>
+中工“治欲病”，是指在运行中敏锐地捕捉到故障苗头，并及时排除。这需要工程师对正常工况有深刻的理解——什么范围是正常的，什么波动是异常的前兆。比如，一个阀门的开度逐渐偏离历史正常区间，可能意味着阀门磨损或管道结垢；一个温度传感器的读数在固定工况下开始漂移，可能预示着传感器老化。优秀的工程师会在这些苗头演变成严重故障之前，主动干预、更换或调整，而不是等到系统报警甚至停车后才手忙脚乱。
+</p>
+
+<p>
+下工“治已病”，是在故障已经发生、系统已经失控之后才出手。这当然比不作为要好，但代价往往已经付出——产品质量下降、设备损坏，甚至安全事故。
+</p>
+
+<p>
+下工之下，古称“庸医”，姑且称为“非工”。他们往往直接把活马医死，酿成大祸。波音737MAX便是一个令人痛心的例子。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgd555962" class="outline-3">
+<h3 id="orgd555962"><span class="section-number-3">11.5.</span> 善沟通：控制不仅是技术，更是协作</h3>
+<section><p>
+控制是一门典型的跨学科工种，这意味着控制工程师的职责绝不仅限于与机器对话，更在于与人协作。回顾第4章的木桶原理，控制工程师是设计和落地这个木桶的人，对五块木板要熟悉，但并不是任何一块木板的专家。他需要与各块木板的专家密切协作——仪表专家、工艺专家、操作专家、IT专家——方可打造出合格的木桶。这也就是为什么控制工程师被成为 ”万金油“ 的原因。
+</p>
+
+<p>
+教育孩子，有懂得如何与孩子交流、和老师沟通。一个小学老师，要了解自己学生的特点，和学生父母沟通是必不可少的能力。
+</p>
+
+<p>
+在面对一个全新的陌生系统时，控制工程师需要虚心向系统的主人——那些日复一日与它打交道的人——请教，摸清它的脾气秉性。这个系统最头疼的问题是什么？以前试过什么办法？为什么没成功？你希望新方案能做到什么？
+</p>
+
+<p>
+在现代工厂里，操作员往往是有对系统最深入的了解。善于与操作员沟通，你会得到很多难得的第一手材料。
+</p>
+
+<p>
+在做MPC项目时，在做测试和投运时，需要和主控室的操作员紧密合作。这时候操作员是控制工程师最好的朋友，他们不但可以决定时机是不是适合做测试或投运，更重要的是，一个愿意合作的资深操作员可以放大尺度为你提供更大的空间。一旦出现暂时不稳定，比如产品暂时超标，操作员有足够的经验把运行拉回到正常操作范围。操作员有没有动力提供这个份外帮助，就取决于操作员是不是有这个自信和是不是把你当作朋友。作为一个控制工程师，操作员可以是你最好的朋友，让你的工作顺风顺水；也可以是你最大的敌人，使得你的工作处处碰壁，寸步难行。
+</p>
+
+<p>
+同时，赢得操作员的信任，是控制方案落地的先决条件。无论算法多么天才，如果方案让一线操作员感到晦涩而不安，他们会毫不犹豫地切回“手动模式”。真正的“上工”，不仅能设计出精妙的闭环逻辑，还能编写出简洁易懂的操作手册，甚至在培训室里耐心解释“为什么这个阀要那样动”。
+</p>
+
+<p>
+控制的本质，最终是管理人与系统之间的协作边界。通过协调监管、简化流程并建立明确的责任制，工程师才能将技术转化为生产力。一个不懂得倾听、不懂得换位思考的工程师，再聪明也很难做出真正有用的控制方案。
+</p>
+
+<p>
+反过来，一个善于沟通的工程师，往往能用同样的技术产生更大的价值。因为他懂得在合适的时机、用合适的方式、向合适的人展示控制的价值，从而争取到资源、支持与合作。
+</p>
+
+<p>
+沟通，不仅了解现在的需求，还要了解近期、远期的发展方向。
+</p>
+
+<p>
+从“知”到“行”的闭环，最后一段回路，往往不是接在端子上，而是接在人心里。
+</p>
+</section>
+</div>
+</div>
+
+<div id="outline-container-orge295b3a" class="outline-2">
+<h2 id="orge295b3a"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org82aaeb1" class="outline-2">
+<h2 id="org82aaeb1">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">出自陆游的《冬夜读书示子聿》</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">感觉, “Sense”.也是我们常说的“第一感”。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">错误一。关键测量，需要有冗余处理。过程控制中有“高选/低选/中间指”等多种逻辑。波音作为顶级航空企业却在关键攻角传感上用“单路切换”，这种对比能让工业读者感到震撼。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">错误二。测量数据默认是不可靠的。错误概率需要量化分析。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">错误三。在现有的技术条件下，完全依赖机器操作仍不现实。紧急情况下，控制权需要移交给飞行员/操作员。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">错误四。自动驾驶再先进，飞行员仍然需要掌握全局，不能完全盲驾。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">魏文王问扁鹊曰：“子昆弟三人其孰最善医？“ 扁鹊曰：“长兄最善，中兄次之，鸿号（扁鹊自称）为下。“  文王曰：“可得闻邪？“扁鹊曰：“长兄于病视神，未有形而除之，故名不出于家。中兄治病，其在毫毛，故名不出于闾。若鸿号者，镵血脉，投毒药，副肌肤，闲而名出闻于诸侯。“</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">和IT系统类似，最好的控制就是让你感觉不到它的存在。在现代工业运行中，“扁鹊（下工）“往往是那个在深夜抢修、被全公司视为英雄的人；而“长兄（上工）“因为系统从来不出错，往往被认为“整天没事干“。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>

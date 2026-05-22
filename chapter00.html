@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Steve S. Niu">
+<link rel="stylesheet" href="https://zilongli.org/code/normalize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/tufte.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/htmlize.css" type="text/css" />
+<link rel="stylesheet" href="https://zilongli.org/code/org.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script></head>
+<body id="top">
+<div id="body"><div id="container"><div id="content"><article><h1 class="title">生活中的控制与控制中的生活</h1>
+<section></section>
+
+<div id="outline-container-orge312f41" class="outline-2">
+<h2 id="orge312f41">写在前面的话</h2>
+</div>
+
+<div id="outline-container-org7d6a04d" class="outline-2">
+<h2 id="org7d6a04d"><a href="chapter00.html">引言</a></h2>
+<section><p>
+本以为自动化是一门很实用的工程技术，学起来用起来应该兴趣盎然，乐在其中。但读书时，学到的是晦涩高冷的理论，如云山雾罩；做科研时，整日搜肠刮肚，“为赋新词强说愁”；进入工业界，发现空有一脑子的公式，找不到用武之地。
+</p>
+
+<p>
+这实在是一个很大的遗憾——至少对我而言是如此。
+</p>
+
+<p>
+作为一名科班出身、在控制领域摸爬滚打了四十年的“老兵”，我想聊聊从学术界到工业界、从“屠龙”到“驯马”的一些经历和感悟。尽量用通俗的语言，力求不用一个数学公式，不谈枯燥的定理推导，从思维方法和分析手段的角度，用日常生活中的例子，向更多对控制感兴趣的朋友介绍什么是自动控制。
+</p>
+
+<p>
+当年报考大学，我选的就是自动化专业。吸引我的，是“自动化”这个响亮的名字。那时全中国都在畅谈“四个现代化”<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">“四个现代化” 简称“四化”，是中国在20世纪中叶提出的国家建设战略目标，指农业现代化、工业现代化、国防现代化和科学技术现代化。</span>，又赶上电影《未来世界》<label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote">电影《未来世界》（Future World）是中国改革开放后引进的第一部美国科幻片。片中有机器人生产工厂批量生产“人类”、企图以此控制世界的情节。</span>上映。现代工厂、工业机器人，这一切都让我充满遐想和向往。我便一路读了下去，控制专业的学士、硕士、博士、博士后，在学历上算是走到了头。
+</p>
+
+<figure width="90%"><p>
+
+<label for="mn-exports-imports" class="margin-toggle">⊕</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"><span class="marginnote"><span class="figure-number">Figure 1: </span>四个现代化</span><img src="assets/four-modernizations.jpg" alt="four-modernizations.jpg" width="90%">
+
+</figure>
+
+<p>
+但回首四望，想象中的自动化不仅仍在“云深不知处”，反而越来越模糊。我隐约感到，自己闯入了并非初衷的应用数学的地盘。
+</p>
+
+<p>
+控制理论越来越像数学和统计学的一个分支，体系越来越完整和庞大，理论越来越高深和漂亮。这固然有很高的学术价值和欣赏价值；但另一方面，控制理论离实际应用也越来越远，学术界和工业界甚至越来越缺少共同语言。
+</p>
+
+<p>
+如果专注学术，一生留在象牙塔里攀登科学高峰，那自当别论；但我的志向是进入工业界、学以致用。若继续留在空中楼阁里去钻学术界的牛角尖，我越来越感觉脚底无根、心中无底。
+</p>
+
+<p>
+于是我开始反复思考三个问题：“我想做什么，我能做什么，我该做什么？”<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote">其实，每个人在每个重大决策时，都应该想明白这三个问题再做决定。</span>
+</p>
+
+<p>
+最终确认自己的兴趣仍在工程应用。于是决定调整方向，转入了工业界。
+</p>
+
+<p>
+走进中央控制室，望着成排的控制器终端<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">记得是霍尼韦尔（Honeywell）的TDC2000系统。该系统是全球第一个商品化的集散控制系统（DCS），在自动化领域具有划时代的意义。</span>和满墙的仪表指示灯，我突然有了“蓦然回首，那人却在灯火阑珊处”的感觉。但同时也发现，虽然近在“灯火阑珊处”，中间却隔着一道鸿沟——学术研究与工业应用之间的巨大鸿沟。这鸿沟就像屠龙与驯马的区别<label for="5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="5" class="margin-toggle"/><span class="sidenote">学校让你操练的是飞龙（倒立摆、蓄水池），而工业现场的对象更像野马（反应器、精馏塔）；学校教的是屠龙术（状态方程、卡尔曼滤波），工业更需要驯马技（PID、MPC）；学校配备的是缚龙绳（Matlab、Simulink），工业却用套马杆（DCS、Excel）。</span>。学了多年的屠龙术，结果茫然四顾：没有飞龙可屠，满眼全是陌生的野马<label for="6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="6" class="margin-toggle"/><span class="sidenote">典出《庄子·列御寇》：“朱泙漫学屠龙于支离益，单千金之家。三年技成，而无所用其巧。”</span>。需要动手时，却发现连DCS上最基本的PID控制器，也与书本里讲的大大不同，无从下手。那种尴尬和落差，实难言表。 
+</p>
+
+<p>
+于是紧急调整心态，从头开始。收起屠龙术、恶补驯马技。
+</p>
+
+<p>
+几十年下来，从研究到开发，从实操到管理，从传统调节到先进控制；从初创小企业到跨国大公司，接触了控制领域几乎所有的职业，经历了多个超大型项目从立项到落地到运营的完整周期，引领过最前沿过程控制技术的整合，足迹遍布世界几十个国家，应用跨越多个行业，在一线开发、设计、操作、调试、改进和管理的过程中摸爬滚打。吃过苦、摔过跤，慢慢走上了正轨，工作起来也变得得心应手。
+</p>
+
+<p>
+这种“屠龙”与“驯马”的错位，也让我开始思考：控制这门学问，到底该怎么教、怎么学、怎么用？对于志向是工程应用的学生，从校门到厂门如何能有一个平稳过渡？
+</p>
+
+<p>
+根据个人的历程，感觉这个过渡依赖学术界和工业界的相向而行：一是工业界要有更多乐于扶持后辈的前辈，甘当领路人；二是学校要敢于改革，把科研与教学的内容拉下云端，接接地气。
+</p>
+
+<p>
+在学校里我们学习了太多的 WHAT 和 HOW，但在 WHY 和 WHAT IF上面的知识却远远不够，结果就是：学习时不知为什么要学，工作中遇到问题不知如何入手。我经常感叹，当时如果能有一些沟通理论和实践的参考书，那可以少走多少弯路！
+</p>
+
+<p>
+控制界有无数学富五车、著作等身的学术大咖，也有众多身怀绝技的工程大拿。但前者热衷于“高屋建瓴”，脱离工程实践；后者埋头苦干，鲜有时间著书立说。所以，真正着眼应用的参考书少之又少。
+</p>
+
+<p>
+我正好处在中间状态。在学术界待过，对前沿理论略窥一二；后来在工业界摸爬滚打，积累了一些实战心得。难得的是，我对控制这门技术的热爱不减当年，利用退休后的闲暇时光，与学术大咖合作，加上众多工业界同事同行的支持，将过往心得和经验整理总结，出版了两本过程控制的专著<label for="7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="7" class="margin-toggle"/><span class="sidenote">S. Niu, D. Xiao, Process Control - Engineering Analyses and Best Practices, Springer, 2022.</span>(Niu and Xiao 2022)<label for="8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="8" class="margin-toggle"/><span class="sidenote">S. Niu, Process Control for Pumps and Compressors, Springer,2024.</span>(Niu 2024)。不讲高深理论，不堆数学推导，只是把实际工作中觉得管用和好用的知识和解决问题的思路梳理整合，希望对初入行的同行有所助益。
+</p>
+
+<p>
+原计划，这两本书是我对“过程控制”的“为了忘却的纪念”。谁知写完之后，人却仍旧放不下那份与“控制”相伴一生的情感<label for="9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="9" class="margin-toggle"/><span class="sidenote">或许，这才是真正的热爱，或说是职业病吧。</span>。
+</p>
+
+<p>
+几十年的实践让我越来越意识到，控制不仅仅是一门工程技术，更是一种思维方式和解题思路。这项思维方式和解题思路可以追溯到几百万年前，已经成为我们思维和行为的本能，适用于更多领域。最深刻的控制逻辑往往不在复杂的公式里，而在我们的生活细节与工业直觉中。有意识地用“控制”的方法思考问题，往往能帮助我们抓住关键、理清主线，达到事半功倍的效果。
+</p>
+
+<p>
+于是，我决定再写点东西。这一次，这次由于不受出版社繁文缛节的局限，可以天马行空，专注于内容，所以会偏重于感想与反思。全书不用数学公式，不讲技术细节，而是从思维方法和分析手段的角度，谈谈生活中的控制。希望能帮助更多人抛开纷乱的公式定理，深入理解控制的本质。
+</p>
+</section>
+</div>
+
+<div id="outline-container-orgcee8928" class="outline-2">
+<h2 id="orgcee8928"><span class="section-number-2">1.</span> <a href="chapter01.html">控制溯源：从物竞天择到道法自然</a></h2>
+</div>
+
+<div id="outline-container-org909ee8d" class="outline-2">
+<h2 id="org909ee8d"><span class="section-number-2">2.</span> <a href="chapter02.html">人类本能：反馈与反馈机制</a></h2>
+</div>
+
+<div id="outline-container-org1f1fa8a" class="outline-2">
+<h2 id="org1f1fa8a"><span class="section-number-2">3.</span> <a href="chapter03.html">超越自身：从反馈机制到反馈控制</a></h2>
+</div>
+
+<div id="outline-container-org3576272" class="outline-2">
+<h2 id="org3576272"><span class="section-number-2">4.</span> <a href="chapter04.html">木桶原理：反馈控制系统的五块木板</a></h2>
+</div>
+
+<div id="outline-container-orgf925456" class="outline-2">
+<h2 id="orgf925456"><span class="section-number-2">5.</span> <a href="chapter05.html">发展需求：衣食住行中的控制智慧</a></h2>
+</div>
+
+<div id="outline-container-org205fd98" class="outline-2">
+<h2 id="org205fd98"><span class="section-number-2">6.</span> <a href="chapter06.html">有的放矢：用模型来刻画世界</a></h2>
+</div>
+
+<div id="outline-container-org47600b0" class="outline-2">
+<h2 id="org47600b0"><span class="section-number-2">7.</span> <a href="chapter07.html">运筹帷幄：从PID到MPC到AI</a></h2>
+</div>
+
+<div id="outline-container-org1c6db81" class="outline-2">
+<h2 id="org1c6db81"><span class="section-number-2">8.</span> <a href="chapter08.html">同工异曲：运动控制与过程控制</a></h2>
+</div>
+
+<div id="outline-container-org9c98b28" class="outline-2">
+<h2 id="org9c98b28"><span class="section-number-2">9.</span> <a href="chapter09.html">短板分析：当控制系统失效时</a></h2>
+</div>
+
+<div id="outline-container-orgc64fc13" class="outline-2">
+<h2 id="orgc64fc13"><span class="section-number-2">10.</span> <a href="chapter10.html">道法术器：控制工程师的知识结构</a></h2>
+</div>
+
+<div id="outline-container-org178b9d7" class="outline-2">
+<h2 id="org178b9d7"><span class="section-number-2">11.</span> <a href="chapter11.html">知行合一：控制工程师的能力培养</a></h2>
+</div>
+
+<div id="outline-container-org535a010" class="outline-2">
+<h2 id="org535a010"><span class="section-number-2">12.</span> <a href="chapter12.html">结语</a></h2>
+</div>
+
+<div id="outline-container-org669a930" class="outline-2">
+<h2 id="org669a930">参考文献</h2>
+</div>
+<!-- Footnotes --><!-- 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">“四个现代化” 简称“四化”，是中国在20世纪中叶提出的国家建设战略目标，指农业现代化、工业现代化、国防现代化和科学技术现代化。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">电影《未来世界》（Future World）是中国改革开放后引进的第一部美国科幻片。片中有机器人生产工厂批量生产“人类”、企图以此控制世界的情节。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">其实，每个人在每个重大决策时，都应该想明白这三个问题再做决定。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">记得是霍尼韦尔（Honeywell）的TDC2000系统。该系统是全球第一个商品化的集散控制系统（DCS），在自动化领域具有划时代的意义。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">学校让你操练的是飞龙（倒立摆、蓄水池），而工业现场的对象更像野马（反应器、精馏塔）；学校教的是屠龙术（状态方程、卡尔曼滤波），工业更需要驯马技（PID、MPC）；学校配备的是缚龙绳（Matlab、Simulink），工业却用套马杆（DCS、Excel）。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">典出《庄子·列御寇》：“朱泙漫学屠龙于支离益，单千金之家。三年技成，而无所用其巧。”</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">S. Niu, D. Xiao, Process Control - Engineering Analyses and Best Practices, Springer, 2022.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">S. Niu, Process Control for Pumps and Compressors, Springer,2024.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">或许，这才是真正的热爱，或说是职业病吧。</p></div></div>
+
+ --></article>
+<div style="margin-right:-15%; width:50%; float:right;">
+     <a href="#top"  title="Go to Top" style="visibility: visible; opacity: 0.5;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="30" viewBox="0 0 12 6" fill="#f57627" stroke="none">
+    <path d="M12 6H0l6-6z"></path></svg> </a></div>
+<footer class="footer">
+    <span>Powered by <a href="https://github.com/Zilong-Li/org-tufte" rel="noopener">Emacs Org-tufte</a></span>
+   </footer>
+   </div></div></div></body></html>
